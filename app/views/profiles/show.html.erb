@@ -1,0 +1,36 @@
+<h2>Your Boat captain</h2>
+
+<ul>
+<% @boats.each do |boat| %>
+  <li><%= boat.nickname %></li>
+  <li><%= boat.immatriculation %></li>
+  <li><%= boat.brand %></li>
+  <li><%= boat.manufacturer %></li>
+  <li><%= boat.model %></li>
+  <li><%= boat.boat_type %></li>
+  <li><% if boat.multihull? %>
+    <%= "multicoque" %>
+  <% else %>
+    <%= "monocoque" %>
+  <% end %>
+  <li><%= boat.length %> mètre</li>
+  <li><%= boat.width %> mètre</li>
+  <li><%= boat.draught %> mètre</li>
+  <li> <%= link_to "edit", edit_boat_path(boat)  %></li>
+  <li>-----------------------</li>
+<% end %>
+<li><%= link_to "Add a new boat", new_boat_path  %></li>
+</ul>
+<h2>Your Bookings</h2>
+<ul>
+  <% @bookings.each do |booking| %>
+  <li><%= booking.arrival_date %></li>
+  <li><%= booking.departure_date %></li>
+  <li><%= booking.invoiced_price %>€</li>
+  <li><%= booking.comment %></li>
+  <li>-----------------------</li>
+  <% end %>
+</ul>
+
+
+

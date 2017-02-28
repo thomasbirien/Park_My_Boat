@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
-  get 'profile/show'
+
+  get 'ports/index'
 
   devise_for :users
   root to: 'pages#home'
