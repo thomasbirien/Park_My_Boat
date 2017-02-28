@@ -1,2 +1,16 @@
-<h1>Ports#index</h1>
-<p>Find me in app/views/ports/index.html.erb</p>
+<h1>Liste des Ports </h1>
+
+<% @ports.each do |port| %>
+
+<%= port.port_name %>
+<%= port.description %>
+<%= port.picture %>
+<%= port.size %>
+<%= port.places.count %>
+<%= port.phone_number %>
+<%= port.lng %>
+<%= port.lat %>
+
+<% end %>
+
+
