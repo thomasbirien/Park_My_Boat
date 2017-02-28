@@ -21,23 +21,25 @@ img_Toulon = "https://www.google.fr/maps/uv?hl=fr&pb=!1s0x12c91b7378bb7b91:0xcd1
 
 
 counter = 0
+puts "Creating Ports"
 3.times do
+  print '.'
   counter += 1
   Port.create!(
     port_name: ["La Ciotat","EPR Port Sud de France","Terminal de Toulon Côte d'Azur"][counter - 1],
-    legal_entity:"Capitainerie",
+    legal_entity: "Capitainerie",
     description:["Port situé dans la ville au Nord de l’ensemble portuaire. Il est composé de deux bassins séparés par un large terre-plein.", "Le port de plaisance de Sète est une escale attractive et originale. Le charme des canaux et le côté pittoresque de son Port de Pêche, font de Sète une ville de caractère, baignée à la fois par la Méditerranée et par l’Etang de Thau.", "Venez découvrir les 6 ports de plaisance de Toulon Vieille Darse, Toulon Darse Nord, La Seyne-sur-Mer, Saint-Mandrier, Saint-Louis du Mourillon et du Niel."][counter - 1],
-    port_size:[650, 120, 100][counter - 1],
-    picture:[img_Ciotat, img_EPR, img_Toulon][counter - 1],
-    lng:[43.174834, 43.400949, 43.123514][counter - 1],
-    lat:[5.607379, 3.697938, 5.933265][counter - 1],
-    phone_number:["04 95 09 52 60", "04 67 74 98 97", "04 94 36 37 38"][counter - 1],
-    radio_channel:["103.9", "102.1", "90.9"][counter - 1],
-    email:["contact@ciotat.fr", "info@ERP.com", "info@toulon.fr"][counter - 1],
-    address:["Nouveau port de plaisance, Boulevard Anatole France, 13600 La Ciotat", "x", "y"][counter - 1],
-    check_in_hour:["11:00 AM"],
-    check_out_hour:["12:00 PM"]
-    )
+    size: [650, 120, 100][counter - 1],
+    picture: [img_Ciotat, img_EPR, img_Toulon][counter - 1],
+    lng: [43.174834, 43.400949, 43.123514][counter - 1],
+    lat: [5.607379, 3.697938, 5.933265][counter - 1],
+    phone_number: ["04 95 09 52 60", "04 67 74 98 97", "04 94 36 37 38"][counter - 1],
+    radio_channel: ["103.9", "102.1", "90.9"][counter - 1],
+    email: ["contact@ciotat.fr", "info@ERP.com", "info@toulon.fr"][counter - 1],
+    address: ["Nouveau port de plaisance, Boulevard Anatole France, 13600 La Ciotat", "ERP, 3 rue Bernard, 13720 Sète", "Terminal Toulon, 33 route Vincent, 13890 Toulon"][counter - 1],
+    check_in_hour: Time.now,
+    check_out_hour: Time.now
+  )
 end
 
 # Creation places db
@@ -85,7 +87,7 @@ counter = 0
     city: ["Los Angeles", "Texas"][counter - 1],
     country: ["Earth", "US"][counter - 1],
     email: ["georgette@gmail.com", "arnold@wanadoo.fr"][counter - 1],
-    encrypted_password: "password",
+    password: "password"
     )
 end
 
@@ -120,8 +122,8 @@ counter = 0
     arrival_date:["13/03/2017", "16/03/2017", "23/03/2017", "28/03/2017"][counter - 1],
     departure_date:["15/03/2017", "20/03/2017", "27/03/2017", "01/04/2017"][counter - 1],
     comment: ["J'ai le mal de mer", "I will be back", "J'aime les bulots", "Vive les moules"][counter - 1],
-    user_id:User.all.sample.id,
-    boat_id:User.boat.sample.id,
+    user_id: User.all.sample.id,
+    boat_id: Boat.all.sample.id,
     place_id: Place.all.sample.id
     )
 end
