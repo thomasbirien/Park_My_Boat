@@ -1,0 +1,21 @@
+<h1>Profiles#show</h1>
+<p>Find me in app/views/profile/show.html.erb</p>
+
+
+<% @boats.each do |boat| %>
+  <%= boat.nickname %>
+  <%= boat.immatriculation %>
+  <%= boat.brand %>
+  <%= boat.manufacturer %>
+  <%= boat.model %>
+  <%= boat.boat_type %>
+  <% if boat.multihull? %>
+    <%= "multicoque" %>
+  <% else %>
+    <%= "monocoque" %>
+  <% end %>
+  <%= boat.length %>
+  <%= boat.width %>
+  <%= boat.draught %>
+<% end %>
+
