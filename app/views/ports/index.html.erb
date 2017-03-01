@@ -22,7 +22,30 @@
 
 </div>
 
-<% @ports.each do |port| %>
+<%= "TESTING" %>
+<br><%="target port: "%><%= @target[:port_name] %>
+<br><%="length: "%><%= @target[:length] %>
+<br><%="width: "%><%= @target[:width] %>
+<br><%="draught: "%><%= @target[:draught] %>
+
+  <% @ports_selected.each do |port| %>
+    <br>
+    <br><%="port name: "%><%= port.port_name %>
+    <br><%="port id: "%><%= port.id %>
+      <% port.places.each do |place| %>
+        <br>
+        <br><%="width: "%><%= place.width %>
+        <br><%="length: "%><%=place.length %>
+        <br><%="draugth: "%><%=place.draught %>
+        <br>
+      <% end %>
+
+  <% end %>
+
+
+<br>
+
+<% @ports_selected.each do |port| %>
 
 <div>
 <br>
