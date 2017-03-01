@@ -1,0 +1,18 @@
+<h1>Boats#new</h1>
+<p>Find me in app/views/boats/new.html.erb</p>
+
+<%= simple_form_for(@boat) do |f| %>
+  <%= f.error_notification %>
+  <%= f.input :immatriculation, placeholder: "AFR654684ERB" %>
+  <%= f.input :nickname, placeholder: "LABrigitte" %>
+  <%= f.input :brand, placeholder: "Feadship" %>
+  <%= f.input :manufacturer, placeholder: "Luxury For You" %>
+  <%= f.input :model, placeholder: "Model" %>
+  <%= f.input :boat_type, placeholder: "Motorize, sail or other" %>
+  <%= f.input :length, placeholder: "12 (meter)" %>
+  <%= f.input :width, placeholder: "18 (meter)" %>
+  <%= f.input :draught, placeholder: "4 (meter)" %>
+  <%= f.input :multihull, as: :radio_buttons %>
+  <%= f.submit %>
+<% end %>
+
