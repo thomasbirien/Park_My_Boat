@@ -7,9 +7,11 @@ devise_for :users
     resources :bookings, only: [:new, :create, :show]
   end
 
-  resources :bookings, only: [:index]
-  resources :boats, only: [:new, :create, :edit, :update]
+  resources :bookings, only: [:destroy]
+  resources :boats, only: [:new, :create, :edit, :update, :destroy]
 
   resource :profile, only: [:show]
+
+  resource :user, only: [:edit, :update, :destroy]
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

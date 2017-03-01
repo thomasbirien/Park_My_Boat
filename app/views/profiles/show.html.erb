@@ -1,6 +1,20 @@
 <h2>Your Boat captain</h2>
 
 <ul>
+  <li><%= current_user.first_name %></li>
+  <li><%= current_user.last_name %></li>
+  <li><%= current_user.picture %></li>
+  <li><%= current_user.email %></li>
+  <li><%= current_user.phone_number %></li>
+  <li><%= current_user.civility %></li>
+  <li><%= current_user.address %></li>
+  <li><%= current_user.post_code %></li>
+  <li><%= current_user.city %></li>
+  <li><%= current_user.country %></li>
+  <li><%= link_to "edit your account", edit_user_path%></li>
+</ul>
+
+<ul>
 <% @boats.each do |boat| %>
   <li><%= boat.nickname %></li>
   <li><%= boat.immatriculation %></li>
@@ -29,6 +43,9 @@
   <li>-----------------------</li>
   <% end %>
 </ul>
+
+<%= link_to "Destroy", user_path, method: :delete, data: { confirm: "You sure?" } %>
+
 
 
 

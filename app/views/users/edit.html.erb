@@ -1,2 +1,16 @@
-<h1>Users#edit</h1>
-<p>Find me in app/views/users/edit.html.erb</p>
+<%= simple_form_for(@user) do |f| %>
+  <%= f.error_notification %>
+  <%= f.input :email %>
+  <%= f.input :password %>
+  <%= f.input :password_confirmation %>
+  <%= f.input :current_password, hint: "we need your current password to confirm your changes", required: true %>
+  <%= f.input :first_name %>
+  <%= f.input :last_name %>
+  <%= f.input :phone_number %>
+  <%= f.input :civility, collection: ["Monsieur", "Madame"] %>
+  <%= f.input :address %>
+  <%= f.input :post_code %>
+  <%= f.input :city %>
+  <%= f.input :country%>
+  <%= f.submit %>
+<% end %>
