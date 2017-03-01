@@ -1,17 +1,5 @@
 Rails.application.routes.draw do
 
-  get 'boats/index'
-
-  get 'boats/new'
-
-  get 'boats/create'
-
-  get 'boats/edit'
-
-  get 'boats/update'
-
-  get 'ports/index'
-
   devise_for :users
   root to: 'pages#home'
 
