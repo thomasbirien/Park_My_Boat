@@ -15,9 +15,9 @@ Port.destroy_all
 
 
 # Creation ports db
-img_Ciotat = "https://www.google.fr/maps/uv?hl=fr&pb=!1s0x12c9af74c107837d:0x17b933ed8fdd8bdc!2m19!2m2!1i80!2i80!3m1!2i20!16m13!1b1!2m2!1m1!1e1!2m2!1m1!1e3!2m2!1m1!1e5!2m2!1m1!1e4!3m1!7e115!4s//geo0.ggpht.com/cbk?panoid%3DvTpXFKsIm-xJjjB_3N1qAQ%26output%3Dthumbnail%26cb_client%3Dsearch.LOCAL_UNIVERSAL.gps%26thumb%3D2%26w%3D130%26h%3D87%26yaw%3D160.1153%26pitch%3D0%26thumbfov%3D100!5s+-+Recherche+Google&imagekey=!1e2!2svTpXFKsIm-xJjjB_3N1qAQ"
-img_EPR = "https://www.google.fr/maps/uv?hl=fr&pb=!1s0x12b135a5814d4e2f:0x9add15a78db0815e!2m19!2m2!1i80!2i80!3m1!2i20!16m13!1b1!2m2!1m1!1e1!2m2!1m1!1e3!2m2!1m1!1e5!2m2!1m1!1e4!3m1!7e115!4shttps://picasaweb.google.com/lh/sredir?uname%3D103566494699777456453%26id%3D6303403799543644178%26target%3DPHOTO!5s+-+Recherche+Google&imagekey=!1e3!2s-ch90HfTczEQ/V3owW9ulgBI/AAAAAAAALEA/sEYttDrPAL8xs0QqZ5GUvqDsMxLsYB7GACJkC"
-img_Toulon = "https://www.google.fr/maps/uv?hl=fr&pb=!1s0x12c91b7378bb7b91:0xcd13ec5eeb62916f!2m19!2m2!1i80!2i80!3m1!2i20!16m13!1b1!2m2!1m1!1e1!2m2!1m1!1e3!2m2!1m1!1e5!2m2!1m1!1e4!3m1!7e115!4shttps://picasaweb.google.com/lh/sredir?uname%3D117508487891567250042%26id%3D6248047240903988498%26target%3DPHOTO!5s+-+Recherche+Google&imagekey=!1e3!2s-s67nvzm3Ay0/VrWF3K3xFRI/AAAAAAAAQvE/cjmCnCHpt18pFLEJC7SLXAk5ifOhR2IaQCJkC"
+img_Ciotat = "http://images.figaronautisme.com/image/figaro-nautisme/ports/photos/120509_175212_10100-la-ciotat-240312.jpg"
+img_EPR = "http://images.figaronautisme.com/image/figaro-nautisme/ports/photos/120510_113108_09943-sete-290212.jpg"
+img_Toulon = "http://www.toulon.fr/sites/new.toulon.fr/files/styles/full/public/lvs_bleumediterranee_port_011.jpg?itok=SL9f5U05"
 
 
 counter = 0
