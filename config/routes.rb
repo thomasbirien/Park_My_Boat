@@ -1,7 +1,5 @@
 Rails.application.routes.draw do
 
-  get 'ports/index'
-
   devise_for :users
   root to: 'pages#home'
 
@@ -10,7 +8,7 @@ Rails.application.routes.draw do
   end
 
   resources :bookings, only: [:index]
-  resources :boats, only: [:index, :new, :create, :edit, :update]
+  resources :boats, only: [:new, :create, :edit, :update]
 
   resource :profile, only: [:show]
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
