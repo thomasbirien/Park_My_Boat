@@ -21,7 +21,6 @@
 <h2>Your Bookings</h2>
 <ul>
   <% @bookings.each do |booking| %>
-  <li><img src="<%=booking.place.port.picture%>" alt="port image"></li>
   <li><%= image_tag booking.place.port.picture%></li>
   <li><%= booking.arrival_date %></li>
   <li><%= booking.departure_date %></li>
