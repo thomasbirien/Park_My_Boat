@@ -1,4 +1,5 @@
 class Booking < ApplicationRecord
+  acts_as_paranoid
 
   before_validation :set_invoiced_price
 
