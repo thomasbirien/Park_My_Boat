@@ -3,21 +3,46 @@
 <!-- Search bar visible -->
   <%= label_tag(:port_name, "Choix du port") %>
   <%= text_field_tag(:port_name) %>
-  <%= label_tag(:arrival_date, "Quand") %>
-  <%= text_field_tag(:arrival_date) %>
-  <%= label_tag(:departure_date, "") %>
-  <%= text_field_tag(:departure_date) %>
+  <%= label_tag(:arrival_date, "Date d'arrivée") %>
+  <%= date_field_tag(:arrival_date) %>
+  <%= label_tag(:departure_date, "Date de départ") %>
+  <%= date_field_tag(:departure_date) %>
 
 <!-- Modal dimensions -->
-  <%= label_tag(:length, "Longueur hors tout") %>
-  <%= text_field_tag(:length) %>
-  <%= label_tag(:width, "Largeur") %>
-  <%= text_field_tag(:width) %>
-  <%= label_tag(:draught, "Tirant d'eau") %>
-  <%= text_field_tag(:draught) %>
-  <%= select_tag(:boat_type, options_for_select([['Selectionner', nil ], ['Voilier', 'sail_boat'], ['Moteur', 'power_boat']])) %>
-  <%= check_box_tag(:multihull) %>
-  <%= label_tag(:multihull, "Multi coque") %>
+
+<!-- Button trigger modal -->
+  <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#ModalDimension">
+    <i class="fa fa-ship"></i>
+  </button>
+
+<!-- Modal -->
+  <div class="modal fade" id="ModalDimension" tabindex="-1" role="dialog" aria-labelledby="ModalDimension" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Entrez les dimensions de votre bateau</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <%= label_tag(:length, "Longueur hors tout") %>
+          <%= number_field_tag(:length, step: 0.5) %>
+          <%= label_tag(:width, "Largeur") %>
+          <%= text_field_tag(:width) %>
+          <%= label_tag(:draught, "Tirant d'eau") %>
+          <%= text_field_tag(:draught) %>
+          <%= select_tag(:boat_type, options_for_select([['Selectionner', nil ], ['Voilier', 'sail_boat'], ['Moteur', 'power_boat']])) %>
+          <%= check_box_tag(:multihull) %>
+          <%= label_tag(:multihull, "Multi coque") %>
+        </div>
+        <div class="modal-footer">
+        <% link_to  %>
+          <button type="button" class="btn btn-secondary close" data-dismiss="modal">Valider</button>
+        </div>
+      </div>
+    </div>
+  </div>
 
 <!-- More options hidden -->
   <%= check_box_tag(:ss_elec) %>
