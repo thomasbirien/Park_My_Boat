@@ -4,7 +4,7 @@ class BoatsController < ApplicationController
   end
 
   def create
-    @boat = current_user.boat.new(boat_params)
+    @boat = current_user.boats.new(boat_params)
     if @boat.save
       redirect_to profile_path
     else

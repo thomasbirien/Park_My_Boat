@@ -8,11 +8,7 @@
   <li><%= boat.manufacturer %></li>
   <li><%= boat.model %></li>
   <li><%= boat.boat_type %></li>
-  <li><% if boat.multihull? %>
-    <%= "multicoque" %>
-  <% else %>
-    <%= "monocoque" %>
-  <% end %>
+  <li><% if boat.multihull? "multicoque" : "monocoque" %>
   <li><%= boat.length %> mètre</li>
   <li><%= boat.width %> mètre</li>
   <li><%= boat.draught %> mètre</li>
@@ -24,6 +20,7 @@
 <h2>Your Bookings</h2>
 <ul>
   <% @bookings.each do |booking| %>
+  <li><%= booking.place.port.picture %></li>
   <li><%= booking.arrival_date %></li>
   <li><%= booking.departure_date %></li>
   <li><%= booking.invoiced_price %>€</li>
