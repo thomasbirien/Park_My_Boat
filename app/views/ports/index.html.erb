@@ -1,10 +1,9 @@
 <h1>Liste des Ports </h1>
 
+<div id="map" style="width: 50%; height: 300px;">
 
-<div id="map" style="width: 100%; height: 600px;"></div>
-
-<% content_for(:after_js) do %>
-  <%= javascript_tag do %>
+  <% content_for(:after_js) do %>
+    <%= javascript_tag do %>
     $(document).ready(function() {
       var handler = Gmaps.build('Google');
       handler.buildMap({ internal: { id: 'map' } }, function() {
@@ -18,10 +17,35 @@
         }
       });
     });
+    <% end %>
   <% end %>
-<% end %>
 
-<% @ports.each do |port| %>
+</div>
+
+<%= "TESTING" %>
+<br><%="target port: "%><%= @target[:port_name] %>
+<br><%="length: "%><%= @target[:length] %>
+<br><%="width: "%><%= @target[:width] %>
+<br><%="draught: "%><%= @target[:draught] %>
+
+  <% @ports_selected.each do |port| %>
+    <br>
+    <br><%="port name: "%><%= port.port_name %>
+    <br><%="port id: "%><%= port.id %>
+      <% port.places.each do |place| %>
+        <br>
+        <br><%="width: "%><%= place.width %>
+        <br><%="length: "%><%=place.length %>
+        <br><%="draugth: "%><%=place.draught %>
+        <br>
+      <% end %>
+
+  <% end %>
+
+
+<br>
+
+<% @ports_selected.each do |port| %>
 
 <div>
 <br>
@@ -29,7 +53,8 @@
 <br>
 <%= port.description %>
 <br>
-<%= port.picture %>
+<%= image_tag port.picture %>
+
 <br>
 <%= "#{port.size} places totales dans le port"%>
 <br>
@@ -44,5 +69,3 @@
 </div>
 
 <% end %>
-
-
