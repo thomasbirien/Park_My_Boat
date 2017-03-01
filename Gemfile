@@ -1,6 +1,7 @@
 source 'https://rubygems.org'
 ruby '2.3.3'
 
+gem 'country_select'
 gem "paranoia", "~> 2.2"
 gem 'rails', '5.0.1'
 gem 'puma'
