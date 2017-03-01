@@ -3,10 +3,10 @@
 <!-- Search bar visible -->
   <%= label_tag(:port_name, "Choix du port") %>
   <%= text_field_tag(:port_name) %>
-  <%= label_tag(:arrival_date, "Date d'arrivée") %>
-  <%= date_field_tag(:arrival_date) %>
-  <%= label_tag(:departure_date, "Date de départ") %>
-  <%= date_field_tag(:departure_date) %>
+  <%= label_tag(:arrival_date, "Quand") %>
+  <%= text_field_tag(:arrival_date, nil, class: "datepicker", placeholder: "Date d'arrivée") %>
+  <%= label_tag(:departure_date, "") %>
+  <%= text_field_tag(:departure_date, nil, class: "datepicker", placeholder: "Date départ") %>
 
 <!-- Modal dimensions -->
 
@@ -20,53 +20,63 @@
     <div class="modal-dialog" role="document">
       <div class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLabel">Entrez les dimensions de votre bateau</h5>
           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
             <span aria-hidden="true">&times;</span>
           </button>
+          <h4 class="modal-title" id="exampleModalLabel">Entrez les dimensions de votre bateau</h4>
         </div>
         <div class="modal-body">
           <%= label_tag(:length, "Longueur hors tout") %>
-          <%= number_field_tag(:length, step: 0.5) %>
+          <%= number_field_tag(:length) %>
+          <br>
           <%= label_tag(:width, "Largeur") %>
           <%= text_field_tag(:width) %>
+          <br>
           <%= label_tag(:draught, "Tirant d'eau") %>
           <%= text_field_tag(:draught) %>
+          <br>
           <%= select_tag(:boat_type, options_for_select([['Selectionner', nil ], ['Voilier', 'sail_boat'], ['Moteur', 'power_boat']])) %>
           <%= check_box_tag(:multihull) %>
           <%= label_tag(:multihull, "Multi coque") %>
         </div>
         <div class="modal-footer">
-        <% link_to  %>
           <button type="button" class="btn btn-secondary close" data-dismiss="modal">Valider</button>
         </div>
       </div>
     </div>
   </div>
 
-<!-- More options hidden -->
-  <%= check_box_tag(:ss_elec) %>
-  <%= label_tag(:ss_elec, "Electricité") %>
-  <%= check_box_tag(:ss_fresh_water) %>
-  <%= label_tag(:ss_fresh_water, "Eau douce") %>
-  <%= check_box_tag(:ss_ice) %>
-  <%= label_tag(:ss_ice, "Glace") %>
-  <%= check_box_tag(:ss_fuel) %>
-  <%= label_tag(:ss_fuel, "Carburant") %>
-  <%= check_box_tag(:ss_tel) %>
-  <%= label_tag(:ss_tel, "Téléphone") %>
-  <%= check_box_tag(:ss_wifi) %>
-  <%= label_tag(:ss_wifi, "Wifi") %>
-  <%= check_box_tag(:ss_shower) %>
-  <%= label_tag(:ss_shower, "Douches et sanitaires") %>
-  <%= check_box_tag(:sc_waste_sorting) %>
-  <%= label_tag(:sc_waste_sorting, "Tri des déchets") %>
-  <%= check_box_tag(:sc_waste_pumping) %>
-  <%= label_tag(:sc_waste_pumping, "Pompage des eaux usées") %>
-  <%= check_box_tag(:sc_waste_container) %>
-  <%= label_tag(:sc_waste_container, "Container des huiles usagée") %>
-  <%= check_box_tag(:sc_security) %>
-  <%= label_tag(:sc_security, "Surveillance") %>
-
+  <!-- Search button -->
   <%= submit_tag("Search") %>
+
+  <!-- Class options for Javascript effect slice down/up -->
+  <div class="options">
+    <%= check_box_tag(:ss_elec) %>
+    <%= label_tag(:ss_elec, "Electricité") %>
+    <%= check_box_tag(:ss_fresh_water) %>
+    <%= label_tag(:ss_fresh_water, "Eau douce") %>
+    <%= check_box_tag(:ss_ice) %>
+    <%= label_tag(:ss_ice, "Glace") %>
+    <%= check_box_tag(:ss_fuel) %>
+    <%= label_tag(:ss_fuel, "Carburant") %>
+    <%= check_box_tag(:ss_tel) %>
+    <%= label_tag(:ss_tel, "Téléphone") %>
+    <%= check_box_tag(:ss_wifi) %>
+    <%= label_tag(:ss_wifi, "Wifi") %>
+    <%= check_box_tag(:ss_shower) %>
+    <%= label_tag(:ss_shower, "Douches et sanitaires") %>
+    <%= check_box_tag(:sc_waste_sorting) %>
+    <%= label_tag(:sc_waste_sorting, "Tri des déchets") %>
+    <%= check_box_tag(:sc_waste_pumping) %>
+    <%= label_tag(:sc_waste_pumping, "Pompage des eaux usées") %>
+    <%= check_box_tag(:sc_waste_container) %>
+    <%= label_tag(:sc_waste_container, "Container des huiles usagée") %>
+    <%= check_box_tag(:sc_security) %>
+    <%= label_tag(:sc_security, "Surveillance") %>
+  </div>
+
+  <br>
+  <!-- More options hidden -->
+  <button class="btn_options">More options</button>
+
 <% end %>

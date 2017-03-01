@@ -10,6 +10,7 @@ gem 'jbuilder', '~> 2.0'
 gem 'devise'
 gem 'redis'
 gem 'awesome_print'
+gem 'bootstrap-datepicker-rails'
 
 gem 'sass-rails'
 gem 'jquery-rails'
