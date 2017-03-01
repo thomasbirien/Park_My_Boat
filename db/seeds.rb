@@ -37,8 +37,8 @@ puts "Creating Ports"
     radio_channel: ["103.9", "102.1", "90.9"][counter - 1],
     email: ["contact@ciotat.fr", "info@ERP.com", "info@toulon.fr"][counter - 1],
     address: ["Nouveau port de plaisance, Boulevard Anatole France, 13600 La Ciotat", "ERP, 3 rue Bernard, 13720 Sète", "Terminal Toulon, 33 route Vincent, 13890 Toulon"][counter - 1],
-    check_in_hour: Time.now,
-    check_out_hour: Time.now
+    check_in_hour: ["11h00", "12h00", "11h30"][counter - 1],
+    check_out_hour: ["12h00", "13h00", "12h00"][counter - 1]
   )
 end
 
