@@ -1,0 +1,47 @@
+<%= form_tag("/ports", method: "get") do %>
+
+<!-- Search bar visible -->
+  <%= label_tag(:port_name, "Choix du port") %>
+  <%= text_field_tag(:port_name) %>
+  <%= label_tag(:arrival_date, "Quand") %>
+  <%= text_field_tag(:arrival_date) %>
+  <%= label_tag(:departure_date, "") %>
+  <%= text_field_tag(:departure_date) %>
+
+<!-- Modal dimensions -->
+  <%= label_tag(:length, "Longueur hors tout") %>
+  <%= text_field_tag(:length) %>
+  <%= label_tag(:width, "Largeur") %>
+  <%= text_field_tag(:width) %>
+  <%= label_tag(:draught, "Tirant d'eau") %>
+  <%= text_field_tag(:draught) %>
+  <%= select_tag(:boat_type, options_for_select([['Selectionner', nil ], ['Voilier', 'sail_boat'], ['Moteur', 'power_boat']])) %>
+  <%= check_box_tag(:multihull) %>
+  <%= label_tag(:multihull, "Multi coque") %>
+
+<!-- More options hidden -->
+  <%= check_box_tag(:ss_elec) %>
+  <%= label_tag(:ss_elec, "Electricité") %>
+  <%= check_box_tag(:ss_fresh_water) %>
+  <%= label_tag(:ss_fresh_water, "Eau douce") %>
+  <%= check_box_tag(:ss_ice) %>
+  <%= label_tag(:ss_ice, "Glace") %>
+  <%= check_box_tag(:ss_fuel) %>
+  <%= label_tag(:ss_fuel, "Carburant") %>
+  <%= check_box_tag(:ss_tel) %>
+  <%= label_tag(:ss_tel, "Téléphone") %>
+  <%= check_box_tag(:ss_wifi) %>
+  <%= label_tag(:ss_wifi, "Wifi") %>
+  <%= check_box_tag(:ss_shower) %>
+  <%= label_tag(:ss_shower, "Douches et sanitaires") %>
+  <%= check_box_tag(:sc_waste_sorting) %>
+  <%= label_tag(:sc_waste_sorting, "Tri des déchets") %>
+  <%= check_box_tag(:sc_waste_pumping) %>
+  <%= label_tag(:sc_waste_pumping, "Pompage des eaux usées") %>
+  <%= check_box_tag(:sc_waste_container) %>
+  <%= label_tag(:sc_waste_container, "Container des huiles usagée") %>
+  <%= check_box_tag(:sc_security) %>
+  <%= label_tag(:sc_security, "Surveillance") %>
+
+  <%= submit_tag("Search") %>
+<% end %>
