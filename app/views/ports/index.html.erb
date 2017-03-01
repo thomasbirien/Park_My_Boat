@@ -24,13 +24,24 @@
 
 <% @ports.each do |port| %>
 
+<div>
+<br>
 <%= port.port_name %>
+<br>
 <%= port.description %>
+<br>
 <%= port.picture %>
-<%= port.size %>
-<%= port.places.count %>
+<br>
+<%= "#{port.size} places totales dans le port"%>
+<br>
+<%= "#{port.places.count} places dispos en location" %>
+<br>
 <%= port.phone_number %>
+<br>
 <%= port.lng %>
+<br>
 <%= port.lat %>
+<br>
+</div>
 
 <% end %>
