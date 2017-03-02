@@ -26,7 +26,11 @@ class BoatsController < ApplicationController
   end
 
   def destroy
+    @boat = Boat.find(params[:id])
+    @boat.destroy
+    redirect_to profile_path
   end
+
 
   private
 

@@ -22,11 +22,12 @@
   <li><%= boat.manufacturer %></li>
   <li><%= boat.model %></li>
   <li><%= boat.boat_type %></li>
-  <li><% boat.multihull? ? "multicoque" : "monocoque" %>
+  <li><%= boat.multihull? ? "multicoque" : "monocoque" %>
   <li><%= boat.length %> mètre</li>
   <li><%= boat.width %> mètre</li>
   <li><%= boat.draught %> mètre</li>
   <li> <%= link_to "edit", edit_boat_path(boat)  %></li>
+  <li><%= link_to "delete", boat_path(boat), method: :delete, data: { confirm: "Are your sure to delete the #{boat.nickname} ?"}%></li>
   <li>-----------------------</li>
 <% end %>
 <li><%= link_to "Add a new boat", new_boat_path  %></li>
@@ -40,6 +41,7 @@
   <li><%= booking.departure_date %></li>
   <li><%= booking.invoiced_price %>€</li>
   <li><%= booking.comment %></li>
+  <li><%= link_to "delete", booking_path(booking), method: :delete, data: { confirm: "Are your sure to delete this booking ?"}  %></li>
   <li>-----------------------</li>
   <% end %>
 </ul>
