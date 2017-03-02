@@ -10,8 +10,9 @@ class Place < ApplicationRecord
   def available_at(date_range)
     available = true
       self.bookings.each do |booking|
+
         available = false if ((booking.arrival_date..booking.departure_date).to_a & @date_range.to_a)
       end
-      available
+    available
   end
 end
