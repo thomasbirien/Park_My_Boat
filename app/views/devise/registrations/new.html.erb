@@ -7,6 +7,14 @@
     <%= f.input :email, required: true, autofocus: true %>
     <%= f.input :password, required: true, hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length) %>
     <%= f.input :password_confirmation, required: true %>
+    <%= f.input :first_name %>
+    <%= f.input :last_name %>
+    <%= f.input :phone_number %>
+    <%= f.input :civility, collection: ["Monsieur", "Madame"] %>
+    <%= f.input :address %>
+    <%= f.input :post_code %>
+    <%= f.input :city %>
+    <%= f.input :country%>
   </div>
 
   <div class="form-actions">

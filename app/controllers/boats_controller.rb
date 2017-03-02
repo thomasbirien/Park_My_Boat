@@ -25,6 +25,9 @@ class BoatsController < ApplicationController
     end
   end
 
+  def destroy
+  end
+
   private
 
   def boat_params

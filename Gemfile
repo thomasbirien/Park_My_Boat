@@ -1,6 +1,7 @@
 source 'https://rubygems.org'
 ruby '2.3.3'
 
+gem 'country_select'
 gem "paranoia", "~> 2.2"
 gem 'rails', '5.0.1'
 gem 'puma'
@@ -10,6 +11,7 @@ gem 'jbuilder', '~> 2.0'
 gem 'devise'
 gem 'redis'
 gem 'awesome_print'
+gem 'bootstrap-datepicker-rails'
 
 gem 'sass-rails'
 gem 'jquery-rails'
