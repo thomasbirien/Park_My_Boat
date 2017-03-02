@@ -16,6 +16,9 @@ class PortsController < ApplicationController
     @ports = (Port.where("port_name ILIKE ?", "%#{params[:port_name]}%"))
     @ports_selected = []
 
+    @ports = Port.all
+    @ports = @ports.joins(:places).where(places.length > ?)
+
       Port.all.each do |port|
         port.places.each do |place|
           unless @ports_selected.include? port
@@ -27,8 +30,6 @@ class PortsController < ApplicationController
           end
         end
       end
-
-
 
     # @ports = Port.where( "port_name = 'params[:port_name]'")
     # @ports = Port.where( "port_name = ?" )
