@@ -10,26 +10,31 @@ class PortsController < ApplicationController
       port_name: params[:port_name],
       length: params[:length],
       width: params[:width],
-      draught: params[:draught]
+      draught: params[:draught],
+      arrival_date: params[:arrival_date],
+      departure_date: params[:departure_date]
     }
 
-    @ports = (Port.where("port_name ILIKE ?", "%#{params[:port_name]}%"))
-    @ports_selected = []
+    # @ports = (Port.where("port_name ILIKE ?", "%#{params[:port_name]}%"))
+    @ports_selected = Port.all
+    @ports_selected = @ports_selected.joins(:places).where("places.length > ? AND places.width > ? AND places.draught > ?", params[:length], params[:width], params[:draught])
+    @ports_selected = @ports_selected.joins(:places, :bookings).where("bookings.arrival_date > ? AND bookings.departure_date >= ?", Date.strptime(params[:departure_date], "%m/%d/%Y"), Date.strptime(params[:arrival_date], "%m/%d/%Y"))
+binding.pry
 
-    @ports = Port.all
-    @ports = @ports.joins(:places).where(places.length > ?)
+# SELECT * FROM users WHERE name = 'Joe' AND email = 'joe@example.com';
 
-      Port.all.each do |port|
-        port.places.each do |place|
-          unless @ports_selected.include? port
-            if place.length >= params[:length].to_f
-              @ports_selected << port
-            else
-              return
-            end
-          end
-        end
-      end
+
+      # Port.all.each do |port|
+      #   port.places.each do |place|
+      #     unless @ports_selected.include? port
+      #       if place.length >= params[:length].to_f
+      #         @ports_selected << port
+      #       else
+      #         return
+      #       end
+      #     end
+      #   end
+      # end
 
     # @ports = Port.where( "port_name = 'params[:port_name]'")
     # @ports = Port.where( "port_name = ?" )
