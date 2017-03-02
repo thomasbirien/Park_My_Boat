@@ -6,6 +6,12 @@ class BookingsController < ApplicationController
   end
 
   def create
+    @booking = Booking.new(booking_params)
+    if @booking.save
+      redirect_to profile_path
+    else
+      render 'port/show'
+    end
   end
 
   def destroy

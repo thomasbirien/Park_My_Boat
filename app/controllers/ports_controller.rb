@@ -12,7 +12,6 @@ class PortsController < ApplicationController
       width: params[:width],
       draught: params[:draught]
     }
-
     @ports = (Port.where("port_name ILIKE ?", "%#{params[:port_name]}%"))
     @ports_selected = []
 
@@ -46,6 +45,9 @@ class PortsController < ApplicationController
   end
 
   def show
+
     @port = Port.find(params[:id])
+    @start_date = params[:start_date]
+    @booking = Booking.new
   end
 end
