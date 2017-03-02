@@ -25,8 +25,6 @@ class PortsController < ApplicationController
 @places_selected = @places_selected.where("places.length > ? AND places.width > ? AND places.draught > ?", params[:length], params[:width], params[:draught])
 @places_selected = @places_selected.select {|place| place.available_at(@date_range)}
 
-binding.pry
-
 @ports_selected = @places_selected.map do |place|
   place.port
 end.uniq
