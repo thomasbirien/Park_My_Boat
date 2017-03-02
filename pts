@@ -1,0 +1,61 @@
+=> [[32m#<Port:0x005644946be840[0m
+  id: [1;34m3[0m,
+  port_name: [31m[1;31m"[0m[31mTerminal de Toulon Côte d'Azur[1;31m"[0m[31m[0m,
+  legal_entity: [31m[1;31m"[0m[31mCapitainerie[1;31m"[0m[31m[0m,
+  picture:
+   [31m[1;31m"[0m[31mhttp://www.toulon.fr/sites/new.toulon.fr/files/styles/full/public/lvs_bleumediterranee_port_011.jpg?itok=SL9f5U05[1;31m"[0m[31m[0m,
+  lng: [32m#<BigDecimal:5644945ea900,'0.5933265E1',18(18)>[0m,
+  lat: [32m#<BigDecimal:5644945dda20,'0.43123514E2',18(18)>[0m,
+  phone_number: [31m[1;31m"[0m[31m04 94 36 37 38[1;31m"[0m[31m[0m,
+  radio_channel: [31m[1;31m"[0m[31m90.9[1;31m"[0m[31m[0m,
+  email: [31m[1;31m"[0m[31minfo@toulon.fr[1;31m"[0m[31m[0m,
+  address: [31m[1;31m"[0m[31mTerminal Toulon, 33 route Vincent, 13890 Toulon[1;31m"[0m[31m[0m,
+  check_in_hour: [31m[1;31m"[0m[31m11h30[1;31m"[0m[31m[0m,
+  check_out_hour: [31m[1;31m"[0m[31m12h00[1;31m"[0m[31m[0m,
+  created_at: [1;34;4mWed[0m, [1;34m01[0m [1;34;4mMar[0m [1;34m2017[0m [1;34m12[0m:[1;34m00[0m:[1;34m09[0m [1;34;4mUTC[0m [1;34m+00[0m:[1;34m00[0m,
+  updated_at: [1;34;4mWed[0m, [1;34m01[0m [1;34;4mMar[0m [1;34m2017[0m [1;34m12[0m:[1;34m00[0m:[1;34m09[0m [1;34;4mUTC[0m [1;34m+00[0m:[1;34m00[0m,
+  description:
+   [31m[1;31m"[0m[31mVenez découvrir les 6 ports de plaisance de Toulon Vieille Darse, Toulon Darse Nord, La Seyne-sur-Mer, Saint-Mandrier, Saint-Louis du Mourillon et du Niel.[1;31m"[0m[31m[0m,
+  size: [1;34m100[0m,
+  deleted_at: [1;36mnil[0m[32m>[0m,
+ [32m#<Port:0x0056449469a260[0m
+  id: [1;34m2[0m,
+  port_name: [31m[1;31m"[0m[31mEPR Port Sud de France[1;31m"[0m[31m[0m,
+  legal_entity: [31m[1;31m"[0m[31mCapitainerie[1;31m"[0m[31m[0m,
+  picture:
+   [31m[1;31m"[0m[31mhttp://images.figaronautisme.com/image/figaro-nautisme/ports/photos/120510_113108_09943-sete-290212.jpg[1;31m"[0m[31m[0m,
+  lng: [32m#<BigDecimal:5644944a3268,'0.3697938E1',18(18)>[0m,
+  lat: [32m#<BigDecimal:56449448e228,'0.43400949E2',18(18)>[0m,
+  phone_number: [31m[1;31m"[0m[31m04 67 74 98 97[1;31m"[0m[31m[0m,
+  radio_channel: [31m[1;31m"[0m[31m102.1[1;31m"[0m[31m[0m,
+  email: [31m[1;31m"[0m[31minfo@ERP.com[1;31m"[0m[31m[0m,
+  address: [31m[1;31m"[0m[31mERP, 3 rue Bernard, 13720 Sète[1;31m"[0m[31m[0m,
+  check_in_hour: [31m[1;31m"[0m[31m12h00[1;31m"[0m[31m[0m,
+  check_out_hour: [31m[1;31m"[0m[31m13h00[1;31m"[0m[31m[0m,
+  created_at: [1;34;4mWed[0m, [1;34m01[0m [1;34;4mMar[0m [1;34m2017[0m [1;34m12[0m:[1;34m00[0m:[1;34m09[0m [1;34;4mUTC[0m [1;34m+00[0m:[1;34m00[0m,
+  updated_at: [1;34;4mWed[0m, [1;34m01[0m [1;34;4mMar[0m [1;34m2017[0m [1;34m12[0m:[1;34m00[0m:[1;34m09[0m [1;34;4mUTC[0m [1;34m+00[0m:[1;34m00[0m,
+  description:
+   [31m[1;31m"[0m[31mLe port de plaisance de Sète est une escale attractive et originale. Le charme des canaux et le côté pittoresque de son Port de Pêche, font de Sète une ville de caractère, baignée à la fois par la Méditerranée et par l’Etang de Thau.[1;31m"[0m[31m[0m,
+  size: [1;34m120[0m,
+  deleted_at: [1;36mnil[0m[32m>[0m,
+ [32m#<Port:0x00564494699ea0[0m
+  id: [1;34m1[0m,
+  port_name: [31m[1;31m"[0m[31mLa Ciotat[1;31m"[0m[31m[0m,
+  legal_entity: [31m[1;31m"[0m[31mCapitainerie[1;31m"[0m[31m[0m,
+  picture:
+   [31m[1;31m"[0m[31mhttp://images.figaronautisme.com/image/figaro-nautisme/ports/photos/120509_175212_10100-la-ciotat-240312.jpg[1;31m"[0m[31m[0m,
+  lng: [32m#<BigDecimal:5644942a6348,'0.5607379E1',18(18)>[0m,
+  lat: [32m#<BigDecimal:564494295318,'0.43174834E2',18(18)>[0m,
+  phone_number: [31m[1;31m"[0m[31m04 95 09 52 60[1;31m"[0m[31m[0m,
+  radio_channel: [31m[1;31m"[0m[31m103.9[1;31m"[0m[31m[0m,
+  email: [31m[1;31m"[0m[31mcontact@ciotat.fr[1;31m"[0m[31m[0m,
+  address:
+   [31m[1;31m"[0m[31mNouveau port de plaisance, Boulevard Anatole France, 13600 La Ciotat[1;31m"[0m[31m[0m,
+  check_in_hour: [31m[1;31m"[0m[31m11h00[1;31m"[0m[31m[0m,
+  check_out_hour: [31m[1;31m"[0m[31m12h00[1;31m"[0m[31m[0m,
+  created_at: [1;34;4mWed[0m, [1;34m01[0m [1;34;4mMar[0m [1;34m2017[0m [1;34m12[0m:[1;34m00[0m:[1;34m09[0m [1;34;4mUTC[0m [1;34m+00[0m:[1;34m00[0m,
+  updated_at: [1;34;4mWed[0m, [1;34m01[0m [1;34;4mMar[0m [1;34m2017[0m [1;34m12[0m:[1;34m00[0m:[1;34m09[0m [1;34;4mUTC[0m [1;34m+00[0m:[1;34m00[0m,
+  description:
+   [31m[1;31m"[0m[31mPort situé dans la ville au Nord de l’ensemble portuaire. Il est composé de deux bassins séparés par un large terre-plein.[1;31m"[0m[31m[0m,
+  size: [1;34m650[0m,
+  deleted_at: [1;36mnil[0m[32m>[0m]
