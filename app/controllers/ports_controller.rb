@@ -1,5 +1,5 @@
 class PortsController < ApplicationController
-  skip_before_action :authenticate_user!, only: :index
+  skip_before_action :authenticate_user!, only: :show
 
   def index
 
@@ -46,6 +46,6 @@ class PortsController < ApplicationController
   end
 
   def show
-
+    @port = Port.find(params[:id])
   end
 end
