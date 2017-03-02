@@ -50,6 +50,24 @@
   <% end %>
 <% end %>
 <%= @start_date %>
+<%= simple_form_for(@booking) do |f| %>
+  <%= f.error_notification %>
+  <p><%= @start_date %></p>
+  <%= text_field_tag(:arrival_date, nil, class: "datepicker") %>
+  <% if :arrival_date == @start_date %>
+    <% :arrival_date %>
+  <%= f.input :nickname, placeholder: "LABrigitte" %>
+  <%= f.input :brand, placeholder: "Feadship" %>
+  <%= f.input :manufacturer, placeholder: "Luxury For You" %>
+  <%= f.input :model, placeholder: "Model" %>
+  <%= f.input :boat_type, placeholder: "Motorize, sail or other" %>
+  <%= f.input :length, placeholder: "12 (meter)" %>
+  <%= f.input :width, placeholder: "18 (meter)" %>
+  <%= f.input :draught, placeholder: "4 (meter)" %>
+  <%= f.input :multihull, as: :radio_buttons %>
+  <%= f.submit %>
+<% end %>
+
 
 
 
