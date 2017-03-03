@@ -15,7 +15,6 @@ class PortsController < ApplicationController
     @date_range = (Date.strptime(params[:arrival_date], '%d/%m/%Y'))..(Date.strptime(params[:departure_date], '%d/%m/%Y'))
     @places_selected = Place.all
     @places_selected = @places_selected.where("places.length > ? AND places.width > ? AND places.draught > ?", params[:length], params[:width], params[:draught])
-    @places_selected = @places_selected.select {|place| place.available_at(@date_range)}
 
   # check options one by one
   if params[:ss_elec] == '1'
