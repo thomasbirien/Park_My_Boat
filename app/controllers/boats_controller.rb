@@ -1,10 +1,13 @@
 class BoatsController < ApplicationController
+  before_action :set_boat, only: [:edit, :update, :destroy]
+
   def new
     @boat = Boat.new
   end
 
   def create
     @boat = current_user.boats.new(boat_params)
+
     if @boat.save
       redirect_to profile_path
     else
@@ -13,11 +16,9 @@ class BoatsController < ApplicationController
   end
 
   def edit
-    @boat = Boat.find(params[:id])
   end
 
   def update
-    @boat = Boat.find(params[:id])
     if @boat.update(boat_params)
       redirect_to profile_path
     else
@@ -26,7 +27,6 @@ class BoatsController < ApplicationController
   end
 
   def destroy
-    @boat = Boat.find(params[:id])
     @boat.destroy
     redirect_to profile_path
   end
@@ -34,7 +34,24 @@ class BoatsController < ApplicationController
 
   private
 
+  def set_boat
+    @boat = Boat.find(params[:id])
+  end
+
   def boat_params
-    params.require(:boat).permit(:brand, :manufacturer, :nickname, :immatriculation, :model, :boat_type, :length, :width, :draught, :multihull)
+    params
+      .require(:boat)
+      .permit(
+        :brand,
+        :manufacturer,
+        :nickname,
+        :immatriculation,
+        :model,
+        :boat_type,
+        :length,
+        :width,
+        :draught,
+        :multihull
+      )
   end
 end
