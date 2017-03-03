@@ -1,5 +1,5 @@
 class PortsController < ApplicationController
-  skip_before_action :authenticate_user!, only: :index
+  skip_before_action :authenticate_user!, only: [:index]
 
   def index
 
@@ -11,6 +11,10 @@ class PortsController < ApplicationController
       arrival_date: params[:arrival_date],
       departure_date: params[:departure_date]
     }
+
+
+
+    @date_range = (Date.strptime(params[:arrival_date], '%m/%d/%Y'))+1.days..(Date.strptime(params[:departure_date], '%m/%d/%Y'))-1.days
 
     @places_selected = Place.all
     @places_selected = @places_selected.where("places.length > ? AND places.width > ? AND places.draught > ?", params[:length], params[:width], params[:draught])
@@ -62,6 +66,8 @@ class PortsController < ApplicationController
     place.port
   end.uniq
 
+
+
     @ports = Port.all
     # @ports = @ports.near(Port.where("port_name ILIKE ?", "%#{params[:port_name]}%"), 20)
     # @ports = (Port.where("port_name ILIKE ?", "%#{params[:port_name]}%"))
@@ -84,5 +90,21 @@ class PortsController < ApplicationController
   # @input_departure_date = Date.strptime(params[:departure_date], '%d/%m/%Y')
 
   end
+
+  def show
+
+    @port = Port.find(params[:id])
+    @arrival_date = (Date.strptime(params[:arrival_date], '%m/%d/%Y'))
+    @departure_date = (Date.strptime(params[:departure_date], '%m/%d/%Y'))
+    @price = @port.places.order(:place_price).last.place_price
+    @booking = Booking.new
+    @invoiced = @price * (@departure_date - @arrival_date).to_i
+    # @user_boat = current_user.boat_ids.first
+  end
+
+
+
+
+
 
 
