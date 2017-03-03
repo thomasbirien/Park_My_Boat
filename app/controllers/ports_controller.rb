@@ -45,10 +45,16 @@ end.uniq
   def show
 
     @port = Port.find(params[:id])
-    @arrival_date = params[:arrival_date]
-    @departure_date = params[:departure_date]
+    @arrival_date = (Date.strptime(params[:arrival_date], '%m/%d/%Y'))
+    @departure_date = (Date.strptime(params[:departure_date], '%m/%d/%Y'))
+    @price = @port.places.order(:place_price).last.place_price
     @booking = Booking.new
+    @invoiced = @price * (@departure_date - @arrival_date).to_i
+    # @user_boat = current_user.boat_ids.first
   end
+
+
+
 
 
 
