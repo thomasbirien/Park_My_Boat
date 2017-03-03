@@ -1,7 +1,9 @@
 class Port < ApplicationRecord
   acts_as_paranoid
+
   has_many :places
   has_many :bookings, through: :places
+
   validates :port_name, presence: true
   validates :legal_entity, presence: true
   validates :lng, presence: true
