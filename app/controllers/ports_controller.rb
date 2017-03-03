@@ -31,8 +31,7 @@ class PortsController < ApplicationController
     end
   end
 
-
-def filter_ports
+  def filter_ports
 
   @date_range = (Date.strptime(params[:arrival_date], '%m/%d/%Y'))..(Date.strptime(params[:departure_date], '%m/%d/%Y'))
   @input_arrival_date = Date.strptime(params[:arrival_date], '%m/%d/%Y')
@@ -46,8 +45,6 @@ def filter_ports
     place.port
   end.uniq
 
-end
-
-
+  end
 
 end
