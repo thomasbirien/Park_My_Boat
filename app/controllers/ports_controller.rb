@@ -12,7 +12,56 @@ class PortsController < ApplicationController
       departure_date: params[:departure_date]
     }
 
-    filter_ports
+    @places_selected = Place.all
+    @places_selected = @places_selected.where("places.length > ? AND places.width > ? AND places.draught > ?", params[:length], params[:width], params[:draught])
+    @places_selected = @places_selected.select {|place| place.available_at(@date_range)}
+
+binding.pry
+
+  # check options one by one
+  if params[:ss_elec] == '1'
+    @places_selected = @places_selected.where('ss_elec = ?', true)
+  end
+
+  if params[:ss_ice] == '1'
+    @places_selected = @places_selected.where('ss_ice = ?', true)
+  end
+
+  if params[:ss_fuel] == '1'
+    @places_selected = @places_selected.where('ss_fuel = ?', true)
+  end
+
+  if params[:ss_tel] == '1'
+    @places_selected = @places_selected.where('ss_tel = ?', true)
+  end
+
+  if params[:ss_wifi] == '1'
+    @places_selected = @places_selected.where('ss_wifi = ?', true)
+  end
+
+  if params[:ss_shower] == '1'
+    @places_selected = @places_selected.where('ss_shower = ?', true)
+  end
+
+  if params[:ss_waste_sorting] == '1'
+    @places_selected = @places_selected.where('ss_waste_sorting = ?', true)
+  end
+
+  if params[:ss_waste_pumping] == '1'
+    @places_selected = @places_selected.where('ss_waste_pumping = ?', true)
+  end
+
+  if params[:sc_waste_container] == '1'
+    @places_selected = @places_selected.where('sc_waste_container = ?', true)
+  end
+
+  if params[:sc_security] == '1'
+    @places_selected = @places_selected.where('sc_security = ?', true)
+  end
+
+  @ports_selected = @places_selected.map do |place|
+    place.port
+  end.uniq
 
     @ports = Port.all
     # @ports = @ports.near(Port.where("port_name ILIKE ?", "%#{params[:port_name]}%"), 20)
@@ -31,20 +80,11 @@ class PortsController < ApplicationController
     end
   end
 
-  def filter_ports
+  # @date_range = (Date.strptime(params[:arrival_date], '%d/%m/%Y'))..(Date.strptime(params[:departure_date], '%d/%m/%Y'))
+  # @input_arrival_date = Date.strptime(params[:arrival_date], '%d/%m/%Y')
+  # @input_departure_date = Date.strptime(params[:departure_date], '%d/%m/%Y')
 
-  @date_range = (Date.strptime(params[:arrival_date], '%m/%d/%Y'))..(Date.strptime(params[:departure_date], '%m/%d/%Y'))
-  @input_arrival_date = Date.strptime(params[:arrival_date], '%m/%d/%Y')
-  @input_departure_date = Date.strptime(params[:departure_date], '%m/%d/%Y')
-
-  @places_selected = Place.all
-  @places_selected = @places_selected.where("places.length > ? AND places.width > ? AND places.draught > ?", params[:length], params[:width], params[:draught])
-  @places_selected = @places_selected.select {|place| place.available_at(@date_range)}
-
-  @ports_selected = @places_selected.map do |place|
-    place.port
-  end.uniq
 
   end
 
-end
+
