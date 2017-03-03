@@ -47,7 +47,8 @@ class PortsController < ApplicationController
   def show
 
     @port = Port.find(params[:id])
-    @start_date = params[:start_date]
+    @arrival_date = params[:arrival_date]
+    @departure_date = params[:departure_date]
     @booking = Booking.new
   end
 end
