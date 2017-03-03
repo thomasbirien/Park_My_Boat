@@ -1,0 +1,63 @@
+.search_bar_visibe label {
+  font-weight: normal;
+  display: block;
+  text-align: left;
+  margin-left: 40px;
+}
+
+.options {
+  display:  none;
+}
+
+.options h4 {
+  border-bottom: 1px solid white;
+  text-align: left;
+}
+
+.options ul {
+  list-style: none;
+  text-align : left;
+  margin-left: -30px;
+}
+
+.options label {
+  margin-left: 3px;
+}
+
+.search_bar button {
+  margin-right: 80px;
+}
+
+.btn-options {
+  margin-right: -80px;
+}
+
+.btn-search {
+  padding-top: 30px;
+  padding-bottom: 10px;
+}
+
+.search_bar_hidden label {
+  font-weight: normal;
+  text-align: left;
+}
+
+.modal-content {
+  opacity: 0.93;
+  background-color: $modal-background;
+  color: $modal-text;
+  text-align: left;
+}
+
+.modal-content label {
+  text-align: left;
+  margin-left: 0px;
+}
+
+.modal-content .modal-checkbox {
+  display: -webkit-box;
+}
+
+.modal-checkbox label {
+  margin-left: 3px;
+}
