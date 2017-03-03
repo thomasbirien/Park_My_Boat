@@ -12,7 +12,56 @@ class PortsController < ApplicationController
       departure_date: params[:departure_date]
     }
 
-    filter_ports
+    @places_selected = Place.all
+    @places_selected = @places_selected.where("places.length > ? AND places.width > ? AND places.draught > ?", params[:length], params[:width], params[:draught])
+    @places_selected = @places_selected.select {|place| place.available_at(@date_range)}
+
+binding.pry
+
+  # check options one by one
+  if params[:ss_elec] == '1'
+    @places_selected = @places_selected.where('ss_elec = ?', true)
+  end
+
+  if params[:ss_ice] == '1'
+    @places_selected = @places_selected.where('ss_ice = ?', true)
+  end
+
+  if params[:ss_fuel] == '1'
+    @places_selected = @places_selected.where('ss_fuel = ?', true)
+  end
+
+  if params[:ss_tel] == '1'
+    @places_selected = @places_selected.where('ss_tel = ?', true)
+  end
+
+  if params[:ss_wifi] == '1'
+    @places_selected = @places_selected.where('ss_wifi = ?', true)
+  end
+
+  if params[:ss_shower] == '1'
+    @places_selected = @places_selected.where('ss_shower = ?', true)
+  end
+
+  if params[:ss_waste_sorting] == '1'
+    @places_selected = @places_selected.where('ss_waste_sorting = ?', true)
+  end
+
+  if params[:ss_waste_pumping] == '1'
+    @places_selected = @places_selected.where('ss_waste_pumping = ?', true)
+  end
+
+  if params[:sc_waste_container] == '1'
+    @places_selected = @places_selected.where('sc_waste_container = ?', true)
+  end
+
+  if params[:sc_security] == '1'
+    @places_selected = @places_selected.where('sc_security = ?', true)
+  end
+
+  @ports_selected = @places_selected.map do |place|
+    place.port
+  end.uniq
 
     @ports = Port.all
     # @ports = @ports.near(Port.where("port_name ILIKE ?", "%#{params[:port_name]}%"), 20)
@@ -31,65 +80,11 @@ class PortsController < ApplicationController
     end
   end
 
-  def filter_ports
+  # @date_range = (Date.strptime(params[:arrival_date], '%d/%m/%Y'))..(Date.strptime(params[:departure_date], '%d/%m/%Y'))
+  # @input_arrival_date = Date.strptime(params[:arrival_date], '%d/%m/%Y')
+  # @input_departure_date = Date.strptime(params[:departure_date], '%d/%m/%Y')
 
-  @date_range = (Date.strptime(params[:arrival_date], '%d/%m/%Y'))..(Date.strptime(params[:departure_date], '%d/%m/%Y'))
-  @input_arrival_date = Date.strptime(params[:arrival_date], '%d/%m/%Y')
-  @input_departure_date = Date.strptime(params[:departure_date], '%d/%m/%Y')
-
-  binding.pry
-
-  @places_selected = Place.all
-  @places_selected = @places_selected.where("places.length > ? AND places.width > ? AND places.draught > ?", params[:length], params[:width], params[:draught])
-  @places_selected = @places_selected.select {|place| place.available_at(@date_range)}
-
-
-
-  # check options one by one
-  if params[:ss_elec] == 'true'
-    @places_selected = @places_selected.where('ss_elec = ?', params[:ss_elec])
-  end
-
-  if params[:ss_ice] == 'true'
-    @places_selected = @places_selected.where('ss_ice = ?', params[:ss_ice])
-  end
-
-  if params[:ss_fuel] == 'true'
-    @places_selected = @places_selected.where('ss_fuel = ?', params[:ss_fuel])
-  end
-
-  if params[:ss_tel] == 'true'
-    @places_selected = @places_selected.where('ss_tel = ?', params[:ss_tel])
-  end
-
-  if params[:ss_wifi] == 'true'
-    @places_selected = @places_selected.where('ss_wifi = ?', params[:ss_wifi])
-  end
-
-  if params[:ss_shower] == 'true'
-    @places_selected = @places_selected.where('ss_shower = ?', params[:ss_shower])
-  end
-
-  if params[:ss_waste_sorting] == 'true'
-    @places_selected = @places_selected.where('ss_waste_sorting = ?', params[:ss_waste_sorting])
-  end
-
-  if params[:ss_waste_pumping] == 'true'
-    @places_selected = @places_selected.where('ss_waste_pumping = ?', params[:ss_waste_pumping])
-  end
-
-  if params[:sc_waste_container] == 'true'
-    @places_selected = @places_selected.where('sc_waste_container = ?', params[:sc_waste_container])
-  end
-
-  if params[:sc_security] == 'true'
-    @places_selected = @places_selected.where('sc_security = ?', params[:sc_security])
-  end
-
-  @ports_selected = @places_selected.map do |place|
-    place.port
-  end.uniq
 
   end
 
-end
+
