@@ -7,15 +7,15 @@
           <!-- Search bar visible -->
           <div class="col-xs-12 col-md-3">
             <%= label_tag(:port_name, "Choix du port") %>
-            <%= text_field_tag(:port_name) %>
+            <%= text_field_tag(:port_name, nil, required: true) %>
           </div>
           <div class="col-xs-12 col-md-3">
             <%= label_tag(:arrival_date, "Date d'arrivée") %>
-            <%= text_field_tag(:arrival_date, nil, class: "datepicker") %>
+            <%= text_field_tag(:arrival_date, nil, class: "datepicker", required: true) %>
           </div>
           <div class="col-xs-12 col-md-3">
             <%= label_tag(:departure_date, "Date de départ") %>
-            <%= text_field_tag(:departure_date, nil, class: "datepicker") %>
+            <%= text_field_tag(:departure_date, nil, class: "datepicker", required: true) %>
           </div>
         </div>
          <!-- Modal dimensions -->
@@ -39,13 +39,13 @@
                 </div>
                 <div class="modal-body">
                   <%= label_tag(:length, "Longueur hors tout") %>
-                  <%= number_field_tag(:length) %>
+                  <%= number_field_tag(:lengthnil, nil, required: true) %>
 
                   <%= label_tag(:width, "Largeur") %>
-                  <%= text_field_tag(:width) %>
+                  <%= text_field_tag(:widthnil, nil, required: true) %>
 
                   <%= label_tag(:draught, "Tirant d'eau") %>
-                  <%= text_field_tag(:draught) %>
+                  <%= text_field_tag(:draughtnil, nil, required: true) %>
                   <div class="modal-select">
                     <%= select_tag(:boat_type, options_for_select([['Selectionner', nil ], ['Voilier', 'sail_boat'], ['Moteur', 'power_boat']])) %>
                   </div>
