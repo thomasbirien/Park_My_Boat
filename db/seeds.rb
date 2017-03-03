@@ -6,13 +6,11 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-
-Booking.destroy_all
-Boat.destroy_all
-User.destroy_all
-Place.destroy_all
-Port.destroy_all
-
+Booking.with_deleted.each(&:really_destroy!)
+Boat.with_deleted.each(&:really_destroy!)
+User.with_deleted.each(&:really_destroy!)
+Place.with_deleted.each(&:really_destroy!)
+Port.with_deleted.each(&:really_destroy!)
 
 # Creation ports db
 img_Ciotat = "http://images.figaronautisme.com/image/figaro-nautisme/ports/photos/120509_175212_10100-la-ciotat-240312.jpg"
