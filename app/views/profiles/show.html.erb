@@ -1,4 +1,4 @@
-<h2>Your Boat captain</h2>
+<!-- <h2>Your Boat captain</h2>
 
 <ul>
   <li><%= current_user.first_name %></li>
@@ -31,20 +31,37 @@
   <li>-----------------------</li>
 <% end %>
 <li><%= link_to "Add a new boat", new_boat_path  %></li>
-</ul>
+</ul> -->
+
 
 <h2>Your Bookings</h2>
-<ul>
-  <% @bookings.each do |booking| %>
-  <li><%= image_tag booking.place.port.picture%></li>
-  <li><%= booking.arrival_date %></li>
-  <li><%= booking.departure_date %></li>
-  <li><%= booking.invoiced_price %>€</li>
-  <li><%= booking.comment %></li>
-  <li><%= link_to "delete", booking_path(booking), method: :delete, data: { confirm: "Are your sure to delete this booking ?"}  %></li>
-  <li>-----------------------</li>
-  <% end %>
-</ul>
+
+<div class="container">
+  <!-- Card booking -->
+    <div class="row">
+      <% @bookings.each do |booking| %>
+        <div class="col-xs-12 col-md-4">
+          <div class="card">
+            <div class="card-description">
+              <ul>
+                <li><%= booking.arrival_date %></li>
+                <li><%= booking.departure_date %></li>
+                <li><%= booking.invoiced_price %>€</li>
+                <li><%= booking.comment %></li>
+              </ul>
+            </div>
+            <div class="card-user">
+              <%= image_tag booking.place.port.picture %>
+            </div>
+            <div class="card-btn">
+              <%= link_to "delete", booking_path(booking), method: :delete, data: { confirm: "Are your sure to delete this booking ?"} %>
+             </div>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  </div>
+
 <%= link_to "Change your password", edit_user_registration_path %>
 <%= link_to "Destroy your account", user_path, method: :delete, data: { confirm: "You sure?" } %>
 
