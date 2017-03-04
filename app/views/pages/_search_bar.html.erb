@@ -18,6 +18,7 @@
             <%= text_field_tag(:departure_date, nil, class: "datepicker", required: true) %>
           </div>
         </div>
+
          <!-- Modal dimensions -->
 
          <!-- Button trigger modal -->
@@ -63,10 +64,7 @@
         </div>
       </div>
     </div>
-  <!-- Search button -->
-  <div class="btn-search">
-    <%= submit_tag("Search") %>
-  </div>
+
     <!-- Class options for Javascript effect slice down/up -->
     <div class="options">
       <div class="row">
@@ -116,5 +114,11 @@
       <div class="btn-options">
         <button class="btn_options">More options</button>
       </div>
+
+        <!-- Search button -->
+      <div class="btn-search">
+        <%= submit_tag("Search") %>
+      </div>
+
   <% end %>
 </div>
