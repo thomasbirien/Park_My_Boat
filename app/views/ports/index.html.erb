@@ -1,5 +1,10 @@
 <%= link_to "port11", port_path(11, arrival_date: "03/22/2017", departure_date: "03/25/2017")  %>
 
+
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12 col-md-6">
+<!-- row with 2 main components : the map, then a unlimited list of port cards -->
       <div id="map" style="width: 50%; height: 300px;">
         <% content_for(:after_js) do %>
           <%= javascript_tag do %>
@@ -20,10 +25,9 @@
         <% end %>
       </div>
 
-<div class="container">
-    <% @ports_selected.each do |port| %>
+        <% @ports_selected.each do |port| %>
       <div class="card">
-        <%= image_tag port.picture, class: "card-img-top" %>
+        <%= image_tag port.picture, class: "card-img-index" %>
           <div class="card-block">
               <h4 class="card-title"><%= port.port_name%></h4>
               <h6 class="card-subtitle mb-2 text-muted"><%= "#{port.size} places totales dans le port"%></h6>
@@ -36,7 +40,9 @@
               <a href="#" class="card-link">Another link</a>
           </div>
       </div>
-    <% end %>
+    </div>
+        <% end %>
+  </div>
 </div>
 
 <%= "TESTING" %>
