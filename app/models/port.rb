@@ -14,4 +14,8 @@ class Port < ApplicationRecord
   validates :address, presence: true
   validates :check_in_hour, presence: true
   validates :check_out_hour, presence: true
+
+  def self.has_places_between(dates)
+
+  end
 end

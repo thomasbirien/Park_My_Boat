@@ -30,7 +30,7 @@
 
     <div class="col-xs-12 col-sm-6">
       <div id="port-sidebar">
-        <% @ports_selected.each do |port| %>
+        <% @ports.each do |port| %>
           <div class="card-port">
             <%= image_tag port.picture, class: "card-img-index" %>
             <div class="card-block">
@@ -40,7 +40,7 @@
               <br><%= port.phone_number %>
               <br><%= port.lng %>
               <br><%= port.lat %>
-              <br><%= "#{count_port_matching_places(port.id, @places_selected)} places disponibles en location selon vos critères" %>
+              <br><%= @places[port.id] || 0 %> places disponibles en location selon vos critères
               <%= link_to "Je réserve une place", port_path(port, @target), class: "card-link-port" %>
             </div>
           </div>
