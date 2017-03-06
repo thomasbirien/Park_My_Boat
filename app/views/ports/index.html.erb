@@ -26,7 +26,7 @@
       <div id="port-sidebar" class="d-inline">
 
       <% @ports_selected.each do |port| %>
-        <div class="card">
+        <div class="card-port">
           <%= image_tag port.picture, class: "card-img-index" %>
             <div class="card-block">
               <h4 class="card-title"><%= port.port_name%></h4>
@@ -45,7 +45,7 @@
 
     <!-- repeat twice to increase the number of ports -->
       <% @ports_selected.each do |port| %>
-        <div class="card">
+        <div class="card-port">
           <%= image_tag port.picture, class: "card-img-index" %>
             <div class="card-block">
               <h4 class="card-title"><%= port.port_name%></h4>
