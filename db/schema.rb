@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170301112657) do
+ActiveRecord::Schema.define(version: 20170306103232) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -30,6 +30,7 @@ ActiveRecord::Schema.define(version: 20170301112657) do
     t.datetime "created_at",                      null: false
     t.datetime "updated_at",                      null: false
     t.datetime "deleted_at"
+    t.boolean  "default"
     t.index ["deleted_at"], name: "index_boats_on_deleted_at", using: :btree
     t.index ["user_id"], name: "index_boats_on_user_id", using: :btree
   end
@@ -40,12 +41,10 @@ ActiveRecord::Schema.define(version: 20170301112657) do
     t.decimal  "invoiced_price"
     t.text     "comment"
     t.integer  "user_id"
-    t.integer  "boat_id"
     t.datetime "created_at",     null: false
     t.datetime "updated_at",     null: false
     t.integer  "place_id"
     t.datetime "deleted_at"
-    t.index ["boat_id"], name: "index_bookings_on_boat_id", using: :btree
     t.index ["deleted_at"], name: "index_bookings_on_deleted_at", using: :btree
     t.index ["place_id"], name: "index_bookings_on_place_id", using: :btree
     t.index ["user_id"], name: "index_bookings_on_user_id", using: :btree
@@ -124,6 +123,5 @@ ActiveRecord::Schema.define(version: 20170301112657) do
   end
 
   add_foreign_key "boats", "users"
-  add_foreign_key "bookings", "boats"
   add_foreign_key "bookings", "users"
 end
