@@ -62,7 +62,7 @@
   <%= f.error_notification %>
   <p><%= f.input :comment, label: "Un commentaire à ajouter à la capitainerie ?" %></p>
   <p><%= f.input :arrival_date, input_html: {value: @arrival_date}, as: :hidden %></p>
- <p><%= f.input :departure_date, input_html: {value: @departure_date}, as: :hidden %></p>
+  <p><%= f.input :departure_date, input_html: {value: @departure_date}, as: :hidden %></p>
   <p><%= f.input :place_id, input_html: {value: @place_id}, as: :hidden %></p>
   <p><%= f.submit%></p>
 <% end %>
