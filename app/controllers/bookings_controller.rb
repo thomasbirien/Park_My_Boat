@@ -6,6 +6,7 @@ class BookingsController < ApplicationController
   end
 
   def create
+
     @booking = current_user.bookings.new(booking_params)
     @port =  Place.find(@booking.place_id).port
 

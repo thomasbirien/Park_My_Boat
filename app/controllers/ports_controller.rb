@@ -45,14 +45,17 @@ class PortsController < ApplicationController
         place
       end
     end
-
     @port = Port.find(params[:id])
     @arrival_date = (Date.strptime(params[:arrival_date], '%d/%m/%Y'))
     @departure_date = (Date.strptime(params[:departure_date], '%d/%m/%Y'))
-    @price = @port.places.order(:place_price).last.place_price
-    @booking = Booking.new
+    @prices = @port_places.sort_by { |place| place[:place_price] }
+    @price = @prices.first.place_price
+
+
+    @place_choosen = @port_places.sort_by { |place| place[:place_price] }
+    @place_id = @place_choosen.first.id
     @invoiced = @price * (@departure_date - @arrival_date).to_i
-    binding.pry
+    @booking = Booking.new
     # @user_boat = current_user.boat_ids.first
   end
 
