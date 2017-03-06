@@ -42,3 +42,15 @@ overflow-y: scroll;
   background: black;
   opacity: 0;
 }
+
+.card-link-port:hover{
+  opacity: 0.1;
+}
+
+#port-desc
+{
+width: auto;
+height: 40px;
+line-height: 20px;
+overflow: hidden;
+}
