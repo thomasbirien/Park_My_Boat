@@ -28,9 +28,8 @@ class PortsController < ApplicationController
     @prices = @places.sort_by { |place| place[:place_price] }
     @price = @places.order(:place_price).first.place_price
 
-    @place_choosen = @places.order(:place_price).first
-    @place_select = @place_choosen.first
-    @place_id = @place_choosen.first.id
+    @place_select = @places.order(:place_price).first
+    @place_id = @place_select.id
     @invoiced = @price * (@date_dep - @date_arr).to_i
     @booking = Booking.new
 
