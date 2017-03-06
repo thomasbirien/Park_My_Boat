@@ -3,19 +3,11 @@ class PortsController < ApplicationController
 
   def index
 
-    @target = {
-      length: params[:length],
-      width: params[:width],
-      draught: params[:draught],
-      arrival_date: params[:arrival_date],
-      departure_date: params[:departure_date],
-    }
-
   @ports_selected = filter_places.map do |place|
     place.port
   end.uniq
 
-    @ports = Port.all
+    # @ports = Port.all
     # @ports = @ports.near(Port.where("port_name ILIKE ?", "%#{params[:port_name]}%"), 20)
     # @ports = (Port.where("port_name ILIKE ?", "%#{params[:port_name]}%"))
     # @ports_selected = Port.all
@@ -23,13 +15,12 @@ class PortsController < ApplicationController
     # @ports_selected = @ports_selected.joins(:bookings).where("bookings.arrival_date > ? AND bookings.departure_date >= ?", Date.strptime(params[:departure_date], "%m/%d/%Y"), Date.strptime(params[:arrival_date], "%m/%d/%Y"))
     # @ports_selected = @ports_selected.joins(:bookings).select {|port| port.places.available_at(@date_range)}
 
-    @ports = Port.where.not(lat: nil, lng: nil)
+    # @ports = Port.where.not(lat: nil, lng: nil)
 
     @hash = Gmaps4rails.build_markers(@ports_selected) do |port, marker|
       marker.lat port.lat
       marker.lng port.lng
       # marker.infowindow render_to_string(partial: "/flats/map_box", locals: { flat: flat })
-
     end
 
   end
@@ -52,13 +43,20 @@ class PortsController < ApplicationController
     @price = @port.places.order(:place_price).last.place_price
     @booking = Booking.new
     @invoiced = @price * (@departure_date - @arrival_date).to_i
-    binding.pry
     # @user_boat = current_user.boat_ids.first
   end
 
   private
 
   def filter_places
+
+    @target = {
+      length: params[:length],
+      width: params[:width],
+      draught: params[:draught],
+      arrival_date: params[:arrival_date],
+      departure_date: params[:departure_date],
+    }
 
     @date_range = (Date.strptime(params[:arrival_date], '%d/%m/%Y'))..(Date.strptime(params[:departure_date], '%d/%m/%Y'))
     @places_selected = Place.all
@@ -108,11 +106,5 @@ class PortsController < ApplicationController
   @places_selected = @places_selected.select {|place| place.available_at(@date_range)}
   @places_selected
   end
+
 end
-
-
-
-
-
-
-
