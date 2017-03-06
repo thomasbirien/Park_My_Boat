@@ -12,12 +12,20 @@
           <%= javascript_tag do %>
           $(document).ready(function() {
             var handler = Gmaps.build('Google');
-            handler.buildMap({ internal: { id: 'map' } }, function() {
+            handler.buildMap({
+              internal: { id: 'map' },
+              provider: { center: {
+                lat: <%= @geographic_center[0] %>,
+                lng: <%= @geographic_center[1] %>
+                }
+              }
+            },
+            function() {
               markers = handler.addMarkers(<%= raw @hash.to_json %>);
               handler.bounds.extendWith(markers);
               handler.fitMapToBounds();
               if (markers.length == 0) {
-                handler.getMap().setZoom(2);
+                handler.getMap().setZoom(6);
               } else if (markers.length == 1) {
                 handler.getMap().setZoom(14);
               }
@@ -38,8 +46,8 @@
               <h6 class="card-subtitle mb-2 text-muted"><%= "#{port.size} places totales dans le port"%></h6>
               <p id="port-desc" class="card-text"><%= port.description%></p>
               <br><%= port.phone_number %>
-              <br><%= port.lng %>
-              <br><%= port.lat %>
+              <br><%= port.longitude %>
+              <br><%= port.latitude %>
               <br><%= @places[port.id] || 0 %> places disponibles en location selon vos critères
               <%= link_to "Je réserve une place", port_path(port, @target), class: "card-link-port" %>
             </div>

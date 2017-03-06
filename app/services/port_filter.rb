@@ -1,25 +1,34 @@
 class PortFilter
-  attr_reader :params, :places, :ports
+  attr_reader :params, :places, :ports, :cleaned_params
 
   def initialize(params)
     @params = params
-    @ports = Port.all.joins(:places)
+    @ports = Port.all.joins(:places).distinct
   end
 
   def filter
-    order_by_distance
     filter_by_date
     filter_by_dimensions
     filter_by_options
     @places = @ports.group('ports.id').count
-    @ports = @ports.distinct
+    order_by_distance
+  end
+
+  def cleaned_params
+    {
+      length: params[:length],
+      width: params[:width],
+      draught: params[:draught],
+      arrival_date: params[:arrival_date],
+      departure_date: params[:departure_date]
+    }
   end
 
   private
 
   def order_by_distance
     if params[:port_name].present?
-      @ports = @ports.near(params[:port_name])
+      @ports = @ports.near(params[:port_name], 500)
     end
   end
 
