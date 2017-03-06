@@ -43,7 +43,7 @@
               <%= "#{port.places.count} places dispos en location" %>
               <a href="#" class="card-link">Card link</a>
               <a href="#" class="card-link">Another link</a>
-              <%= link_to "Je réserve une place", port_path(port) %>
+              <%= link_to "Je réserve une place", port_path(port, @target) %>
             </div>
           </div>
         <% end %>

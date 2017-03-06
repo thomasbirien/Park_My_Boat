@@ -30,7 +30,6 @@ ActiveRecord::Schema.define(version: 20170306103232) do
     t.datetime "created_at",                      null: false
     t.datetime "updated_at",                      null: false
     t.datetime "deleted_at"
-    t.boolean  "default"
     t.index ["deleted_at"], name: "index_boats_on_deleted_at", using: :btree
     t.index ["user_id"], name: "index_boats_on_user_id", using: :btree
   end
