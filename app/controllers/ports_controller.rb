@@ -39,6 +39,7 @@ class PortsController < ApplicationController
   # @input_departure_date = Date.strptime(params[:departure_date], '%d/%m/%Y')
 
   def show
+
     @port_places = filter_places.map do |place|
       if place.port_id == params[:id].to_i
         place
