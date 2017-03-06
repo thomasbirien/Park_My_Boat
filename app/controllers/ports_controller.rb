@@ -31,11 +31,14 @@ class PortsController < ApplicationController
 
   def show
 
-    @port_places = filter_places.map do |place|b
+    @port_places = filter_places.map do |place|
       if place.port_id == params[:id].to_i
         place
       end
     end
+    @port_places = @port_places.compact
+
+
     @port = Port.find(params[:id])
     @date_arr = (Date.strptime(params[:arrival_date], '%d/%m/%Y'))
     @arrival_date = @date_arr.strftime("%d/%m/%Y")
