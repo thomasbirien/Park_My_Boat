@@ -12,10 +12,7 @@ class PortsController < ApplicationController
       departure_date: params[:departure_date]
     }
 
-
-
-    @date_range = (Date.strptime(params[:arrival_date], '%m/%d/%Y'))+1.days..(Date.strptime(params[:departure_date], '%m/%d/%Y'))-1.days
-
+    @date_range = (Date.strptime(params[:arrival_date], '%d/%m/%Y'))..(Date.strptime(params[:departure_date], '%d/%m/%Y'))
     @places_selected = Place.all
     @places_selected = @places_selected.where("places.length > ? AND places.width > ? AND places.draught > ?", params[:length], params[:width], params[:draught])
 
