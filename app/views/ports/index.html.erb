@@ -1,8 +1,7 @@
 <%= link_to "port11", port_path(11, arrival_date: "03/22/2017", departure_date: "03/25/2017")  %>
 
-<div class="container">
 
-  <div id="map" style="width: 55%; height: 450px;">
+<div id="map" style="width: 50%; height: 450px;" class="d-inline">
         <% content_for(:after_js) do %>
           <%= javascript_tag do %>
           $(document).ready(function() {
@@ -20,10 +19,12 @@
           });
           <% end %>
         <% end %>
-      </div>
+</div>
 
   <div class="row">
-    <div class="col-xs-12 col-md-6" class="bar-fixed">
+    <div class="col-xs-12 col-md-6">
+      <div id="port-sidebar" class="d-inline">
+
       <% @ports_selected.each do |port| %>
         <div class="card">
           <%= image_tag port.picture, class: "card-img-index" %>
@@ -37,9 +38,10 @@
               <%= "#{port.places.count} places dispos en location" %>
               <a href="#" class="card-link">Card link</a>
               <a href="#" class="card-link">Another link</a>
+              <%= link_to "Je réserve une place", port_path(port) %>
             </div>
         </div>
-        <% end %>
+      <% end %>
 
     <!-- repeat twice to increase the number of ports -->
       <% @ports_selected.each do |port| %>
@@ -58,10 +60,10 @@
             </div>
         </div>
       <% end %>
+      </div>
     </div>
   </div>
 
-</div>
 
 <%= "TESTING" %>
 <br><%="target port: "%><%= @target[:port_name] %>

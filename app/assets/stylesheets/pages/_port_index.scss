@@ -1,3 +1,4 @@
+
 .card-img-index {
 width: 90%;
 max-width: 205px;
@@ -12,7 +13,20 @@ border-radius: 4px;
 box-shadow: 0px 1px 2px 1px rgba(0, 0, 0, 0.2);
 }
 
-.bar-fixed {
-  position:fixed;
-}
+// .port-bar {
+//     position: fixed;
+//     top: 65px;
+//     left: 0;
+//     bottom: 0;
+//     width: 60%;
+//     overflow-y: scroll;
+//     -webkit-overflow-scrolling: touch;
+//     z-index: 0;
+// }
 
+#port-sidebar {
+overflow-y: scroll;
+// border: 1px solid black;
+// width:  250px;
+// margin-bottom: 12px;
+}
