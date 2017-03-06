@@ -86,8 +86,6 @@ class PortsController < ApplicationController
   # @input_arrival_date = Date.strptime(params[:arrival_date], '%d/%m/%Y')
   # @input_departure_date = Date.strptime(params[:departure_date], '%d/%m/%Y')
 
-  end
-
   def show
 
     @port = Port.find(params[:id])
@@ -98,6 +96,7 @@ class PortsController < ApplicationController
     @invoiced = @price * (@departure_date - @arrival_date).to_i
     # @user_boat = current_user.boat_ids.first
   end
+end
 
 
 

@@ -10,42 +10,42 @@
 <p>Adresse: <%= @port.address %></p>
 
 <h4>Ravitaillement disponible:</h4>
-<% @port.place_ids.each do |id| %>
-  <% if Place.find(id).ss_elec %>
+<% @port.places.each do |place| %>
+  <% if place.ss_elec %>
     <p>-éléctricité</p>
   <% end %>
-  <% if Place.find(id).ss_fuel %>
+  <% if place.ss_fuel %>
     <p>-fuel</p>
   <% end %>
-  <% if Place.find(id).ss_fresh_water %>
+  <% if place.ss_fresh_water %>
     <p>-eau</p>
   <% end %>
-  <% if Place.find(id).ss_ice %>
+  <% if place.ss_ice %>
     <p>-glace</p>
   <% end %>
 <% end %>
 <p>-----------------------------</p>
 <h4>Commoditées disponible:</h4>
-<% @port.place_ids.each do |id| %>
-  <% if Place.find(id).ss_tel %>
+<% @port.places.each do |place| %>
+  <% if place.ss_tel %>
     <p>-téléphonie</p>
   <% end %>
-  <% if Place.find(id).ss_wifi %>
+  <% if place.ss_wifi %>
     <p>-wifi</p>
   <% end %>
-  <% if Place.find(id).ss_shower %>
+  <% if place.ss_shower %>
     <p>-douche</p>
   <% end %>
-  <% if Place.find(id).sc_waste_sorting %>
+  <% if place.sc_waste_sorting %>
     <p>-tri des déchets</p>
   <% end %>
-  <% if Place.find(id).sc_waste_pumping %>
+  <% if place.sc_waste_pumping %>
     <p>-pompage des déchets</p>
   <% end %>
-  <% if Place.find(id).sc_waste_container %>
+  <% if place.sc_waste_container %>
     <p>-containeur à déchet</p>
   <% end %>
-  <% if Place.find(id).sc_security %>
+  <% if place.sc_security %>
     <p>-service de sécurité</p>
   <% end %>
 <% end %>
@@ -54,9 +54,9 @@
   <p><%= @arrival_date %></p>
   <p><%= @departure_date %></p>
   <p>les caractéristique de votre bateau :</p>
-  <p>-<%= current_user.boats.find(28).length %> mètre</p>
-  <p>-<%= current_user.boats.find(28).width %> mètre</p>
-  <p>-<%= current_user.boats.find(28).draught %> mètre</p>
+  <p>-length  mètre</p>
+  <p>-width  mètre</p>
+  <p>-draught  mètre</p>
   <p>prix total estimé:<%= @invoiced %>€</p>
 <%= simple_form_for([@port,@booking]) do |f| %>
   <%= f.error_notification %>
@@ -64,6 +64,5 @@
   <p><%= f.input :arrival_date, input_html: {value: @arrival_date}, as: :hidden %></p>
  <p><%= f.input :departure_date, input_html: {value: @departure_date}, as: :hidden %></p>
   <p><%= f.input :place_id, input_html: {value: @port.place_ids.last}, as: :hidden %></p>
- <p><%= f.input :boat_id, input_html: {value: current_user.boat_ids.first}, as: :hidden %></p>
   <p><%= f.submit%></p>
 <% end %>
