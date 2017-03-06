@@ -4,7 +4,6 @@ class PortsController < ApplicationController
   def index
 
     @target = {
-      port_name: params[:port_name],
       length: params[:length],
       width: params[:width],
       draught: params[:draught],
@@ -89,8 +88,8 @@ class PortsController < ApplicationController
   def show
 
     @port = Port.find(params[:id])
-    @arrival_date = (Date.strptime(params[:arrival_date], '%m/%d/%Y'))
-    @departure_date = (Date.strptime(params[:departure_date], '%m/%d/%Y'))
+    @arrival_date = (Date.strptime(params[:arrival_date], '%d/%m/%Y'))
+    @departure_date = (Date.strptime(params[:departure_date], '%d/%m/%Y'))
     @price = @port.places.order(:place_price).last.place_price
     @booking = Booking.new
     @invoiced = @price * (@departure_date - @arrival_date).to_i
