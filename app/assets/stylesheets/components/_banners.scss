@@ -19,3 +19,17 @@
   margin-bottom: 20px;
 }
 
+
+.banner-bookings {
+  background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), image-url('booking-banner.jpg');
+  height: 60vh;
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 30px;
+  h2 {
+    color: white;
+  }
+}

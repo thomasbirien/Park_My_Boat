@@ -15,15 +15,29 @@ class PortsController < ApplicationController
   def show
     @port = Port.find(params[:id])
 
+
     places_filter = PlaceFilter.new(params)
     places_filter.filter
     @places = places_filter.places
 
-    @arrival_date = (Date.strptime(params[:arrival_date], '%d/%m/%Y'))
-    @departure_date = (Date.strptime(params[:departure_date], '%d/%m/%Y'))
-    @price = @places.order(:place_price).last.place_price
+    @port = Port.find(params[:id])
+    @date_arr = (Date.strptime(params[:arrival_date], '%d/%m/%Y'))
+    @arrival_date = @date_arr.strftime("%d/%m/%Y")
+    @date_dep = (Date.strptime(params[:departure_date], '%d/%m/%Y'))
+    @departure_date = @date_dep.strftime("%d/%m/%Y")
+    @prices = @places.sort_by { |place| place[:place_price] }
+    @price = @places.order(:place_price).first.place_price
+
+    @place_choosen = @places.order(:place_price).first
+    @place_select = @place_choosen.first
+    @place_id = @place_choosen.first.id
+    @invoiced = @price * (@date_dep - @date_arr).to_i
     @booking = Booking.new
-    @invoiced = @price * (@departure_date - @arrival_date).to_i
+
+
+
+    # @user_boat = current_user.boat_ids.first
+
   end
 
   private

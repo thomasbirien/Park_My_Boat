@@ -6,14 +6,18 @@ class BookingsController < ApplicationController
   end
 
   def create
+
     @booking = current_user.bookings.new(booking_params)
     @port =  Place.find(@booking.place_id).port
 
     if @booking.save
       redirect_to profile_path
     else
-      @arrival_date = @booking.arrival_date
-      @departure_date = @booking.departure_date
+      @place_id = @booking.place_id
+      @arrival_date = @booking.arrival_date.strftime("%d/%m/%Y")
+      @departure_date = @booking.departure_date.strftime("%d/%m/%Y")
+      @invoiced = @booking.invoiced_price
+
       render 'ports/show'
     end
 
@@ -28,6 +32,6 @@ class BookingsController < ApplicationController
 
   private
   def booking_params
-    params.require(:booking).permit(:arrival_date, :departure_date, :comment, :place_id, :boat_id)
+    params.require(:booking).permit(:arrival_date, :departure_date, :comment, :place_id)
   end
 end
