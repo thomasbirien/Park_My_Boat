@@ -52,7 +52,6 @@ class PortsController < ApplicationController
     @price = @port.places.order(:place_price).last.place_price
     @booking = Booking.new
     @invoiced = @price * (@departure_date - @arrival_date).to_i
-    binding.pry
     # @user_boat = current_user.boat_ids.first
   end
 

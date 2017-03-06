@@ -41,7 +41,7 @@
               <%= port.lng %>
               <%= port.lat %>
               <%= "#{port.places.count} places dispos en location" %>
-              <%= link_to "Je réserve une place", port_path(port, @target) %>
+              <%= link_to "Je réserve une place", port_path(port, @target), class: "card-link-port" %>
             </div>
           </div>
         <% end %>
@@ -50,10 +50,3 @@
   </div>
 </div>
 
-<%= "TESTING" %>
-<br><%="target port: "%><%= @target[:port_name] %>
-<br><%="length: "%><%= @target[:length] %>
-<br><%="width: "%><%= @target[:width] %>
-<br><%="draught: "%><%= @target[:draught] %>
-<br><%="arrival_date: "%><%= @target[:arrival_date] %>
-<br><%="departure_date: "%><%= @target[:departure_date] %>
