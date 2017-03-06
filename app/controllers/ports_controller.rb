@@ -8,7 +8,7 @@ class PortsController < ApplicationController
       width: params[:width],
       draught: params[:draught],
       arrival_date: params[:arrival_date],
-      departure_date: params[:departure_date]
+      departure_date: params[:departure_date],
     }
 
     @date_range = (Date.strptime(params[:arrival_date], '%d/%m/%Y'))..(Date.strptime(params[:departure_date], '%d/%m/%Y'))

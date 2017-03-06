@@ -7,17 +7,18 @@
           <!-- Search bar visible -->
           <div class="col-xs-12 col-md-3">
             <%= label_tag(:port_name, "Choix du port") %>
-            <%= text_field_tag(:port_name, nil, required: true) %>
+            <%= text_field_tag(:port_name, nil, required: true, value: (@target.present? ? @target[:port_name] : nil )) %>
           </div>
           <div class="col-xs-12 col-md-3">
             <%= label_tag(:arrival_date, "Date d'arrivée") %>
-            <%= text_field_tag(:arrival_date, nil, class: "datepicker", required: true) %>
+            <%= text_field_tag(:arrival_date, nil, class: "datepicker", required: true, value: (@target.present? ? @target[:arrival_date] : nil )) %>
           </div>
           <div class="col-xs-12 col-md-3">
             <%= label_tag(:departure_date, "Date de départ") %>
-            <%= text_field_tag(:departure_date, nil, class: "datepicker", required: true) %>
+            <%= text_field_tag(:departure_date, nil, class: "datepicker", required: true, value: (@target.present? ? @target[:departure_date] : nil )) %>
           </div>
         </div>
+
          <!-- Modal dimensions -->
 
          <!-- Button trigger modal -->
@@ -39,21 +40,15 @@
                 </div>
                 <div class="modal-body">
                   <%= label_tag(:length, "Longueur hors tout") %>
-                  <%= number_field_tag(:length, nil, required: true) %>
+                  <%= number_field_tag(:length, nil, required: true, value: (@target.present? ? @target[:length] : nil )) %>
 
                   <%= label_tag(:width, "Largeur") %>
-                  <%= text_field_tag(:width, nil, required: true) %>
+                  <%= text_field_tag(:width, nil, required: true, value: (@target.present? ? @target[:width] : nil )) %>
 
                   <%= label_tag(:draught, "Tirant d'eau") %>
-                  <%= text_field_tag(:draught, nil, required: true) %>
+                  <%= text_field_tag(:draught, nil, required: true, value: (@target.present? ? @target[:draught] : nil )) %>
                   <div class="modal-select">
-                    <%= select_tag(:boat_type, options_for_select([['Selectionner', nil ], ['Voilier', 'sail_boat'], ['Moteur', 'power_boat']])) %>
-                  </div>
-                  <div class="modal-checkbox">
-                    <%= check_box_tag(:multihull) %>
-                    <%= label_tag(:multihull, "Multi coque") %>
-                  </div>
-                </div>
+
                 <div class="modal-footer">
                   <button type="button" class="btn btn-secondary close" data-dismiss="modal">Valider</button>
                 </div>
@@ -63,10 +58,7 @@
         </div>
       </div>
     </div>
-  <!-- Search button -->
-  <div class="btn-search">
-    <%= submit_tag("Search") %>
-  </div>
+
     <!-- Class options for Javascript effect slice down/up -->
     <div class="options">
       <div class="row">
@@ -116,5 +108,11 @@
       <div class="btn-options">
         <button class="btn_options">More options</button>
       </div>
+
+        <!-- Search button -->
+      <div class="btn-search">
+        <%= submit_tag("Search") %>
+      </div>
+
   <% end %>
 </div>
