@@ -1,0 +1,29 @@
+.btn {
+    /* background: url(../../../images/RayButton.jpg) left center repeat-x; */
+    background-image: -webkit-gradient(linear, left top, left bottom, from(#902247), to(#020001));
+    background-image: -webkit-linear-gradient(top, #902247, #020001);
+    background-image: -moz-linear-gradient(top, #902247, #020001);
+    background-image: -ms-linear-gradient(top, #902247, #020001);
+    background-image: -o-linear-gradient(top, #902247, #020001);
+    background-image: linear-gradient(top, #902247, #020001);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=#902247, endColorstr=#020001);
+    background-image: linear-gradient(rgb(144, 34, 71), rgb(2, 0, 1));
+    /* height: 45px; */
+    color: #fff;
+    border: 1px solid white;
+}
+
+.btn:hover {
+    /* background: url(../../../images/RayButton.jpg) left center repeat-x; */
+    background-image: -webkit-gradient(linear, left top, left bottom, from(#020001), to(#902247));
+    background-image: -webkit-linear-gradient(top, #020001, #902247);
+    background-image: -moz-linear-gradient(top, #020001, #902247);
+    background-image: -ms-linear-gradient(top, #020001, #902247);
+    background-image: -o-linear-gradient(top, #020001, #902247);
+    background-image: linear-gradient(top, #020001, #902247);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=#020001, endColorstr=#902247);
+    background-image: linear-gradient(rgb(200, 50, 100), rgb(15, 15, 15));
+    /* height: 45px; */
+    color: #fff;
+    border: 1px solid white;
+}
