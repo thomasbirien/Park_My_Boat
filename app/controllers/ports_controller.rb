@@ -3,12 +3,12 @@ class PortsController < ApplicationController
 
   def index
 
-  @ports_selected = filter_places.map do |place|
-    place.port
-  end.uniq
+    @ports_selected = filter_places.map do |place|
+      place.port
+    end.uniq
 
+  # @target_port = @ports_selected.near(Port.where("port_name ILIKE ?", "%#{params[:port_name]}%"), 30)
     # @ports = Port.all
-    # @ports = @ports.near(Port.where("port_name ILIKE ?", "%#{params[:port_name]}%"), 20)
     # @ports = (Port.where("port_name ILIKE ?", "%#{params[:port_name]}%"))
     # @ports_selected = Port.all
     # @ports_selected = @ports_selected.joins(:places).where("places.length > ? AND places.width > ? AND places.draught > ?", params[:length], params[:width], params[:draught])
@@ -31,7 +31,7 @@ class PortsController < ApplicationController
 
   def show
 
-    @port_places = filter_places.map do |place|
+    @port_places = filter_places.map do |place|b
       if place.port_id == params[:id].to_i
         place
       end
@@ -59,7 +59,10 @@ class PortsController < ApplicationController
     }
 
     @date_range = (Date.strptime(params[:arrival_date], '%d/%m/%Y'))..(Date.strptime(params[:departure_date], '%d/%m/%Y'))
+
     @places_selected = Place.all
+  # look at places situated in a range of the city targeted.
+    # @places_selected = @places_selected.joins(:ports).where("port_name ILIKE ?", "%#{params[:port_name]}%")
     @places_selected = @places_selected.where("places.length > ? AND places.width > ? AND places.draught > ?", params[:length], params[:width], params[:draught])
 
   # check options one by one
