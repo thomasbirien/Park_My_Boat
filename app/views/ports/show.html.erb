@@ -10,7 +10,7 @@
 <p>Adresse: <%= @port.address %></p>
 
 <h4>Ravitaillement disponible:</h4>
-<% @port.places.each do |place| %>
+<% @place_select.each do |place| %>
   <% if place.ss_elec %>
     <p>-éléctricité</p>
   <% end %>
@@ -26,7 +26,7 @@
 <% end %>
 <p>-----------------------------</p>
 <h4>Commoditées disponible:</h4>
-<% @port.places.each do |place| %>
+<% @place_select.each do |place| %>
   <% if place.ss_tel %>
     <p>-téléphonie</p>
   <% end %>

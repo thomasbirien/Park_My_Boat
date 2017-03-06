@@ -46,11 +46,12 @@ class PortsController < ApplicationController
 
 
     @place_choosen = @port_places.sort_by { |place| place[:place_price] }
+    @place_select = @place_choosen.first
     @place_id = @place_choosen.first.id
     @invoiced = @price * (@date_dep - @date_arr).to_i
     @booking = Booking.new
 
-    @invoiced = @price * (@departure_date - @arrival_date).to_i
+
 
     # @user_boat = current_user.boat_ids.first
   end
