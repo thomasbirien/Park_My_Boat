@@ -54,9 +54,9 @@
   <p><%= @arrival_date %></p>
   <p><%= @departure_date %></p>
   <p>les caractéristique de votre bateau :</p>
-  <p>-<%= current_user.boats.find(28).length %> mètre</p>
-  <p>-<%= current_user.boats.find(28).width %> mètre</p>
-  <p>-<%= current_user.boats.find(28).draught %> mètre</p>
+  <p>-length  mètre</p>
+  <p>-width  mètre</p>
+  <p>-draught  mètre</p>
   <p>prix total estimé:<%= @invoiced %>€</p>
 <%= simple_form_for([@port,@booking]) do |f| %>
   <%= f.error_notification %>
