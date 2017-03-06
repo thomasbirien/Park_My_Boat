@@ -7,6 +7,7 @@ class PortFilter
   end
 
   def filter
+    order_by_distance
     filter_by_date
     filter_by_dimensions
     filter_by_options
@@ -15,6 +16,12 @@ class PortFilter
   end
 
   private
+
+  def order_by_distance
+    if params[:port_name].present?
+      @ports = @ports.near(params[:port_name])
+    end
+  end
 
   def filter_by_date
     # Person.includes(:friends).where( :friends => { :person_id => nil } )

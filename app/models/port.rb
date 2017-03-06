@@ -15,7 +15,9 @@ class Port < ApplicationRecord
   validates :check_in_hour, presence: true
   validates :check_out_hour, presence: true
 
-  def self.has_places_between(dates)
+  reverse_geocoded_by :latitude, :longitude
 
+  def self.has_places_between(dates)
+    # todo
   end
 end
