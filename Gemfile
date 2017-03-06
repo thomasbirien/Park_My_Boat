@@ -12,6 +12,7 @@ gem 'devise'
 gem 'redis'
 gem 'awesome_print'
 gem 'bootstrap-datepicker-rails'
+gem 'geocoder'
 
 gem 'sass-rails'
 gem 'jquery-rails'

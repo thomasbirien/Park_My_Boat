@@ -1,3 +1,4 @@
+
 <div class="container">
   <div class="row">
     <div class="col-xs-12 col-md-6">
@@ -11,8 +12,8 @@
         <div class="card-block">
           <h5>Situation et coordonnées</h5>
           <p>Coordonnées GPS:
-            <p>-lng <%=@port.lng%> </p>
-            <p>-lat <%= @port.lat %></p>
+            <p>-lng <%=@port.longitude%>  </p>
+            <p>-lat <%= @port.latitude %></p>
           <p>VHF: <%= @port.radio_channel %></p>
           <p>téléphone: <%= @port.phone_number %></p>
           <p>Email: <%= @port.email %></p>
@@ -32,6 +33,7 @@
         <% if @place_select.ss_ice %>
           <p>-glace</p>
         <% end %>
+
 
         <h5>Commoditées disponible:</h5>
         <% if @place_select.ss_tel %>
