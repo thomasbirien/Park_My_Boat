@@ -121,7 +121,6 @@ counter = 0
     departure_date:["15/03/2017", "20/03/2017", "27/03/2017", "01/04/2017"][counter - 1],
     comment: ["J'ai le mal de mer", "I will be back", "J'aime les bulots", "Vive les moules"][counter - 1],
     user_id: User.all.sample.id,
-    # boat_id: Boat.all.sample.id,
     place_id: Place.all.sample.id
     )
 end

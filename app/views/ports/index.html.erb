@@ -1,5 +1,3 @@
-<%= link_to "port18", port_path(18, arrival_date: "03/22/2017", departure_date: "03/25/2017")  %>
-
 <%= render 'pages/search_bar' %>
 
 <div class="container">
@@ -7,7 +5,7 @@
   <div class="row">
     <div class="col-xs-12 col-sm-6">
 
-      <div id="map" style="width: 100%; height: 450px;" class="d-inline">
+      <div id="map" style="width: 100%; height: 450px;" >
         <% content_for(:after_js) do %>
           <%= javascript_tag do %>
           $(document).ready(function() {
@@ -29,21 +27,19 @@
     </div>
 
     <div class="col-xs-12 col-sm-6">
-      <div id="port-sidebar" class="d-inline">
+      <div id="port-sidebar">
         <% @ports_selected.each do |port| %>
           <div class="card-port">
             <%= image_tag port.picture, class: "card-img-index" %>
             <div class="card-block">
               <h4 class="card-title"><%= port.port_name%></h4>
               <h6 class="card-subtitle mb-2 text-muted"><%= "#{port.size} places totales dans le port"%></h6>
-              <p class="card-text"><%= port.description%></p>
-              <%= port.phone_number %>
-              <%= port.lng %>
-              <%= port.lat %>
-              <%= "#{port.places.count} places dispos en location" %>
-              <a href="#" class="card-link">Card link</a>
-              <a href="#" class="card-link">Another link</a>
-              <%= link_to "Je réserve une place", port_path(port, @target) %>
+              <p id="port-desc" class="card-text"><%= port.description%></p>
+              <br><%= port.phone_number %>
+              <br><%= port.lng %>
+              <br><%= port.lat %>
+              <br><%= "#{count_port_matching_places(port.id, @places_selected)} places disponibles en location selon vos critères" %>
+              <%= link_to "Je réserve une place", port_path(port, @target), class: "card-link-port" %>
             </div>
           </div>
         <% end %>
@@ -52,10 +48,3 @@
   </div>
 </div>
 
-<%= "TESTING" %>
-<br><%="target port: "%><%= @target[:port_name] %>
-<br><%="length: "%><%= @target[:length] %>
-<br><%="width: "%><%= @target[:width] %>
-<br><%="draught: "%><%= @target[:draught] %>
-<br><%="arrival_date: "%><%= @target[:arrival_date] %>
-<br><%="departure_date: "%><%= @target[:departure_date] %>
