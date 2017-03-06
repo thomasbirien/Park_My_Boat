@@ -30,18 +30,31 @@ class PortsController < ApplicationController
 
   def show
 
-    @port_places = filter_places.map do |place|b
+    @port_places = filter_places.map do |place|
       if place.port_id == params[:id].to_i
         place
       end
     end
+    @port_places = @port_places.compact
+
 
     @port = Port.find(params[:id])
-    @arrival_date = (Date.strptime(params[:arrival_date], '%d/%m/%Y'))
-    @departure_date = (Date.strptime(params[:departure_date], '%d/%m/%Y'))
-    @price = @port.places.order(:place_price).last.place_price
+    @date_arr = (Date.strptime(params[:arrival_date], '%d/%m/%Y'))
+    @arrival_date = @date_arr.strftime("%d/%m/%Y")
+    @date_dep = (Date.strptime(params[:departure_date], '%d/%m/%Y'))
+    @departure_date = @date_dep.strftime("%d/%m/%Y")
+    @prices = @port_places.sort_by { |place| place[:place_price] }
+    @price = @prices.first.place_price
+
+
+    @place_choosen = @port_places.sort_by { |place| place[:place_price] }
+    @place_select = @place_choosen.first
+    @place_id = @place_choosen.first.id
+    @invoiced = @price * (@date_dep - @date_arr).to_i
     @booking = Booking.new
-    @invoiced = @price * (@departure_date - @arrival_date).to_i
+
+
+
     # @user_boat = current_user.boat_ids.first
   end
 
