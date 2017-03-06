@@ -38,8 +38,8 @@ class PortsController < ApplicationController
 
   def build_markers
     @hash = Gmaps4rails.build_markers(@ports_selected) do |port, marker|
-      marker.lat port.lat
-      marker.lng port.lng
+      marker.lat port.latitude
+      marker.lng port.longitude
     end
   end
 end

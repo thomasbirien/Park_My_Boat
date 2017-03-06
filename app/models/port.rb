@@ -6,8 +6,8 @@ class Port < ApplicationRecord
 
   validates :port_name, presence: true
   validates :legal_entity, presence: true
-  validates :lng, presence: true
-  validates :lat, presence: true
+  validates :longitude, presence: true
+  validates :latitude, presence: true
   validates :phone_number, presence: true
   validates :radio_channel, presence: true
   validates :email, presence: true
