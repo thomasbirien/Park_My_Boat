@@ -3,15 +3,9 @@ class PortsController < ApplicationController
 
   def index
 
-  # @target_port = @ports_selected.near(Port.where("port_name ILIKE ?", "%#{params[:port_name]}%"), 30)
-
-    add_target_port_to_list
-
     @ports_selected = filter_places.map do |place|
       place.port
     end.uniq
-
-
 
     # @ports = Port.all
     # @ports = (Port.where("port_name ILIKE ?", "%#{params[:port_name]}%"))
@@ -67,6 +61,7 @@ class PortsController < ApplicationController
 
     @places_selected = Place.all
     # look at places situated in a range of the city targeted.
+    # @places_selected = @places_selected.where(port_filter)
 
     @places_selected = @places_selected.where("places.length > ? AND places.width > ? AND places.draught > ?", params[:length], params[:width], params[:draught])
 
@@ -115,10 +110,9 @@ class PortsController < ApplicationController
   @places_selected
   end
 
-  def add_target_port_to_list
-
-    # @target_port = @places_selected.joins(:port).where("port_name ILIKE ?", "%#{params[:port_name]}%")
-
+  def port_filter
+    # @ports = Port.all
+    # @ports = @ports.near(Port.where("port_name ILIKE ?", "%#{params[:port_name]}%"), 40)
   end
 
 
