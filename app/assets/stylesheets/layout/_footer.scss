@@ -2,24 +2,18 @@
 /* wrapper */
 
 .wrapper-footer {
-  background: #fcfcfc;
+  background: $backgroundfooter;
   width: 100%;
-  position: fixed;
   left: 0px;
   bottom: 0px;
   z-index: 1;
-  /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#131313+0,666666+0,2c2c2c+0,2b2b2b+0,383838+0,474747+0,7f7f7f+6,afafaf+14,fcfcfc+28,fcfcfc+100 */
-  background: #131313; /* Old browsers */
-  background: -moz-linear-gradient(top,  #131313 0%, #666666 0%, #2c2c2c 0%, #2b2b2b 0%, #383838 0%, #474747 0%, #7f7f7f 6%, #afafaf 14%, #fcfcfc 28%, #fcfcfc 100%); /* FF3.6-15 */
-  background: -webkit-linear-gradient(top,  #131313 0%,#666666 0%,#2c2c2c 0%,#2b2b2b 0%,#383838 0%,#474747 0%,#7f7f7f 6%,#afafaf 14%,#fcfcfc 28%,#fcfcfc 100%); /* Chrome10-25,Safari5.1-6 */
-  background: linear-gradient(to bottom,  #131313 0%,#666666 0%,#2c2c2c 0%,#2b2b2b 0%,#383838 0%,#474747 0%,#7f7f7f 6%,#afafaf 14%,#fcfcfc 28%,#fcfcfc 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
-  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#131313', endColorstr='#fcfcfc',GradientType=0 ); /* IE6-9 */
+
 }
 
 /* icones */
 .row-footer i {
   width: 50px;
-  color: #3d3d3d;
+  color: #fcfcfc;
   font-size: 30px;
   padding: 10px;
   padding-top: 15px;
@@ -28,8 +22,8 @@
 
 .row-footer i:hover {
   width: 50px;
-  color: #fcfcfc;
-  background: #3d3d3d;
+  color: #671D34;
+  background: #fcfcfc;
   font-size: 30px;
   padding: 10px;
   padding-top: 15px;

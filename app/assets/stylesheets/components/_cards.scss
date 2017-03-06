@@ -1,62 +1,96 @@
-.card-booking {
-  text-shadow: 0 1px 3px rgba(0,0,0,0.6);
-  height: 150px;
-  color: white;
-  position: relative;
-}
-.card-user {
-  position: absolute;
+// .card-booking {
+//   text-shadow: 0 1px 3px rgba(0,0,0,0.6);
+//   height: 150px;
+//   color: white;
+//   position: relative;
+// }
+// .card-image {
+//   position: absolute;
+//   border-radius: 5px;
+//   height:120px;
+//   width:200px ;
+// }
+
+
+// .card-category {
+//   position: absolute;
+//   top: 10px;
+//   left: 10px;
+//   font-size: 10px;
+//   text-transform: uppercase;
+// }
+// .card-description {
+//   position: absolute;
+//   bottom: 10px;
+//   left: 10px;
+// }
+// .card-description h2 {
+//   font-size: 24px;
+// }
+// .card-description p {
+//   font-size: 13px;
+//   }
+// .card-link {
+//   position: absolute;
+//   top: 0;
+//   bottom: 0;
+//   right: 0;
+//   width: 100%;
+//   z-index:2;
+//   background: black;
+//   opacity: 0;
+// }
+// .card-link:hover{
+//   opacity: 0.1;
+// }
+
+// .card-description ul {
+//   list-style: none;
+//   margin-left: 0px;
+//   padding-left:0;
+// }
+
+// .card-btn {
+//   position: absolute;
+//   bottom: 0px;
+// }
+
+
+.card-container {
+  padding: 15px;
+  border: 1px solid #dadada;
+  box-shadow: 2px 2px 2px #dedede;
   border-radius: 5px;
-  height:120px;
-  width:200px ;
+  position: relative;
+  background:#FEFDFF;
+  margin-bottom: 50px;
 }
 
-
-.card-category {
-  position: absolute;
-  top: 10px;
-  left: 10px;
-  font-size: 10px;
-  text-transform: uppercase;
+.card-image {
+    width: 100%;
+    height: 200px;
+    background-size: cover;
 }
+
 .card-description {
-  position: absolute;
-  bottom: 10px;
-  left: 10px;
-}
-.card-description h2 {
-  font-size: 24px;
-}
-.card-description p {
-  font-size: 13px;
-  }
-.card-link {
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  right: 0;
-  width: 100%;
-  z-index:2;
-  background: black;
-  opacity: 0;
-}
-.card-link:hover{
-  opacity: 0.1;
+  margin-top: 15px;
 }
 
-.card-description ul {
-  list-style: none;
-  margin-left: 0px;
-  padding-left:0;
+.price {
+  h5 {
+  position: absolute;
+  top : 10px;
+  right: 20px;
+  color: white;
+  }
+  i {
+  position: absolute;
+  top : 19px;
+  right: 84px;
+  color: white;
+  }
 }
 
 .card-btn {
-  position: absolute;
-  bottom: 0px;
-}
-
-.card-container {
-  margin-left: 20px;
-  margin-right: 20px;
-
+  text-align: right;
 }
