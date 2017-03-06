@@ -1,28 +1,69 @@
 <%= link_to "port11", port_path(11, arrival_date: "03/22/2017", departure_date: "03/25/2017")  %>
 
-<h1>Liste des Ports </h1>
 
-<div id="map" style="width: 50%; height: 300px;">
-
-  <% content_for(:after_js) do %>
-    <%= javascript_tag do %>
-    $(document).ready(function() {
-      var handler = Gmaps.build('Google');
-      handler.buildMap({ internal: { id: 'map' } }, function() {
-        markers = handler.addMarkers(<%= raw @hash.to_json %>);
-        handler.bounds.extendWith(markers);
-        handler.fitMapToBounds();
-        if (markers.length == 0) {
-          handler.getMap().setZoom(2);
-        } else if (markers.length == 1) {
-          handler.getMap().setZoom(14);
-        }
-      });
-    });
-    <% end %>
-  <% end %>
-
+<div id="map" style="width: 50%; height: 450px;" class="d-inline">
+        <% content_for(:after_js) do %>
+          <%= javascript_tag do %>
+          $(document).ready(function() {
+            var handler = Gmaps.build('Google');
+            handler.buildMap({ internal: { id: 'map' } }, function() {
+              markers = handler.addMarkers(<%= raw @hash.to_json %>);
+              handler.bounds.extendWith(markers);
+              handler.fitMapToBounds();
+              if (markers.length == 0) {
+                handler.getMap().setZoom(2);
+              } else if (markers.length == 1) {
+                handler.getMap().setZoom(14);
+              }
+            });
+          });
+          <% end %>
+        <% end %>
 </div>
+
+  <div class="row">
+    <div class="col-xs-12 col-md-6">
+      <div id="port-sidebar" class="d-inline">
+
+      <% @ports_selected.each do |port| %>
+        <div class="card-port">
+          <%= image_tag port.picture, class: "card-img-index" %>
+            <div class="card-block">
+              <h4 class="card-title"><%= port.port_name%></h4>
+              <h6 class="card-subtitle mb-2 text-muted"><%= "#{port.size} places totales dans le port"%></h6>
+              <p class="card-text"><%= port.description%></p>
+              <%= port.phone_number %>
+              <%= port.lng %>
+              <%= port.lat %>
+              <%= "#{port.places.count} places dispos en location" %>
+              <a href="#" class="card-link">Card link</a>
+              <a href="#" class="card-link">Another link</a>
+              <%= link_to "Je réserve une place", port_path(port) %>
+            </div>
+        </div>
+      <% end %>
+
+    <!-- repeat twice to increase the number of ports -->
+      <% @ports_selected.each do |port| %>
+        <div class="card-port">
+          <%= image_tag port.picture, class: "card-img-index" %>
+            <div class="card-block">
+              <h4 class="card-title"><%= port.port_name%></h4>
+              <h6 class="card-subtitle mb-2 text-muted"><%= "#{port.size} places totales dans le port"%></h6>
+              <p class="card-text"><%= port.description%></p>
+              <%= port.phone_number %>
+              <%= port.lng %>
+              <%= port.lat %>
+              <%= "#{port.places.count} places dispos en location" %>
+              <a href="#" class="card-link">Card link</a>
+              <a href="#" class="card-link">Another link</a>
+            </div>
+        </div>
+      <% end %>
+      </div>
+    </div>
+  </div>
+
 
 <%= "TESTING" %>
 <br><%="target port: "%><%= @target[:port_name] %>
@@ -30,47 +71,4 @@
 <br><%="width: "%><%= @target[:width] %>
 <br><%="draught: "%><%= @target[:draught] %>
 <br><%="arrival_date: "%><%= @target[:arrival_date] %>
-<br><%="departure_date: "%><%= @target[:arrival_date] %>
-<br><%="departure_date: "%><%= @target[:arrival_date] %>
-
-  <% @ports_selected.each do |port| %>
-    <br>
-    <br><%="port name: "%><%= port.port_name %>
-    <br><%="port id: "%><%= port.id %>
-      <% port.places.each do |place| %>
-        <br>
-        <br><%="width: "%><%= place.width %>
-        <br><%="length: "%><%=place.length %>
-        <br><%="draugth: "%><%=place.draught %>
-        <br>
-      <% end %>
-  <% end %>
-
-
-
-<br>
-
-<% @ports_selected.each do |port| %>
-
-<div>
-<br>
-<%= port.port_name %>
-<br>
-<%= port.description %>
-<br>
-<%= image_tag port.picture %>
-
-<br>
-<%= "#{port.size} places totales dans le port"%>
-<br>
-<%= "#{port.places.count} places dispos en location" %>
-<br>
-<%= port.phone_number %>
-<br>
-<%= port.lng %>
-<br>
-<%= port.lat %>
-<br>
-</div>
-
-<% end %>
+<br><%="departure_date: "%><%= @target[:departure_date] %>
