@@ -78,7 +78,9 @@ class PortsController < ApplicationController
       marker.lat port.lat
       marker.lng port.lng
       # marker.infowindow render_to_string(partial: "/flats/map_box", locals: { flat: flat })
+
     end
+
   end
 
   # @date_range = (Date.strptime(params[:arrival_date], '%d/%m/%Y'))..(Date.strptime(params[:departure_date], '%d/%m/%Y'))
@@ -86,7 +88,6 @@ class PortsController < ApplicationController
   # @input_departure_date = Date.strptime(params[:departure_date], '%d/%m/%Y')
 
   def show
-
     @port = Port.find(params[:id])
     @arrival_date = (Date.strptime(params[:arrival_date], '%d/%m/%Y'))
     @departure_date = (Date.strptime(params[:departure_date], '%d/%m/%Y'))
