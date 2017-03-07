@@ -24,7 +24,7 @@ puts "Creating Ports"
   print '.'
   counter += 1
   Port.create!(
-    port_name: ["La Ciotat","EPR Port Sud de France","Terminal de Toulon Côte d'Azur"][counter - 1],
+    port_name: ["La Ciotat","Sète","Toulon Côte d'Azur"][counter - 1],
     legal_entity: "Capitainerie",
     description:["Port situé dans la ville au Nord de l’ensemble portuaire. Il est composé de deux bassins séparés par un large terre-plein.", "Le port de plaisance de Sète est une escale attractive et originale. Le charme des canaux et le côté pittoresque de son Port de Pêche, font de Sète une ville de caractère, baignée à la fois par la Méditerranée et par l’Etang de Thau.", "Venez découvrir les 6 ports de plaisance de Toulon Vieille Darse, Toulon Darse Nord, La Seyne-sur-Mer, Saint-Mandrier, Saint-Louis du Mourillon et du Niel."][counter - 1],
     size: [650, 120, 100][counter - 1],
@@ -40,9 +40,9 @@ puts "Creating Ports"
   )
 end
 
-# Creation places db
+# creation places aléatoires
 6.times do
-  prices = [20.5, 30.10, 50.00, 100.15, 120.00, 99.99]
+  prices = [3.0, 7.0, 10.00, 100.15, 120.00, 99.99]
   lengths = [10.35, 15.50, 25.35, 9.90, 20.10]
   widths = [4.3, 6.2, 3.45, 7.3]
   draughts = [2.45, 3.5, 1.5]
@@ -67,6 +67,69 @@ end
     )
 end
 
+
+# Creation places Ciotat
+counter = 0
+10.times do
+  print '.'
+  counter += 1
+  prices = [20.5, 30.10, 50.00, 100.15, 120.00, 99.99]
+  lengths = [10.35, 15.50, 25.35, 9.90, 20.10]
+  widths = [4.3, 6.2, 3.45, 7.3]
+  draughts = [2.45, 3.5, 1.5]
+  boolean = [true, false]
+  Place.create!(
+    place_price: [3.0, 3.0, 3.0, 7.0, 7.0, 8.0, 8.0, 15.0, 15.0, 30.0][counter - 1],
+    length: [6.00, 6.00, 11.00, 11.00, 12.00, 12.00, 12.00, 25.00, 30.00, 35,00][counter - 1],
+    width: [3.00, 3.00, 3.00, 4.00, 4.00, 4.00, 5.00, 7.00, 10.00, 14,00][counter - 1],
+    draught: [2.00, 2.00, 2.00, 3.00, 4.00, 4.00, 4.00, 5.00, 6.00, 6,00][counter - 1],
+    ss_elec: [true, false, true, true, false, true, false, true, false, true][counter - 1],
+    ss_fresh_water: [true, false, true, true, false, true, false, true, false, true][counter - 1],
+    ss_ice: [true, false, false, true, false, false, false, true, true, true][counter - 1],
+    ss_fuel: [true, false, true, true, false, true, false, true, false, true][counter - 1],
+    ss_tel: [true, false, true, true, true, true, true, true, true, true][counter - 1],
+    ss_wifi: [true, false, true, true, false, true, false, true, false, true][counter - 1],
+    ss_shower: [true, false, true, true, false, true, false, true, false, true][counter - 1],
+    sc_waste_sorting: [true, false, true, true, true, true, true, true, true, true][counter - 1],
+    sc_waste_pumping: [true, false, true, true, true, true, true, true, true, true][counter - 1],
+    sc_security: [true, false, true, true, true, true, true, true, true, true][counter - 1],
+    sc_waste_container: [true, false, true, true, false, true, false, true, false, true][counter - 1],
+    port_id: Port.find_by(port_name: "La Ciotat").id
+    )
+end
+
+# places pour port de Toulon
+counter = 0
+5.times do
+  print '.'
+  counter += 1
+  prices = [20.5, 30.10, 50.00, 100.15, 120.00, 99.99]
+  lengths = [10.35, 15.50, 25.35, 9.90, 20.10]
+  widths = [4.3, 6.2, 3.45, 7.3]
+  draughts = [2.45, 3.5, 1.5]
+  boolean = [true, false]
+  Place.create!(
+    place_price: [3.00, 3.00, 3.00, 7.00, 7.00][counter - 1],
+    length: [6.00, 6.00, 11.00, 11.00, 12.00][counter - 1],
+    width: [3.00, 3.00, 3.00, 4.00, 4.00][counter - 1],
+    draught: [2.00, 2.00, 2.00, 3.00, 4.00][counter - 1],
+    ss_elec: [true, false, true, true, false][counter - 1],
+    ss_fresh_water: [true, false, true, true, false][counter - 1],
+    ss_ice: [true, false, false, true, false][counter - 1],
+    ss_fuel: [true, false, true, true, false][counter - 1],
+    ss_tel: [true, false, true, true, true][counter - 1],
+    ss_wifi: [true, false, true, true, false][counter - 1],
+    ss_shower: [true, false, true, true, false][counter - 1],
+    sc_waste_sorting: [true, false, true, true, true][counter - 1],
+    sc_waste_pumping: [true, false, true, true, true][counter - 1],
+    sc_security: [true, false, true, true, true][counter - 1],
+    sc_waste_container: [true, false, true, true, false][counter - 1],
+    port_id: Port.find_by(port_name: "Sète").id
+    )
+end
+
+
+
 # Creation users
 img_georgette = "http://www.inmemoriam.ca/images/photo_original/340777-georgette-belair.jpg"
 img_arnold = "http://assets.schwarzenegger.com/images/img-2.jpg"
@@ -75,16 +138,16 @@ counter = 0
 2.times do
   counter += 1
   User.create!(
-    first_name: ["Georgette", "Arnold"][counter - 1],
-    last_name: ["Bichon", "Schwarzi"][counter - 1],
+    first_name: ["Michel", "Robert"][counter - 1],
+    last_name: ["Petit", "Geraud"][counter - 1],
     picture:[img_georgette, img_arnold][counter - 1],
     phone_number: ["06 12 30 22 34", "07 08 09 10 34"][counter - 1],
     civility: ["Grande Bretonne", "Roumain"][counter - 1],
-    address: ["23 av. de l'amour de dieu", "45 rue du biscoto"][counter - 1],
-    post_code: ["34006", "23004"][counter - 1],
-    city: ["Los Angeles", "Texas"][counter - 1],
-    country: ["Earth", "US"][counter - 1],
-    email: ["georgette@gmail.com", "arnold@wanadoo.fr"][counter - 1],
+    address: ["23 av. des ecoles", "45 rue du four"][counter - 1],
+    post_code: ["69006", "75018"][counter - 1],
+    city: ["Lyon", "Paris"][counter - 1],
+    country: ["France", "France"][counter - 1],
+    email: ["michelpetit@gmail.com", "robertgeraud@wanadoo.fr"][counter - 1],
     password: "password"
     )
 end
