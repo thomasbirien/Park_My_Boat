@@ -3,116 +3,94 @@
   <div class="search_bar_visibe">
     <div class="row">
       <%= form_tag("/ports", method: "get") do %>
-        <div class="search_bar_show">
-          <!-- Search bar visible -->
-          <div class="col-xs-12 col-md-3">
-            <%= label_tag(:port_name, "Choix du port") %>
-            <%= text_field_tag(:port_name, nil, required: true, value: (@target.present? ? @target[:port_name] : nil )) %>
-          </div>
-          <div class="col-xs-12 col-md-3">
-            <%= label_tag(:arrival_date, "Date d'arrivée") %>
-            <%= text_field_tag(:arrival_date, nil, class: "datepicker", required: true, value: (@target.present? ? @target[:arrival_date] : nil )) %>
-          </div>
-          <div class="col-xs-12 col-md-3">
-            <%= label_tag(:departure_date, "Date de départ") %>
-            <%= text_field_tag(:departure_date, nil, class: "datepicker", required: true, value: (@target.present? ? @target[:departure_date] : nil )) %>
-          </div>
+
+      <!-- Search bar city + dates -->
+
+      <div class="col-xs-12 col-md-2 col-md-offset-2">
+        <%= label_tag(:port_name, "Proche du port...") %>
+        <%= text_field_tag(:port_name, nil, required: true, placeholder: " ex: La ciotat", value: (@target.present? ? @target[:port_name] : nil )) %>
+      </div>
+      <div class="col-xs-12 col-md-2">
+        <div class="date">
+          <%= label_tag(:arrival_date, "Dates de réservation") %>
+          <%= text_field_tag(:arrival_date, nil, class: "datepicker", required: true, placeholder: "Arrivée",value: (@target.present? ? @target[:arrival_date] : nil )) %>
+
+          <%= text_field_tag(:departure_date, nil, class: "datepicker", required: true, placeholder: "Départ", value: (@target.present? ? @target[:departure_date] : nil )) %>
         </div>
+      </div>
 
-         <!-- Modal dimensions -->
+     <!-- Dimensions -->
 
-         <!-- Button trigger modal -->
-        <div class="col-xs-12 col-md-3">
-          <label for="title-modal">Dimensions</label>
-          <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#ModalDimension">
-            <i class="fa fa-ship"></i>
-          </button>
+      <div class="col-xs-12 col-md-2">
+        <div class="dimensions">
+          <%= label_tag(:length, "Dimensions (m)") %>
+          <%= text_field_tag(:length, nil, required: true, placeholder: "Long.", value: (@target.present? ? @target[:length] : nil )) %>
 
-           <!-- Modal -->
-          <div class="modal fade" id="ModalDimension" tabindex="-1" role="dialog" aria-labelledby="ModalDimension" aria-hidden="true">
-            <div class="modal-dialog" role="document">
-              <div class="modal-content">
-                <div class="modal-header">
-                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                  </button>
-                  <h4 class="modal-title" id="exampleModalLabel">Entrez les dimensions de votre bateau</h4>
-                </div>
-                <div class="modal-body">
-                  <%= label_tag(:length, "Longueur hors tout") %>
-                  <%= number_field_tag(:length, nil, required: true, value: (@target.present? ? @target[:length] : nil )) %>
+          <%= text_field_tag(:width, nil, required: true, placeholder: "Larg.", value: (@target.present? ? @target[:width] : nil )) %>
 
-                  <%= label_tag(:width, "Largeur") %>
-                  <%= text_field_tag(:width, nil, required: true, value: (@target.present? ? @target[:width] : nil )) %>
+          <%= text_field_tag(:draught, nil, required: true, placeholder: "T. eau", value: (@target.present? ? @target[:draught] : nil )) %>
+        </div>
+      </div>
 
-                  <%= label_tag(:draught, "Tirant d'eau") %>
-                  <%= text_field_tag(:draught, nil, required: true, value: (@target.present? ? @target[:draught] : nil )) %>
-                  <div class="modal-select">
 
-                <div class="modal-footer">
-                  <button type="button" class="btn btn-secondary close" data-dismiss="modal">Valider</button>
-                </div>
-              </div>
-            </div>
-          </div>
+    <!-- Search button -->
+
+      <div class="col-xs-12 col-md-2">
+        <div class="search-btn">
+          <%= submit_tag("Chercher", class: "btn")  %>
         </div>
       </div>
     </div>
+  </div>
+  <!-- Class options for Javascript effect slice down/up -->
 
-    <!-- Class options for Javascript effect slice down/up -->
-    <div class="options">
+  <div class="options">
+    <div class="row">
+      <div class="col-xs-offset-3 col-xs-3">
+        <br>
+          <h4>Options</h4>
+        <br>
+      </div>
+     </div>
       <div class="row">
         <div class="col-xs-offset-3 col-xs-3">
-          <br>
-            <h4>Options</h4>
-          <br>
+          <ul>
+            <li><%= check_box_tag(:ss_elec) %>
+                <%= label_tag(:ss_elec, "Electricité") %></li>
+            <li><%= check_box_tag(:ss_fresh_water) %>
+                <%= label_tag(:ss_fresh_water, "Eau douce") %></li>
+            <li><%= check_box_tag(:ss_ice) %>
+                <%= label_tag(:ss_ice, "Glace") %></li>
+            <li><%= check_box_tag(:ss_fuel) %>
+                <%= label_tag(:ss_fuel, "Carburant") %></li>
+            <li><%= check_box_tag(:ss_tel) %>
+                <%= label_tag(:ss_tel, "Téléphone") %></li>
+            <li><%= check_box_tag(:ss_wifi) %>
+                <%= label_tag(:ss_wifi, "Wifi") %></li>
+          </ul>
         </div>
-       </div>
-        <div class="row">
-          <div class="search_bar_hidden">
-            <div class="col-xs-offset-3 col-xs-3">
-              <ul>
-                <li><%= check_box_tag(:ss_elec) %>
-                    <%= label_tag(:ss_elec, "Electricité") %></li>
-                <li><%= check_box_tag(:ss_fresh_water) %>
-                    <%= label_tag(:ss_fresh_water, "Eau douce") %></li>
-                <li><%= check_box_tag(:ss_ice) %>
-                    <%= label_tag(:ss_ice, "Glace") %></li>
-                <li><%= check_box_tag(:ss_fuel) %>
-                    <%= label_tag(:ss_fuel, "Carburant") %></li>
-                <li><%= check_box_tag(:ss_tel) %>
-                    <%= label_tag(:ss_tel, "Téléphone") %></li>
-                <li><%= check_box_tag(:ss_wifi) %>
-                    <%= label_tag(:ss_wifi, "Wifi") %></li>
-              </ul>
-            </div>
-            <div class="col-xs-3">
-            <ul>
-              <li><%= check_box_tag(:ss_shower) %>
-                  <%= label_tag(:ss_shower, "Douches et sanitaires") %></li>
-              <li><%= check_box_tag(:sc_waste_sorting) %>
-                  <%= label_tag(:sc_waste_sorting, "Tri des déchets") %></li>
-              <li><%= check_box_tag(:sc_waste_pumping) %>
-                  <%= label_tag(:sc_waste_pumping, "Pompage des eaux usées") %></li>
-              <li><%= check_box_tag(:sc_waste_container) %>
-                  <%= label_tag(:sc_waste_container, "Container des huiles usagée") %></li>
-              <li><%= check_box_tag(:sc_security) %>
-                  <%= label_tag(:sc_security, "Surveillance") %></li>
-            </ul>
-            </div>
-          </div>
+        <div class="col-xs-3">
+          <ul>
+            <li><%= check_box_tag(:ss_shower) %>
+                <%= label_tag(:ss_shower, "Douches et sanitaires") %></li>
+            <li><%= check_box_tag(:sc_waste_sorting) %>
+                <%= label_tag(:sc_waste_sorting, "Tri des déchets") %></li>
+            <li><%= check_box_tag(:sc_waste_pumping) %>
+                <%= label_tag(:sc_waste_pumping, "Pompage des eaux usées") %></li>
+            <li><%= check_box_tag(:sc_waste_container) %>
+                <%= label_tag(:sc_waste_container, "Container des huiles usagée") %></li>
+            <li><%= check_box_tag(:sc_security) %>
+                <%= label_tag(:sc_security, "Surveillance") %></li>
+          </ul>
         </div>
       </div>
-      <br>
-      <!-- More options hidden -->
-      <div class="btn-options">
-        <button class="btn_options">More options</button>
-      </div>
+    </div>
+    <br>
 
-        <!-- Search button -->
-      <div class="btn-search">
-        <%= submit_tag("Search") %>
-      </div>
+    <!-- More options hidden -->
+    <div class="options-padding">
+      <button class="btn-secondary">Options</button>
+    </div>
 
   <% end %>
 </div>
