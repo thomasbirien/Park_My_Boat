@@ -10,17 +10,21 @@
           <%= javascript_tag do %>
           $(document).ready(function() {
             var handler = Gmaps.build('Google');
+
+
             handler.buildMap({
               internal: { id: 'map' },
               provider: { center: {
-                lat: <%= @geographic_center[0] %>,
-                lng: <%= @geographic_center[1] %>
+                  lat: <%= @geographic_center[0] %>,
+                  lng: <%= @geographic_center[1] %>
                 }
               }
             },
             function() {
-              markers = handler.addMarkers(<%= raw @hash.to_json %>);
-              handler.bounds.extendWith(markers);
+              <% @hash.each do |marker| %>
+                markers = handler.addMarker(<%= raw ({ lat: marker[:lat], lng: marker[:lng] }.to_json) %>, { label: '<%= @places[marker[:id]] %>' });
+                handler.bounds.extendWith(markers);
+              <% end %>
               handler.fitMapToBounds();
               if (markers.length == 0) {
                 handler.getMap().setZoom(6);
