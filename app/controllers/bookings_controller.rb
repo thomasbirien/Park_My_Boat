@@ -14,6 +14,7 @@ class BookingsController < ApplicationController
       redirect_to profile_path
     else
       @place_id = @booking.place_id
+      @place_select = Place.find(@place_id)
       @arrival_date = @booking.arrival_date.strftime("%d/%m/%Y")
       @departure_date = @booking.departure_date.strftime("%d/%m/%Y")
       @invoiced = @booking.invoiced_price
