@@ -2,9 +2,9 @@
 <div class="container">
   <div class="row">
     <div class="col-xs-12 col-md-6">
-      <div class="card" style="width: 20rem;">
+      <div class="card-port-show">
         <blockquote class="card-blockquote">
-          <%= image_tag @port.picture, class: "card-img-top"%>
+          <%= image_tag @port.picture, class: "card-img-index"%>
           <div class="card-block">
             <h3><%= @port.port_name %></h3>
             <h4>Place de disponible: <%=@port.places.count %> </h4>
@@ -63,9 +63,9 @@
       </div>
     </div>
     <div class="col-xs-12 col-md-6">
-      <div class="card"></div>
+      <div class="card-port-show-book">
         <div class="card-block">
-        <h4>Booking this place</h4>
+          <h4>Booking this place</h4>
           <p><%= @arrival_date %></p>
           <p><%= @departure_date %></p>
           <p>les caractéristique de votre bateau :</p>
@@ -75,10 +75,10 @@
           <p>prix total estimé:<%= @invoiced %>€</p>
           <%= simple_form_for([@port,@booking]) do |f| %>
           <%= f.error_notification %>
-            <p><%= f.input :arrival_date, input_html: {value: @arrival_date}, as: :hidden %></p>
-            <p><%= f.input :departure_date, input_html: {value: @departure_date}, as: :hidden %></p>
-            <p><%= f.input :place_id, input_html: {value: @place_id}, as: :hidden %></p>
-            <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#modalbooking">Booking</button>
+          <p><%= f.input :arrival_date, input_html: {value: @arrival_date}, as: :hidden %></p>
+          <p><%= f.input :departure_date, input_html: {value: @departure_date}, as: :hidden %></p>
+          <p><%= f.input :place_id, input_html: {value: @place_id}, as: :hidden %></p>
+          <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#modalbooking">Booking</button>
           <% end %>
           <div class="modal fade" id="modalbooking" tabindex="-1" role="dialog" aria-labelledby="booking">
             <div class="modal-dialog" role="document">
@@ -90,20 +90,19 @@
                   <h4 class="modal-title" id="myModalLabel">Réservation: </h4>
                 </div>
                 <div class="modal-body">
-                  <p><%= @arrival_date %></p>
-                  <p><%= @departure_date %></p>
-                  <p>les caractéristique de votre bateau :</p>
-                  <p> -<%= params[:length] %>  mètre</p>
-                  <p> -<%= params[:width] %>  mètre</p>
-                  <p> -<%= params[:draught] %>  mètre</p>
-                  <p>prix total estimé:<%= @invoiced %>€</p>
-                  <%= simple_form_for([@port,@booking]) do |f| %>
-                  <%= f.error_notification %>
-                    <p><%= f.input :comment, label: "Un commentaire à ajouter à la capitainerie ?" %></p>
-                    <p><%= f.input :arrival_date, input_html: {value: @arrival_date}, as: :hidden %></p>
-                    <p><%= f.input :departure_date, input_html: {value: @departure_date}, as: :hidden %></p>
-                    <p><%= f.input :place_id, input_html: {value: @place_id}, as: :hidden %></p>
-
+                    <p><%= @arrival_date %></p>
+                    <p><%= @departure_date %></p>
+                    <p>les caractéristique de votre bateau :</p>
+                    <p> -<%= params[:length] %>  mètre</p>
+                    <p> -<%= params[:width] %>  mètre</p>
+                    <p> -<%= params[:draught] %>  mètre</p>
+                    <p>prix total estimé:<%= @invoiced %>€</p>
+                    <%= simple_form_for([@port,@booking]) do |f| %>
+                    <%= f.error_notification %>
+                      <p><%= f.input :comment, label: "Un commentaire à ajouter à la capitainerie ?" %></p>
+                      <p><%= f.input :arrival_date, input_html: {value: @arrival_date}, as: :hidden %></p>
+                      <p><%= f.input :departure_date, input_html: {value: @departure_date}, as: :hidden %></p>
+                      <p><%= f.input :place_id, input_html: {value: @place_id}, as: :hidden %></p>
                 </div>
                 <div class="modal-footer">
                   <button type="button" class="btn btn-default" data-dismiss="modal">Annuler</button>
