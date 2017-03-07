@@ -2,83 +2,121 @@
 <div class="container">
   <div class="row">
     <div class="col-xs-12 col-md-6">
-      <div class="card">
-        <%= image_tag @port.picture , class: "card-img-top" %>
-        <div class="card-block">
-          <h3><%= @port.port_name %></h3>
-          <h4>Place de disponible: <%=@port.places.count %> </h4>
-          <p>Capacité d'accueil: <%=@port.size %></p>
-        </div>
-        <div class="card-block">
-          <h5>Situation et coordonnées</h5>
-          <p>Coordonnées GPS:
-            <p>-lng <%=@port.longitude%>  </p>
-            <p>-lat <%= @port.latitude %></p>
-          <p>VHF: <%= @port.radio_channel %></p>
-          <p>téléphone: <%= @port.phone_number %></p>
-          <p>Email: <%= @port.email %></p>
-          <p>Adresse: <%= @port.address %></p>
-        </div>
-        <div class="card-block">
-        <h5>Ravitaillement disponible:</h5>
-        <% if @place_select.ss_elec %>
-         <p>-éléctricité</p>
-        <% end %>
-        <% if @place_select.ss_fuel %>
-          <p>-fuel</p>
-        <% end %>
-        <% if @place_select.ss_fresh_water %>
-          <p>-eau</p>
-        <% end %>
-        <% if @place_select.ss_ice %>
-          <p>-glace</p>
-        <% end %>
+      <div class="card" style="width: 20rem;">
+        <blockquote class="card-blockquote">
+          <%= image_tag @port.picture, class: "card-img-top"%>
+          <div class="card-block">
+            <h3><%= @port.port_name %></h3>
+            <h4>Place de disponible: <%=@port.places.count %> </h4>
+            <p>Capacité d'accueil: <%=@port.size %></p>
+          </div>
+          <div class="card-block">
+            <h5>Situation et coordonnées</h5>
+            <p>Coordonnées GPS:
+              <p>-lng <%=@port.longitude%>  </p>
+              <p>-lat <%= @port.latitude %></p>
+            <p>VHF: <%= @port.radio_channel %></p>
+            <p>téléphone: <%= @port.phone_number %></p>
+            <p>Email: <%= @port.email %></p>
+            <p>Adresse: <%= @port.address %></p>
+          </div>
+          <div class="card-block">
+          <h5>Ravitaillement disponible:</h5>
+          <% if @place_select.ss_elec %>
+           <p>-éléctricité</p>
+          <% end %>
+          <% if @place_select.ss_fuel %>
+            <p>-fuel</p>
+          <% end %>
+          <% if @place_select.ss_fresh_water %>
+            <p>-eau</p>
+          <% end %>
+          <% if @place_select.ss_ice %>
+            <p>-glace</p>
+          <% end %>
 
 
-        <h5>Commoditées disponible:</h5>
-        <% if @place_select.ss_tel %>
-          <p>-téléphonie</p>
-        <% end %>
-        <% if @place_select.ss_wifi %>
-          <p>-wifi</p>
-        <% end %>
-        <% if @place_select.ss_shower %>
-          <p>-douche</p>
-        <% end %>
-        <% if @place_select.sc_waste_sorting %>
-          <p>-tri des déchets</p>
-        <% end %>
-        <% if @place_select.sc_waste_pumping %>
-          <p>-pompage des déchets</p>
-        <% end %>
-        <% if @place_select.sc_waste_container %>
-          <p>-containeur à déchet</p>
-        <% end %>
-        <% if @place_select.sc_security %>
-          <p>-service de sécurité</p>
-        <% end %>
-        </div>
+          <h5>Commoditées disponible:</h5>
+          <% if @place_select.ss_tel %>
+            <p>-téléphonie</p>
+          <% end %>
+          <% if @place_select.ss_wifi %>
+            <p>-wifi</p>
+          <% end %>
+          <% if @place_select.ss_shower %>
+            <p>-douche</p>
+          <% end %>
+          <% if @place_select.sc_waste_sorting %>
+            <p>-tri des déchets</p>
+          <% end %>
+          <% if @place_select.sc_waste_pumping %>
+            <p>-pompage des déchets</p>
+          <% end %>
+          <% if @place_select.sc_waste_container %>
+            <p>-containeur à déchet</p>
+          <% end %>
+          <% if @place_select.sc_security %>
+            <p>-service de sécurité</p>
+          <% end %>
+          </div>
+          </blockquote>
       </div>
     </div>
     <div class="col-xs-12 col-md-6">
-      <h4>Booking this place</h4>
-        <p><%= @arrival_date %></p>
-        <p><%= @departure_date %></p>
-        <p>les caractéristique de votre bateau :</p>
-        <p> -<%= params[:length] %>  mètre</p>
-        <p> -<%= params[:width] %>  mètre</p>
-        <p> -<%= params[:draught] %>  mètre</p>
-        <p>prix total estimé:<%= @invoiced %>€</p>
-        <%= simple_form_for([@port,@booking]) do |f| %>
-        <%= f.error_notification %>
-          <p><%= f.input :comment, label: "Un commentaire à ajouter à la capitainerie ?" %></p>
-          <p><%= f.input :arrival_date, input_html: {value: @arrival_date}, as: :hidden %></p>
-          <p><%= f.input :departure_date, input_html: {value: @departure_date}, as: :hidden %></p>
-          <p><%= f.input :place_id, input_html: {value: @place_id}, as: :hidden %></p>
-          <p><%= f.submit%> Booking !</p>
-        <% end %>
-    </div>
+      <div class="card"></div>
+        <div class="card-block">
+        <h4>Booking this place</h4>
+          <p><%= @arrival_date %></p>
+          <p><%= @departure_date %></p>
+          <p>les caractéristique de votre bateau :</p>
+          <p> -<%= params[:length] %>  mètre</p>
+          <p> -<%= params[:width] %>  mètre</p>
+          <p> -<%= params[:draught] %>  mètre</p>
+          <p>prix total estimé:<%= @invoiced %>€</p>
+          <%= simple_form_for([@port,@booking]) do |f| %>
+          <%= f.error_notification %>
+            <p><%= f.input :arrival_date, input_html: {value: @arrival_date}, as: :hidden %></p>
+            <p><%= f.input :departure_date, input_html: {value: @departure_date}, as: :hidden %></p>
+            <p><%= f.input :place_id, input_html: {value: @place_id}, as: :hidden %></p>
+            <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#modalbooking">Booking</button>
+          <% end %>
+          <div class="modal fade" id="modalbooking" tabindex="-1" role="dialog" aria-labelledby="booking">
+            <div class="modal-dialog" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">X</span>
+                  </button>
+                  <h4 class="modal-title" id="myModalLabel">Réservation: </h4>
+                </div>
+                <div class="modal-body">
+                  <p><%= @arrival_date %></p>
+                  <p><%= @departure_date %></p>
+                  <p>les caractéristique de votre bateau :</p>
+                  <p> -<%= params[:length] %>  mètre</p>
+                  <p> -<%= params[:width] %>  mètre</p>
+                  <p> -<%= params[:draught] %>  mètre</p>
+                  <p>prix total estimé:<%= @invoiced %>€</p>
+                  <%= simple_form_for([@port,@booking]) do |f| %>
+                  <%= f.error_notification %>
+                    <p><%= f.input :comment, label: "Un commentaire à ajouter à la capitainerie ?" %></p>
+                    <p><%= f.input :arrival_date, input_html: {value: @arrival_date}, as: :hidden %></p>
+                    <p><%= f.input :departure_date, input_html: {value: @departure_date}, as: :hidden %></p>
+                    <p><%= f.input :place_id, input_html: {value: @place_id}, as: :hidden %></p>
 
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-default" data-dismiss="modal">Annuler</button>
+                  <%= f.submit "Réserver", class: "btn btn-primary" %>
+                  <% end %>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
 </div>
+
 

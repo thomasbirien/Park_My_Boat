@@ -13,6 +13,7 @@ gem 'redis'
 gem 'awesome_print'
 gem 'bootstrap-datepicker-rails'
 gem 'geocoder'
+gem 'validates_overlap'
 
 gem 'sass-rails'
 gem 'jquery-rails'
