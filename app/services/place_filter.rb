@@ -3,15 +3,24 @@ class PlaceFilter
 
   def initialize(params)
     @params = params
-    @places = Place.where(port_id: params[:id])
+    @places = Place.where(port_id: params[:id]).joins(:bookings)
   end
 
   def filter
+    filter_by_date
     filter_by_dimensions
     filter_by_options
   end
 
   private
+
+  def filter_by_date
+    if params[:arrival_date].present? && params[:departure_date].present?
+      ad = Date.strptime(params[:arrival_date], '%d/%m/%Y')
+      dd = Date.strptime(params[:departure_date], '%d/%m/%Y')
+      @places = @places.where('places.id NOT IN (SELECT place_id FROM bookings WHERE ((arrival_date, departure_date) OVERLAPS (?, ?)))', ad, dd + 1).distinct
+    end
+  end
 
   def filter_by_dimensions
     @places = @places.where(
