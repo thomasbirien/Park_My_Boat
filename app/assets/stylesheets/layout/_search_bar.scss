@@ -1,9 +1,20 @@
+.search_bar {
+  padding: 20px 0px 20px 0px;
+}
+
+
 .search_bar_visibe label {
   font-weight: normal;
   display: block;
   text-align: left;
-  margin-left: 40px;
 }
+
+.search_bar_visibe input {
+  width: 100%;
+  color: black;
+  border-radius: 4px;
+}
+
 
 .options {
   display:  none;
@@ -22,47 +33,27 @@
 
 .options label {
   margin-left: 3px;
+  display: inline;
 }
 
-.search_bar button {
-  margin-right: 80px;
+.options-padding {
+  padding-top: 1%;
 }
 
-.btn-options {
-  margin-right: -80px;
-  color: black;
+.date input {
+  width: 48%;
+  text-align: center;
+  border-radius: 4px;
 }
 
-.btn-search {
-  padding-top: 30px;
-  padding-bottom: 10px;
+.dimensions input {
+  width: 31%;
+  text-align: center;
+  border-radius: 4px;
 }
 
-.search_bar_hidden label {
-  font-weight: normal;
-  text-align: left;
-}
-
-.modal-content {
-  opacity: 0.93;
-  background-color: $modal-background;
-  color: $modal-text;
-  text-align: left;
-}
-
-.modal-content label {
-  text-align: left;
-  margin-left: 0px;
-}
-
-.modal-content .modal-checkbox {
-  display: -webkit-box;
-}
-
-.modal-checkbox label {
-  margin-left: 3px;
-}
-
-.search_bar input {
-  color: black;
+.search-btn {
+  margin-top: 23px;
+  padding-left: 15px;
+  padding-right: 15px;
 }
