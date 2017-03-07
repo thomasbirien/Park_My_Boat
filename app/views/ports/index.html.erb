@@ -38,16 +38,18 @@
       <div id="port-sidebar">
         <% @ports.each do |port| %>
           <div class="card-port">
-            <%= image_tag port.picture, class: "card-img-index" %>
+          <h4 class="card-title"><%= port.port_name%></h4>
+          <strong><%= @places[port.id] || 0 %> place(s) disponible(s) répondant à votre recherche</strong>
+            <br><%= image_tag port.picture, class: "card-img-index" %>
             <div class="card-block">
-              <h4 class="card-title"><%= port.port_name%></h4>
               <h6 class="card-subtitle mb-2 text-muted"><%= "#{port.size} places totales dans le port"%></h6>
               <p id="port-desc" class="card-text"><%= port.description%></p>
               <br><%= port.phone_number %>
               <br><%= port.longitude %>
               <br><%= port.latitude %>
-              <br><%= @places[port.id] || 0 %> places disponibles en location selon vos critères
-              <%= link_to "Je réserve une place", port_path(port, @target), class: "card-link-port" %>
+              <div class="button-align">
+              <%= link_to "Réserver une place", port_path(port, @target), class: "btn"%>
+              </div>
             </div>
           </div>
         <% end %>

@@ -3,7 +3,7 @@ class PortFilter
 
   def initialize(params)
     @params = params
-    @ports = Port.all.joins(:places).distinct
+    @ports = Port.all.joins(:places, :bookings)
   end
 
   def filter
@@ -11,6 +11,7 @@ class PortFilter
     filter_by_dimensions
     filter_by_options
     @places = @ports.group('ports.id').count
+    @ports = @ports.distinct
     order_by_distance
   end
 
@@ -33,10 +34,11 @@ class PortFilter
   end
 
   def filter_by_date
-    # Person.includes(:friends).where( :friends => { :person_id => nil } )
-    # Place.joins(:bookings).where()
-    # places = Place.joins(:bookings).where('places.id NOT IN (SELECT DISTINCT(person_id) FROM friends)')
-    # @ports = @ports.
+    if params[:arrival_date].present? && params[:departure_date].present?
+      ad = Date.strptime(params[:arrival_date], '%d/%m/%Y')
+      dd = Date.strptime(params[:departure_date], '%d/%m/%Y')
+      @ports = @ports.where('places.id NOT IN (SELECT place_id FROM bookings WHERE ((arrival_date, departure_date) OVERLAPS (?, ?)))', ad, dd + 1).distinct
+    end
   end
 
   def filter_by_dimensions
