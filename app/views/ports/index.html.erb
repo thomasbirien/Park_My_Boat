@@ -38,8 +38,7 @@
       <div id="port-sidebar">
         <% @ports.each do |port| %>
           <div class="card-port">
-          <h4 class="card-title"><%= port.port_name%></h4>
-          <strong><%= @places[port.id] || 0 %> place(s) disponible(s) répondant à votre recherche</strong>
+          <h4 class="card-title"><%= port.port_name%> : <%= @places[port.id] || 0 %> place(s) disponible(s) répondant à votre recherche</h4>
             <br><%= image_tag port.picture, class: "card-img-index" %>
             <div class="card-block">
               <h6 class="card-subtitle mb-2 text-muted"><%= "#{port.size} places totales dans le port"%></h6>

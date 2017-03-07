@@ -8,7 +8,6 @@ class PortsController < ApplicationController
     @places = port_filter.places
     @target = port_filter.cleaned_params
     @geographic_center = Geocoder::Calculations.geographic_center(@ports)
-
     build_markers
   end
 
@@ -31,11 +30,7 @@ class PortsController < ApplicationController
     @place_id = @place_select.id
     @invoiced = @price * (@date_dep - @date_arr).to_i
     @booking = Booking.new
-
-
-
     # @user_boat = current_user.boat_ids.first
-
   end
 
   private
@@ -45,5 +40,6 @@ class PortsController < ApplicationController
       marker.lat port.latitude
       marker.lng port.longitude
     end
+
   end
 end
