@@ -10,6 +10,14 @@ class Booking < ApplicationRecord
   validates :arrival_date, presence: true
   validates :departure_date, presence: true
   validates :invoiced_price, presence: true
+  validates :arrival_date, :departure_date, overlap: {
+  scope:"place_id",
+  message_title: "Error",
+  message_content: "Impossible to booking this place for this date"
+  }
+
+
+
 
   private
 
