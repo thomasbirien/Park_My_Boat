@@ -15,7 +15,6 @@ class PortsController < ApplicationController
   def show
     @port = Port.find(params[:id])
 
-
     places_filter = PlaceFilter.new(params)
     places_filter.filter
     @places = places_filter.places
