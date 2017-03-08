@@ -14,9 +14,10 @@ Port.with_deleted.each(&:really_destroy!)
 
 # Creation ports db
 img_Ciotat = "http://images.figaronautisme.com/image/figaro-nautisme/ports/photos/120509_175212_10100-la-ciotat-240312.jpg"
-img_EPR = "http://images.figaronautisme.com/image/figaro-nautisme/ports/photos/120510_113108_09943-sete-290212.jpg"
-img_Toulon = "http://www.toulon.fr/sites/new.toulon.fr/files/styles/full/public/lvs_bleumediterranee_port_011.jpg?itok=SL9f5U05"
-
+img_Sete = "http://images.figaronautisme.com/image/figaro-nautisme/ports/photos/120510_113203_09941-sete-290212.jpg"
+img_Toulon = "http://images.figaronautisme.com/image/figaro-nautisme/ports/photos/120510_100215_10134-toulon-240312.jpg"
+img_Cannes = "http://images.figaronautisme.com/image/figaro-nautisme/ports/photos/120523_120713_-palais-des-festivals-et-des-congr-s-de-cannes-kelagopian-pour-la-wbor6044-.jpg"
+img_Vauban_Antibe = "http://images.figaronautisme.com/image/figaro-nautisme/ports/photos/120510_105704_10227-antibes-240312.jpg"
 
 counter = 0
 puts "Creating Ports"
@@ -24,20 +25,20 @@ puts "Creating Ports"
   print '.'
   counter += 1
   Port.create!(
-    port_name: ["La Ciotat","Sète","Toulon Côte d'Azur"][counter - 1],
+    port_name: ["La Ciotat","Sète","Toulon Côte d'Azur", "Cannes", "Antibes-Vauban"][counter - 1],
     legal_entity: "Capitainerie",
-    description:["Port situé dans la ville au Nord de l’ensemble portuaire. Il est composé de deux bassins séparés par un large terre-plein.", "Le port de plaisance de Sète est une escale attractive et originale. Le charme des canaux et le côté pittoresque de son Port de Pêche, font de Sète une ville de caractère, baignée à la fois par la Méditerranée et par l’Etang de Thau.", "Venez découvrir les 6 ports de plaisance de Toulon Vieille Darse, Toulon Darse Nord, La Seyne-sur-Mer, Saint-Mandrier, Saint-Louis du Mourillon et du Niel."][counter - 1],
+    description:["Port situé dans la ville au Nord de l’ensemble portuaire. Il est composé de deux bassins séparés par un large terre-plein.", "Le port de plaisance de Sète est une escale attractive et originale. Le charme des canaux et le côté pittoresque de son Port de Pêche, font de Sète une ville de caractère, baignée à la fois par la Méditerranée et par l’Etang de Thau.", "Venez découvrir les 6 ports de plaisance de Toulon Vieille Darse, Toulon Darse Nord, La Seyne-sur-Mer, Saint-Mandrier, Saint-Louis du Mourillon et du Niel.", "Un très beau port, incontournable à l'occasion de ses nombreux festivals", "Cette merveilleuse crique naturelle est devenue sous le nom de PORT VAUBAN le plus important port de plaisance en tonnage de la Méditerranée."][counter - 1],
     size: [650, 120, 100][counter - 1],
-    picture: [img_Ciotat, img_EPR, img_Toulon][counter - 1],
-    latitude: [43.174834, 43.400949, 43.123514][counter - 1],
-    longitude: [5.607379, 3.697938, 5.933265][counter - 1],
-    phone_number: ["04 95 09 52 60", "04 67 74 98 97", "04 94 36 37 38"][counter - 1],
-    radio_channel: ["103.9", "102.1", "90.9"][counter - 1],
-    email: ["contact@ciotat.fr", "portstclair@portsuddefrance-sete.fr", "info@toulon.fr"][counter - 1],
-    address: ["Nouveau port de plaisance, Boulevard Anatole France, 13600 La Ciotat", "Quais d'Orient, République et Moulins, 34200 Sète", "Terminal Toulon, 33 route Vincent, 13890 Toulon"][counter - 1],
-    check_in_hour: ["11h00", "12h00", "11h30"][counter - 1],
-    check_out_hour: ["12h00", "13h00", "12h00"][counter - 1]
-  )
+    picture: [img_Ciotat, img_Sete, img_Toulon, img_Cannes, img_Vauban_Antibe][counter - 1],
+    latitude: [43.174834, 43.400949, 43.123514, 43.551362, 43.585404][counter - 1],
+    longitude: [5.607379, 3.697938, 5.933265, 7.015613,7.127177][counter - 1],
+    phone_number: ["04 95 09 52 60", "04 67 74 98 97", "04 94 36 37 38", "04 93 21 72 17", "04 92 91 60 00"][counter - 1],
+    radio_channel: ["VHF Canal 9", "VHF Canal 9", "VHF Canal 9", "VHF Canal 9", "VHF Canal 9"][counter - 1],
+    email: ["contact@ciotat.fr", "portstclair@portsuddefrance-sete.fr", "info@toulon.fr", "contact.rivieraports@cote-azur.cci.fr","reservation@portvauban.net"][counter - 1],
+    address: ["Nouveau port de plaisance, Boulevard Anatole France, 13600 La Ciotat", "Quais d'Orient, République et Moulins, 34200 Sète", "Terminal Toulon, 33 route Vincent, 13890 Toulon", "Prom. de la Pantiero, 06400 Cannes","PORT VAUBAN 06600 ANTIBES FRANCE"][counter - 1],
+    check_in_hour: ["11h00", "12h00", "11h30", "11h30", "11h30"][counter - 1],
+    check_out_hour: ["12h00", "13h00", "12h00", "12h00", "12h00"][counter - 1]
+    )
 end
 
 # creation places aléatoires
@@ -182,9 +183,9 @@ counter = 0
   Booking.create!(
     arrival_date:["13/03/2017", "16/03/2017", "23/03/2017", "28/03/2017"][counter - 1],
     departure_date:["15/03/2017", "20/03/2017", "27/03/2017", "01/04/2017"][counter - 1],
-    comment: ["J'ai le mal de mer", "I will be back", "J'aime les bulots", "Vive les moules"][counter - 1],
+    comment: ["Arriverons peut-être plus tard", "", "", ""][counter - 1],
     user_id: User.all.sample.id,
-    place_id: Place.all.sample.id
+    place_id: Port.find_by(port_name: "La Ciotat").places.sample.id
     )
 end
 
