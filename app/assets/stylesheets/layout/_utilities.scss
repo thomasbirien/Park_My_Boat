@@ -40,3 +40,8 @@
 .container-show {
   background-color: red;
 }
+
+.inner-wrapper {
+  min-height: calc(100vh - #{$footer-height});
+  margin-top: $navbar-height;
+}

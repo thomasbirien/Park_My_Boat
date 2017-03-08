@@ -36,14 +36,14 @@
 }
 
 .btn-secondary {
-  background: transparent;
+  background: rgba(255, 255, 255, 0.15);
   border-color: #fff;
   border-radius: 6px;
 
+    &:hover {
+    background: rgba(144, 34, 71, 0.42);
+    border-radius: 6px;
+  }
 }
 
-.btn-secondary:hover {
-  background: rgba(144, 34, 71, 0.42);
-  border-radius: 6px;
-}
 

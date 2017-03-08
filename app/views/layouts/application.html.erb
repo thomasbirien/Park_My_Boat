@@ -12,16 +12,13 @@
 
     <%= render 'shared/navbar' %>
     <%= render 'shared/flashes' %>
-    <div class="wrapper">
-
-        <%= yield %>
-      </div>
-     </div>
 
 
+    <div class="inner-wrapper">
+      <%= yield %>
+    </div>
 
-
-   <!--  <%= render 'shared/footer' %> -->
+    <%= render 'shared/footer' %>
 
     <%= javascript_include_tag 'application' %>
 
