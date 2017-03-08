@@ -1,9 +1,8 @@
-
 <div class="container">
-  <div class="row">
-    <div class="col-xs-12 col-md-6">
-      <div class="card-port-show">
-        <blockquote class="card-blockquote">
+  <div class="container show">
+    <div class="row">
+      <div class="col-xs-12 col-md-6">
+        <div class="card-port-show">
           <%= image_tag @port.picture, class: "card-img-show"%>
           <div class="card-block">
             <h3><%= @port.port_name %></h3>
@@ -12,9 +11,9 @@
           </div>
           <div class="card-block">
             <h5>Situation et coordonnées</h5>
-            <p>Coordonnées GPS:
-              <p>-lng <%=@port.longitude%>  </p>
-              <p>-lat <%= @port.latitude %></p>
+            <p>Coordonnées GPS:</p>
+              <p>-longitude <%=@port.longitude%>  </p>
+              <p>-latitude <%= @port.latitude %></p>
             <p>VHF: <%= @port.radio_channel %></p>
             <p>téléphone: <%= @port.phone_number %></p>
             <p>Email: <%= @port.email %></p>
@@ -34,7 +33,6 @@
           <% if @place_select.ss_ice %>
             <p>-glace</p>
           <% end %>
-
 
           <h5>Commoditées disponible:</h5>
           <% if @place_select.ss_tel %>
@@ -59,63 +57,170 @@
             <p>-service de sécurité</p>
           <% end %>
           </div>
-          </blockquote>
+        </div>
       </div>
-    </div>
-    <div class="col-xs-12 col-md-6">
-      <div class="card-port-show-book">
-        <div class="card-block">
-          <h4>Booking this place</h4>
-          <p><%= @arrival_date %></p>
-          <p><%= @departure_date %></p>
-          <p>les caractéristique de votre bateau :</p>
-          <p> -<%= params[:length] %>  mètre</p>
-          <p> -<%= params[:width] %>  mètre</p>
-          <p> -<%= params[:draught] %>  mètre</p>
-          <p>prix total estimé:<%= @invoiced %>€</p>
-          <%= simple_form_for([@port,@booking]) do |f| %>
-          <%= f.error_notification %>
-          <p><%= f.input :arrival_date, input_html: {value: @arrival_date}, as: :hidden %></p>
-          <p><%= f.input :departure_date, input_html: {value: @departure_date}, as: :hidden %></p>
-          <p><%= f.input :place_id, input_html: {value: @place_id}, as: :hidden %></p>
-          <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#modalbooking">Booking</button>
-          <% end %>
-          <div class="modal fade" id="modalbooking" tabindex="-1" role="dialog" aria-labelledby="booking">
-            <div class="modal-dialog" role="document">
-              <div class="modal-content">
-                <div class="modal-header">
-                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">X</span>
-                  </button>
-                  <h4 class="modal-title" id="myModalLabel">Réservation: </h4>
-                </div>
-                <div class="modal-body">
-                    <p><%= @arrival_date %></p>
-                    <p><%= @departure_date %></p>
-                    <p>les caractéristique de votre bateau :</p>
-                    <p> -<%= params[:length] %>  mètre</p>
-                    <p> -<%= params[:width] %>  mètre</p>
-                    <p> -<%= params[:draught] %>  mètre</p>
-                    <p>prix total estimé:<%= @invoiced %>€</p>
-                    <%= simple_form_for([@port,@booking]) do |f| %>
-                    <%= f.error_notification %>
-                      <p><%= f.input :comment, label: "Un commentaire à ajouter à la capitainerie ?" %></p>
-                      <p><%= f.input :arrival_date, input_html: {value: @arrival_date}, as: :hidden %></p>
-                      <p><%= f.input :departure_date, input_html: {value: @departure_date}, as: :hidden %></p>
-                      <p><%= f.input :place_id, input_html: {value: @place_id}, as: :hidden %></p>
-                </div>
-                <div class="modal-footer">
-                  <button type="button" class="btn btn-default" data-dismiss="modal">Annuler</button>
-                  <%= f.submit "Réserver", class: "btn btn-primary" %>
-                  <% end %>
-                </div>
+      <div class="col-xs-12 col-md-4 col-md-offset-1">
+        <div class="card-port-show-book fixed">
+          <div class="card-block-show-booking">
+            <div class="row">
+              <div class="col-xs-8">
+                <h4>Votre réservation</h4>
               </div>
             </div>
+            <div class="price_show">
+              <i class="fa fa-tag"></i>
+              <h5><%= @invoiced %>€</h5>
+            </div>
           </div>
+          <div class="row">
+            <div class="col-xs-6">
+              <h6>date d'arrivé</h6>
+              <p><%= @arrival_date %></p>
+            </div>
+            <div class="col-xs-6">
+              <h6>date de départ</h6>
+              <p><%= @departure_date %></p>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-xs-12">
+              <h6>les caractéristique de votre bateau </h6>
+            </div>
+            <div class="col-xs-4">
+              <p>longueur</p>
+              <p><%= params[:length] %> mètre</p>
+            </div>
+            <div class="col-xs-4">
+              <p>largeur </p>
+              <p><%= params[:width] %> mètre</p>
+            </div>
+            <div class="col-xs-4">
+              <p>tirant d'eau </p>
+              <p><%= params[:draught] %> mètre</p>
+            </div>
+          </div>
+            <%= simple_form_for([@port,@booking]) do |f| %>
+            <%= f.error_notification %>
+            <p><%= f.input :arrival_date, input_html: {value: @arrival_date}, as: :hidden %></p>
+            <p><%= f.input :departure_date, input_html: {value: @departure_date}, as: :hidden %></p>
+            <p><%= f.input :place_id, input_html: {value: @place_id}, as: :hidden %></p>
+              <% if user_signed_in? %>
+                <button type="button" class="btn" data-toggle="modal" data-target="#modalbooking">Booking</button>
+              <% else %>
+                <button class="btn"><%= link_to t(".sign_in", default: "Login"), new_user_session_path %></button>
+              <% end %>
+            <% end %>
+        </div>
+      </div>
+      <div class="col-xs-12 visible-xs">
+        <div class="card-port-show-book">
+          <div class="card-block-show-booking">
+            <div class="row">
+              <div class="col-xs-8">
+                <h4>Votre réservation</h4>
+              </div>
+            </div>
+            <div class="price_show">
+              <i class="fa fa-tag"></i>
+              <h5><%= @invoiced %>€</h5>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-xs-6">
+              <h6>date d'arrivé</h6>
+              <p><%= @arrival_date %></p>
+            </div>
+            <div class="col-xs-6">
+              <h6>date de départ</h6>
+              <p><%= @departure_date %></p>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-xs-12">
+              <h6>les caractéristique de votre bateau </h6>
+            </div>
+            <div class="col-xs-4">
+              <p>longueur</p>
+              <p><%= params[:length] %> mètre</p>
+            </div>
+            <div class="col-xs-4">
+              <p>largeur </p>
+              <p><%= params[:width] %> mètre</p>
+            </div>
+            <div class="col-xs-4">
+              <p>tirant d'eau </p>
+              <p><%= params[:draught] %> mètre</p>
+            </div>
+          </div>
+          <div>
+            <%= simple_form_for([@port,@booking]) do |f| %>
+            <%= f.error_notification %>
+            <p><%= f.input :arrival_date, input_html: {value: @arrival_date}, as: :hidden %></p>
+            <p><%= f.input :departure_date, input_html: {value: @departure_date}, as: :hidden %></p>
+            <p><%= f.input :place_id, input_html: {value: @place_id}, as: :hidden %></p>
+          </div>
+            <button type="button" class="btn" data-toggle="modal" data-target="#modalbooking">Booking
+            </button>
+            <% end %>
+        </div>
+      </div>
+      <div class="modal fade" id="modalbooking" tabindex="-1" role="dialog" aria-labelledby="booking">
+        <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">X</span>
+            </button>
+            <h4 class="modal-title" id="myModalLabel">Verification de votre réservation: </h4>
+          </div>
+          <div class="modal-body">
+            <div class="row"></div>
+              <div class="col-xs-6">
+                <h6>date d'arrivée</h6>
+                <p><%= @arrival_date %></p>
+               </div>
+              <div class="col-xs-6">
+                <h6>date de départ</h6>
+                <p><%= @departure_date %></p>
+              </div>
+            <div class="row">
+              <div class="col-xs-12">
+                <h6>les caractéristique de votre bateau </h6>
+              </div>
+              <div class="col-xs-4">
+                <p>longueur</p>
+                <p><%= params[:length] %> mètre</p>
+              </div>
+              <div class="col-xs-4">
+                <p>largeur </p>
+                <p><%= params[:width] %> mètre</p>
+              </div>
+              <div class="col-xs-4">
+                <p>tirant d'eau </p>
+                <p><%= params[:draught] %> mètre</p>
+              </div>
+              <div class="col-xs-12">
+                <h6>prix total estimé:<%= @invoiced %>€</h6>
+              </div>
+
+              <%= simple_form_for([@port,@booking]) do |f| %>
+              <%= f.error_notification %>
+              <div class="col-xs-12">
+                <p><%= f.input :comment, label: "Un commentaire à ajouter à la capitainerie ?" %></p>
+              </div>
+                <p><%= f.input :arrival_date, input_html: {value: @arrival_date}, as: :hidden %></p>
+                <p><%= f.input :departure_date, input_html: {value: @departure_date}, as: :hidden %></p>
+                <p><%= f.input :place_id, input_html: {value: @place_id}, as: :hidden %></p>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">Annuler</button>
+            <%= f.submit "Réserver", class: "btn btn-primary" %>
+            <% end %>
+          </div>
+        </div>
         </div>
       </div>
     </div>
   </div>
 </div>
-
-
