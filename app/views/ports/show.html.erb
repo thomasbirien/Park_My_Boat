@@ -106,9 +106,9 @@
             <p><%= f.input :departure_date, input_html: {value: @departure_date}, as: :hidden %></p>
             <p><%= f.input :place_id, input_html: {value: @place_id}, as: :hidden %></p>
               <% if user_signed_in? %>
-                <button type="button" class="btn" data-toggle="modal" data-target="#modalbooking">Booking</button>
+                <button type="button" class="btn" data-toggle="modal" data-target="#modalbooking">Réservation</button>
               <% else %>
-                <button class="btn"><%= link_to t(".sign_in", default: "Login"), new_user_session_path %></button>
+                <button class="btn"><%= link_to t(".sign_in", default: "Réservation"), new_user_session_path %></button>
               <% end %>
             <% end %>
         </div>
@@ -160,8 +160,11 @@
             <p><%= f.input :departure_date, input_html: {value: @departure_date}, as: :hidden %></p>
             <p><%= f.input :place_id, input_html: {value: @place_id}, as: :hidden %></p>
           </div>
-            <button type="button" class="btn" data-toggle="modal" data-target="#modalbooking">Booking
-            </button>
+            <% if user_signed_in? %>
+                <button type="button" class="btn" data-toggle="modal" data-target="#modalbooking">Réservation</button>
+              <% else %>
+                <button class="btn"><%= link_to t(".sign_in", default: "Réservation"), new_user_session_path %></button>
+              <% end %>
             <% end %>
         </div>
       </div>
