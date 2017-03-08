@@ -1,6 +1,7 @@
-<div class="container">
-  <div class="container show">
-    <div class="row">
+<div class="inner-container">
+  <div class="container-fluide">
+    <div class="container">
+      <div class="row">
       <div class="col-xs-12 col-md-6">
         <div class="card-port-show">
           <%= image_tag @port.picture, class: "card-img-show"%>
@@ -64,14 +65,15 @@
           <div class="card-block-show-booking">
             <div class="row">
               <div class="col-xs-8">
-                <h4>Votre réservation</h4>
+                <h5>Votre réservation</h5>
               </div>
             </div>
             <div class="price_show">
               <i class="fa fa-tag"></i>
-              <h5><%= @invoiced %>€</h5>
+              <h4><%= @invoiced %>€</h4>
             </div>
           </div>
+          <br>
           <div class="row">
             <div class="col-xs-6">
               <h6>date d'arrivé</h6>
@@ -82,21 +84,31 @@
               <p><%= @departure_date %></p>
             </div>
           </div>
+          <br>
           <div class="row">
             <div class="col-xs-12">
               <h6>les caractéristique de votre bateau </h6>
             </div>
-            <div class="col-xs-4">
-              <p>longueur</p>
-              <p><%= params[:length] %> mètre</p>
-            </div>
-            <div class="col-xs-4">
-              <p>largeur </p>
-              <p><%= params[:width] %> mètre</p>
-            </div>
-            <div class="col-xs-4">
-              <p>tirant d'eau </p>
-              <p><%= params[:draught] %> mètre</p>
+            <div class="col-xs-12">
+              <ul>
+                <li>longueur
+                <%= params[:length] %> mètre
+                </li>
+                <li>
+                  largeur
+                <%= params[:width] %> mètre
+                </li>
+                <li>
+
+                tirant d'eau
+                <%= params[:draught] %> mètre
+                </li>
+
+
+
+
+
+              </ul>
             </div>
           </div>
             <%= simple_form_for([@port,@booking]) do |f| %>
@@ -105,9 +117,9 @@
             <p><%= f.input :departure_date, input_html: {value: @departure_date}, as: :hidden %></p>
             <p><%= f.input :place_id, input_html: {value: @place_id}, as: :hidden %></p>
               <% if user_signed_in? %>
-                <button type="button" class="btn" data-toggle="modal" data-target="#modalbooking">Booking</button>
+                <button type="button" class="btn" data-toggle="modal" data-target="#modalbooking">Réservation</button>
               <% else %>
-                <button class="btn"><%= link_to t(".sign_in", default: "Login"), new_user_session_path %></button>
+                <button class="btn"><%= link_to t(".sign_in", default: "Réservation"), new_user_session_path %></button>
               <% end %>
             <% end %>
         </div>
@@ -117,14 +129,15 @@
           <div class="card-block-show-booking">
             <div class="row">
               <div class="col-xs-8">
-                <h4>Votre réservation</h4>
+                <h5>Votre réservation</h5>
               </div>
             </div>
             <div class="price_show">
               <i class="fa fa-tag"></i>
-              <h5><%= @invoiced %>€</h5>
+              <h4><%= @invoiced %>€</h4>
             </div>
           </div>
+          <br>
           <div class="row">
             <div class="col-xs-6">
               <h6>date d'arrivé</h6>
@@ -135,6 +148,7 @@
               <p><%= @departure_date %></p>
             </div>
           </div>
+          <br>
           <div class="row">
             <div class="col-xs-12">
               <h6>les caractéristique de votre bateau </h6>
@@ -159,8 +173,11 @@
             <p><%= f.input :departure_date, input_html: {value: @departure_date}, as: :hidden %></p>
             <p><%= f.input :place_id, input_html: {value: @place_id}, as: :hidden %></p>
           </div>
-            <button type="button" class="btn" data-toggle="modal" data-target="#modalbooking">Booking
-            </button>
+            <% if user_signed_in? %>
+                <button type="button" class="btn" data-toggle="modal" data-target="#modalbooking">Réservation</button>
+              <% else %>
+                <button class="btn"><%= link_to t(".sign_in", default: "Réservation"), new_user_session_path %></button>
+              <% end %>
             <% end %>
         </div>
       </div>
@@ -220,6 +237,7 @@
           </div>
         </div>
         </div>
+      </div>
       </div>
     </div>
   </div>

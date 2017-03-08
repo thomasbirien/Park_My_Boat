@@ -30,7 +30,7 @@
 }
 
 .wrapper {
-  background-color: #fcf7ff;
+  background-color: white;
 }
 
 .container-index {
@@ -45,3 +45,4 @@
   min-height: calc(100vh - #{$footer-height});
   margin-top: $navbar-height;
 }
+
