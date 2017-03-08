@@ -3,7 +3,7 @@
   <div class="row">
     <div class="col-xs-12 col-md-6">
       <div class="card-port-show">
-        <%= image_tag @port.picture, class: "card-img-index"%>
+        <%= image_tag @port.picture, class: "card-img-show"%>
         <div class="card-block">
           <h3><%= @port.port_name %></h3>
           <h4>Place de disponible: <%=@port.places.count %> </h4>
@@ -60,13 +60,14 @@
         </div>
       </div>
     </div>
-    <div class="col-xs-12 col-xs-offset col-md-4">
-
-      <div class="card-port-show-book">
+    <div class="col-xs-12 col-md-4 col-md-offset-1">
+      <div class="card-port-show-book fixed">
         <div class="card-block-show-booking">
-        <div class="row">
-          <div class="col-xs-8"><h4>Votre réservation</h4></div>
-        </div>
+          <div class="row">
+            <div class="col-xs-8">
+              <h4>Votre réservation</h4>
+            </div>
+          </div>
           <div class="price_show">
             <i class="fa fa-tag"></i>
             <h5><%= @invoiced %>€</h5>
@@ -99,17 +100,64 @@
             <p><%= params[:draught] %> mètre</p>
           </div>
         </div>
-
-
-
-        <%= simple_form_for([@port,@booking]) do |f| %>
-        <%= f.error_notification %>
-        <p><%= f.input :arrival_date, input_html: {value: @arrival_date}, as: :hidden %></p>
-        <p><%= f.input :departure_date, input_html: {value: @departure_date}, as: :hidden %></p>
-        <p><%= f.input :place_id, input_html: {value: @place_id}, as: :hidden %></p>
-        <button type="button" class="btn" data-toggle="modal" data-target="#modalbooking">Booking</button>
-        <% end %>
+          <%= simple_form_for([@port,@booking]) do |f| %>
+          <%= f.error_notification %>
+          <p><%= f.input :arrival_date, input_html: {value: @arrival_date}, as: :hidden %></p>
+          <p><%= f.input :departure_date, input_html: {value: @departure_date}, as: :hidden %></p>
+          <p><%= f.input :place_id, input_html: {value: @place_id}, as: :hidden %></p>
+          <button type="button" class="btn" data-toggle="modal" data-target="#modalbooking">Booking</button>
+          <% end %>
       </div>
+    </div>
+    <div class="col-xs-12 visible-xs">
+      <div class="card-port-show-book">
+        <div class="card-block-show-booking">
+          <div class="row">
+            <div class="col-xs-8">
+              <h4>Votre réservation</h4>
+            </div>
+          </div>
+          <div class="price_show">
+            <i class="fa fa-tag"></i>
+            <h5><%= @invoiced %>€</h5>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-xs-6">
+            <h6>date d'arrivé</h6>
+            <p><%= @arrival_date %></p>
+          </div>
+          <div class="col-xs-6">
+            <h6>date de départ</h6>
+            <p><%= @departure_date %></p>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-xs-12">
+            <h6>les caractéristique de votre bateau </h6>
+          </div>
+          <div class="col-xs-4">
+            <p>longueur</p>
+            <p><%= params[:length] %> mètre</p>
+          </div>
+          <div class="col-xs-4">
+            <p>largeur </p>
+            <p><%= params[:width] %> mètre</p>
+          </div>
+          <div class="col-xs-4">
+            <p>tirant d'eau </p>
+            <p><%= params[:draught] %> mètre</p>
+          </div>
+        </div>
+          <%= simple_form_for([@port,@booking]) do |f| %>
+          <%= f.error_notification %>
+          <p><%= f.input :arrival_date, input_html: {value: @arrival_date}, as: :hidden %></p>
+          <p><%= f.input :departure_date, input_html: {value: @departure_date}, as: :hidden %></p>
+          <p><%= f.input :place_id, input_html: {value: @place_id}, as: :hidden %></p>
+          <button type="button" class="btn" data-toggle="modal" data-target="#modalbooking">Booking</button>
+          <% end %>
+      </div>
+    </div>
       <div class="modal fade" id="modalbooking" tabindex="-1" role="dialog" aria-labelledby="booking">
       <div class="modal-dialog" role="document">
         <div class="modal-content">
@@ -167,7 +215,6 @@
         </div>
           </div>
         </div>
-      </div>
       </div>
     </div>
   </div>
