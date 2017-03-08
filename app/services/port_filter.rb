@@ -4,6 +4,7 @@ class PortFilter
   def initialize(params)
     @params = params
     @ports = Port.all.joins(:places, :bookings)
+    binding.pry
   end
 
   def filter

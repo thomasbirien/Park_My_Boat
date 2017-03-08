@@ -21,7 +21,7 @@ img_Vauban_Antibe = "http://images.figaronautisme.com/image/figaro-nautisme/port
 
 counter = 0
 puts "Creating Ports"
-3.times do
+5.times do
   print '.'
   counter += 1
   Port.create!(
