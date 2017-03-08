@@ -129,11 +129,40 @@ counter = 0
     )
 end
 
+# places pour port de Cannes
+counter = 0
+5.times do
+  print '.'
+  counter += 1
+  # prices = [15.0, 33.00, 50.00, 100.15, 120.00, 99.99]
+  lengths = [10.35, 15.50, 25.35, 9.90, 20.10]
+  widths = [4.3, 6.2, 3.45, 7.3]
+  draughts = [2.45, 3.5, 1.5]
+  boolean = [true, false]
+  Place.create!(
+    place_price: [3.00, 3.00, 3.00, 7.00, 7.00][counter - 1],
+    length: [6.00, 6.00, 11.00, 11.00, 12.00][counter - 1],
+    width: [3.00, 3.00, 3.00, 4.00, 4.00][counter - 1],
+    draught: [2.00, 2.00, 2.00, 3.00, 4.00][counter - 1],
+    ss_elec: [true, true, true, true, false][counter - 1],
+    ss_fresh_water: [true, false, true, true, false][counter - 1],
+    ss_ice: [true, false, true, true, false][counter - 1],
+    ss_fuel: [true, false, true, true, false][counter - 1],
+    ss_tel: [true, false, true, true, true][counter - 1],
+    ss_wifi: [true, false, true, true, false][counter - 1],
+    ss_shower: [true, false, true, true, false][counter - 1],
+    sc_waste_sorting: [true, false, true, true, true][counter - 1],
+    sc_waste_pumping: [true, false, true, true, true][counter - 1],
+    sc_security: [true, false, true, true, true][counter - 1],
+    sc_waste_container: [true, false, true, true, false][counter - 1],
+    port_id: Port.find_by(port_name: "Sète").id
+    )
+end
 
 
 # Creation users
-img_georgette = "http://www.inmemoriam.ca/images/photo_original/340777-georgette-belair.jpg"
-img_arnold = "http://assets.schwarzenegger.com/images/img-2.jpg"
+img_petit = "https://verygoodlord.com/wp-content/uploads/2015/07/Ernest-Hemingway-%C3%A9crivain-et-marin.jpg"
+img_geraud = "http://cdn.deguisetoi.fr/images/rep_art/gra/170/2/170299/chapeau-capitaine-marin-adulte_170299_1.jpg"
 
 counter = 0
 2.times do
@@ -141,9 +170,9 @@ counter = 0
   User.create!(
     first_name: ["Michel", "Robert"][counter - 1],
     last_name: ["Petit", "Geraud"][counter - 1],
-    picture:[img_georgette, img_arnold][counter - 1],
+    picture:[img_petit, img_geraud][counter - 1],
     phone_number: ["06 12 30 22 34", "07 08 09 10 34"][counter - 1],
-    civility: ["Grande Bretonne", "Roumain"][counter - 1],
+    civility: ["M.", "M."][counter - 1],
     address: ["23 av. des ecoles", "45 rue du four"][counter - 1],
     post_code: ["69006", "75018"][counter - 1],
     city: ["Lyon", "Paris"][counter - 1],

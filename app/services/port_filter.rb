@@ -51,9 +51,14 @@ class PortFilter
   end
 
   def filter_by_options
+
+    ap 'ss elec'
+
     if params[:ss_elec] == '1'
       @ports = @ports.where('places.ss_elec = ?', true)
     end
+
+    ap @ports
 
     if params[:ss_ice] == '1'
       @ports = @ports.where('places.ss_ice = ?', true)
