@@ -2,9 +2,9 @@
  * Fonts
  * ------------------------------------- */
 // Google fonts
-@import url('https://fonts.googleapis.com/css?family=Open+Sans:400,300,700|Raleway:400,100,300,700,500|Comfortaa:700|Gruppo');
+@import url('https://fonts.googleapis.com/css?family=Open+Sans:400,300,700|Raleway:400,100,300,700,500|Comfortaa:700|Roboto:300');
 
-$base-font: "Gruppo", "Helvetica", "sans-serif";
+$base-font: "Roboto", "Helvetica", "sans-serif";
 $header-font: "Comfortaa", "Helvetica", "sans-serif";
 
 // Local fonts (uncomment following lines)
@@ -21,6 +21,8 @@ $header-font: "Comfortaa", "Helvetica", "sans-serif";
 $base-size: 16px;
 $base-height: 1.4;
 
+$navbar-height: 70px;
+$footer-height: 70px;
 /* -------------------------------------
  * Colors
  * ------------------------------------- */
@@ -38,7 +40,7 @@ $gray: #000000;
 
 $modal-background: #FBFFDE;
 $modal-text: black;
-$backgroundnavbar: hsla(289, 62%, 6%, 0.77);
+$backgroundnavbar: hsla(289, 62%, 6%, 0.87);
 $backgroundfooter: hsla(289, 62%, 6%, 0.87);
 // font-type
 

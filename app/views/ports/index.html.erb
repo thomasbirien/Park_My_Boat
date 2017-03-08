@@ -39,21 +39,25 @@
         </div>
       </div>
 
-      <div class="col-xs-12 col-sm-12">
-        <div id="port-sidebar">
-          <% @ports.each do |port| %>
-            <div class="card-port">
-            <h4 class="card-title"><%= port.port_name%> : <%= @places[port.id] || 0 %> place(s) disponible(s) répondant à votre recherche</h4>
-              <br><%= image_tag port.picture, class: "card-img-index" %>
-              <div class="card-block">
-                <h6 class="card-subtitle mb-2 text-muted"><%= "#{port.size} places totales dans le port"%></h6>
-                <p id="port-desc" class="card-text"><%= port.description%></p>
-                <br><%= port.phone_number %>
-                <br><%= port.longitude %>
-                <br><%= port.latitude %>
-                <div class="button-align">
-                <%= link_to "Réserver une place", port_path(port, @target), class: "btn"%>
-                </div>
+
+    <div class="col-xs-12 col-sm-12">
+      <div id="port-sidebar">
+        <% @ports.each do |port| %>
+          <div class="card-port">
+          <h4 class="card-title"><%= port.port_name%> : <%= @places[port.id] || 0 %> place(s) disponible(s) répondant à votre recherche</h4>
+            <br><%= image_tag port.picture, class: "card-img-index" %>
+            <div class="card-block">
+            <h4>Prix de la place la moins chère / jour : <%= port.place_minimum_price %> €</h4
+              <h6 class="card-subtitle mb-2 text-muted"><%= "#{port.size} places totales dans le port"%></h6>
+              <p id="port-desc" class="card-text"><%= port.description%></p>
+              Numéro de téléphone: <%= port.phone_number %>
+              <br>Radio: <%= port.radio_channel %>
+              <h5>Coordonnées GPS:</h5>
+              Longitude: <%= port.longitude %>
+              <br>Latitude: <%= port.latitude %>
+              <div class="button-align">
+              <%= link_to "Réserver une place", port_path(port, @target), class: "btn"%>
+
               </div>
             </div>
           <% end %>

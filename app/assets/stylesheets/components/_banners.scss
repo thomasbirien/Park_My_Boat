@@ -36,5 +36,13 @@
 
 .home-banner-content {
   margin-top: 15%;
+  .well {
+    background-color: rgba(255, 255, 255, 0.4);
+    border: 0;
+    border-radius: 4px;
+  }
 }
 
+.well {
+  margin-bottom: 0;
+}

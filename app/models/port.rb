@@ -20,4 +20,9 @@ class Port < ApplicationRecord
   def self.has_places_between(dates)
     # todo
   end
+
+  def place_minimum_price
+    places.minimum(:place_price)
+  end
+
 end

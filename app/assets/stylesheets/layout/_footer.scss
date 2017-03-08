@@ -4,10 +4,18 @@
 .wrapper-footer {
   background: $backgroundfooter;
   width: 100%;
-  left: 0px;
-  bottom: 0px;
-  z-index: 1;
+  height: $footer-height;
+  padding-top:10px;
+  a {
+    color: white;
+    margin: 0px 5px;
 
+      &:hover{
+      color: #42A3E1;
+      transition: background 0.2s;
+      text-decoration: none;
+    }
+  }
 }
 
 /* icones */
@@ -15,18 +23,15 @@
   width: 50px;
   color: #fcfcfc;
   font-size: 30px;
-  padding: 10px;
-  padding-top: 15px;
+  padding-top: 10px;
   transition: background 0.5s;
 }
 
 .row-footer i:hover {
   width: 50px;
-  color: #671D34;
-  background: #fcfcfc;
+  color: #42A3E1;
   font-size: 30px;
-  padding: 10px;
-  padding-top: 15px;
+  padding-top: 10px;
   transition: background 0.2s;
 }
 
