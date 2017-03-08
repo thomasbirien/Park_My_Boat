@@ -8,13 +8,11 @@ class PortsController < ApplicationController
     @places = port_filter.places
     @target = port_filter.cleaned_params
     @geographic_center = Geocoder::Calculations.geographic_center(@ports)
-
     build_markers
   end
 
   def show
     @port = Port.find(params[:id])
-
 
     places_filter = PlaceFilter.new(params)
     places_filter.filter
@@ -32,19 +30,19 @@ class PortsController < ApplicationController
     @place_id = @place_select.id
     @invoiced = @price * (@date_dep - @date_arr).to_i
     @booking = Booking.new
-
-
-
     # @user_boat = current_user.boat_ids.first
-
   end
 
   private
 
   def build_markers
-    @hash = Gmaps4rails.build_markers(@ports) do |port, marker|
-      marker.lat port.latitude
-      marker.lng port.longitude
+    @hash = @ports.map do |port|
+      {
+        lat: port.latitude,
+        lng: port.longitude,
+        id: port.id
+      }
     end
+
   end
 end

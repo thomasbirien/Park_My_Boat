@@ -24,7 +24,11 @@
   background: #3b5998;
 }
 
+// Delete focus blue
+*:focus, *:active {
+    outline: none;
+}
+
 .wrapper {
   background-image: url(cartographer_@2X.png);
-
 }

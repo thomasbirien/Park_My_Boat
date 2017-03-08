@@ -9,8 +9,9 @@
     filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=#902247, endColorstr=#020001);
     background-image: linear-gradient(rgb(144, 34, 71), rgb(2, 0, 1));
     /* height: 45px; */
-    color: #fff;
+    color: #fff !important;
     border: 1px solid white;
+    border-radius: 6px;
 }
 
 .btn:hover {
@@ -26,4 +27,23 @@
     /* height: 45px; */
     color: #fff;
     border: 1px solid white;
+    border-radius: 6px;
 }
+
+.btn-search {
+  padding-top: 30px;
+  padding-bottom: 10px;
+}
+
+.btn-secondary {
+  background: transparent;
+  border-color: #fff;
+  border-radius: 6px;
+
+}
+
+.btn-secondary:hover {
+  background: rgba(144, 34, 71, 0.42);
+  border-radius: 6px;
+}
+
