@@ -33,8 +33,8 @@ puts "Creating Ports"
     longitude: [5.607379, 3.697938, 5.933265][counter - 1],
     phone_number: ["04 95 09 52 60", "04 67 74 98 97", "04 94 36 37 38"][counter - 1],
     radio_channel: ["103.9", "102.1", "90.9"][counter - 1],
-    email: ["contact@ciotat.fr", "info@ERP.com", "info@toulon.fr"][counter - 1],
-    address: ["Nouveau port de plaisance, Boulevard Anatole France, 13600 La Ciotat", "ERP, 3 rue Bernard, 13720 Sète", "Terminal Toulon, 33 route Vincent, 13890 Toulon"][counter - 1],
+    email: ["contact@ciotat.fr", "portstclair@portsuddefrance-sete.fr", "info@toulon.fr"][counter - 1],
+    address: ["Nouveau port de plaisance, Boulevard Anatole France, 13600 La Ciotat", "Quais d'Orient, République et Moulins, 34200 Sète", "Terminal Toulon, 33 route Vincent, 13890 Toulon"][counter - 1],
     check_in_hour: ["11h00", "12h00", "11h30"][counter - 1],
     check_out_hour: ["12h00", "13h00", "12h00"][counter - 1]
   )
@@ -98,12 +98,12 @@ counter = 0
     )
 end
 
-# places pour port de Toulon
+# places pour port de Sète
 counter = 0
 5.times do
   print '.'
   counter += 1
-  prices = [20.5, 30.10, 50.00, 100.15, 120.00, 99.99]
+  prices = [15.0, 33.00, 50.00, 100.15, 120.00, 99.99]
   lengths = [10.35, 15.50, 25.35, 9.90, 20.10]
   widths = [4.3, 6.2, 3.45, 7.3]
   draughts = [2.45, 3.5, 1.5]
