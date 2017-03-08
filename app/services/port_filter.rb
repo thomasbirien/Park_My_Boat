@@ -3,7 +3,7 @@ class PortFilter
 
   def initialize(params)
     @params = params
-    @ports = Port.all.joins(:places, :bookings)
+    @ports = Port.all.left_outer_joins(places: :bookings)
   end
 
   def filter
@@ -17,6 +17,7 @@ class PortFilter
 
   def cleaned_params
     {
+      port_name: params[:port_name],
       length: params[:length],
       width: params[:width],
       draught: params[:draught],
@@ -37,7 +38,7 @@ class PortFilter
     if params[:arrival_date].present? && params[:departure_date].present?
       ad = Date.strptime(params[:arrival_date], '%d/%m/%Y')
       dd = Date.strptime(params[:departure_date], '%d/%m/%Y')
-      @ports = @ports.where('places.id NOT IN (SELECT place_id FROM bookings WHERE ((arrival_date, departure_date) OVERLAPS (?, ?)))', ad, dd + 1).distinct
+      @ports = @ports.where('places.id NOT IN (SELECT place_id FROM bookings WHERE ((arrival_date, departure_date) OVERLAPS (?, ?)))', ad, dd + 1)
     end
   end
 
@@ -51,9 +52,14 @@ class PortFilter
   end
 
   def filter_by_options
+
+    ap 'ss elec'
+
     if params[:ss_elec] == '1'
       @ports = @ports.where('places.ss_elec = ?', true)
     end
+
+    ap @ports
 
     if params[:ss_ice] == '1'
       @ports = @ports.where('places.ss_ice = ?', true)

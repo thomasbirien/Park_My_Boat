@@ -2,42 +2,48 @@
 <div class="search_bar">
   <div class="search_bar_visibe">
     <div class="row">
-      <%= form_tag("/ports", method: "get") do %>
+      <div class="col-xs-10 col-xs-offset-1 well">
+        <div class="row">
+          <%= form_tag("/ports", method: "get") do %>
 
-      <!-- Search bar city + dates -->
+          <!-- Search bar city + dates -->
 
-      <div class="col-xs-12 col-md-2 col-md-offset-2">
-        <%= label_tag(:port_name, "Proche du port...") %>
-        <%= text_field_tag(:port_name, nil, required: true, placeholder: " ex: La ciotat", value: (@target.present? ? @target[:port_name] : nil )) %>
-      </div>
-      <div class="col-xs-12 col-md-2">
-        <div class="date">
-          <%= label_tag(:arrival_date, "Dates de réservation") %>
-          <%= text_field_tag(:arrival_date, nil, class: "datepicker", required: true, placeholder: "Arrivée",value: (@target.present? ? @target[:arrival_date] : nil )) %>
+          <div class="col-xs-12 col-md-3">
+            <div class="port">
+              <%= label_tag(:port_name, "Proche du port...") %>
+              <%= text_field_tag(:port_name, nil, required: true, placeholder: " ex: La ciotat", value: (@target.present? ? @target[:port_name] : nil )) %>
+            </div>
+          </div>
+          <div class="col-xs-12 col-md-3">
+            <div class="date">
+              <%= label_tag(:arrival_date, "Dates de réservation") %>
+              <%= text_field_tag(:arrival_date, nil, class: "datepicker", required: true, placeholder: "Arrivée",value: (@target.present? ? @target[:arrival_date] : nil )) %>
 
-          <%= text_field_tag(:departure_date, nil, class: "datepicker", required: true, placeholder: "Départ", value: (@target.present? ? @target[:departure_date] : nil )) %>
-        </div>
-      </div>
+              <%= text_field_tag(:departure_date, nil, class: "datepicker", required: true, placeholder: "Départ", value: (@target.present? ? @target[:departure_date] : nil )) %>
+            </div>
+          </div>
 
-     <!-- Dimensions -->
+         <!-- Dimensions -->
 
-      <div class="col-xs-12 col-md-2">
-        <div class="dimensions">
-          <%= label_tag(:length, "Dimensions (m)") %>
-          <%= text_field_tag(:length, nil, required: true, placeholder: "Long.", value: (@target.present? ? @target[:length] : nil )) %>
+          <div class="col-xs-12 col-md-3">
+            <div class="dimensions">
+              <%= label_tag(:length, "Dimensions (m)") %>
+              <%= text_field_tag(:length, nil, required: true, placeholder: "Long.", value: (@target.present? ? @target[:length] : nil )) %>
 
-          <%= text_field_tag(:width, nil, required: true, placeholder: "Larg.", value: (@target.present? ? @target[:width] : nil )) %>
+              <%= text_field_tag(:width, nil, required: true, placeholder: "Larg.", value: (@target.present? ? @target[:width] : nil )) %>
 
-          <%= text_field_tag(:draught, nil, required: true, placeholder: "T. eau", value: (@target.present? ? @target[:draught] : nil )) %>
-        </div>
-      </div>
+              <%= text_field_tag(:draught, nil, required: true, placeholder: "T. eau", value: (@target.present? ? @target[:draught] : nil )) %>
+            </div>
+          </div>
 
 
-    <!-- Search button -->
+        <!-- Search button -->
 
-      <div class="col-xs-12 col-md-2">
-        <div class="search-btn">
-          <%= submit_tag("Chercher", class: "btn")  %>
+          <div class="col-xs-12 col-md-3">
+            <div class="search-btn">
+              <%= submit_tag("Chercher", class: "btn")  %>
+            </div>
+          </div>
         </div>
       </div>
     </div>
@@ -88,7 +94,7 @@
     <br>
 
     <!-- More options hidden -->
-    <div class="options-padding">
+    <div class="options-padding text-center">
       <button class="btn-secondary">Options</button>
     </div>
 

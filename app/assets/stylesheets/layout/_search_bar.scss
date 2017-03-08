@@ -1,3 +1,5 @@
+
+
 .search_bar {
   padding: 20px 0px 20px 0px;
 }
@@ -9,10 +11,31 @@
   text-align: left;
 }
 
-.search_bar_visibe input {
+.search_bar_visibe  {
+  input{
   width: 100%;
   color: black;
   border-radius: 4px;
+  }
+  .date {
+    input{
+      width: 48%;
+      text-align: center;
+      border: 0px;
+    }
+  }
+  .dimensions {
+    input {
+      width: 31%;
+      text-align: center;
+      border: 0px;
+    }
+  }
+  .port {
+    input {
+      border: 0px;
+    }
+  }
 }
 
 
@@ -38,18 +61,6 @@
 
 .options-padding {
   padding-top: 1%;
-}
-
-.date input {
-  width: 48%;
-  text-align: center;
-  border-radius: 4px;
-}
-
-.dimensions input {
-  width: 31%;
-  text-align: center;
-  border-radius: 4px;
 }
 
 .search-btn {
