@@ -28,7 +28,7 @@ puts "Creating Ports"
     port_name: ["La Ciotat","Sète","Toulon Côte d'Azur", "Cannes", "Antibes-Vauban"][counter - 1],
     legal_entity: "Capitainerie",
     description:["Port situé dans la ville au Nord de l’ensemble portuaire. Il est composé de deux bassins séparés par un large terre-plein.", "Le port de plaisance de Sète est une escale attractive et originale. Le charme des canaux et le côté pittoresque de son Port de Pêche, font de Sète une ville de caractère, baignée à la fois par la Méditerranée et par l’Etang de Thau.", "Venez découvrir les 6 ports de plaisance de Toulon Vieille Darse, Toulon Darse Nord, La Seyne-sur-Mer, Saint-Mandrier, Saint-Louis du Mourillon et du Niel.", "Un très beau port, incontournable à l'occasion de ses nombreux festivals", "Cette merveilleuse crique naturelle est devenue sous le nom de PORT VAUBAN le plus important port de plaisance en tonnage de la Méditerranée."][counter - 1],
-    size: [650, 120, 100][counter - 1],
+    size: [650, 120, 100, 350, 1700][counter - 1],
     picture: [img_Ciotat, img_Sete, img_Toulon, img_Cannes, img_Vauban_Antibe][counter - 1],
     latitude: [43.174834, 43.400949, 43.123514, 43.551362, 43.585404][counter - 1],
     longitude: [5.607379, 3.697938, 5.933265, 7.015613,7.127177][counter - 1],

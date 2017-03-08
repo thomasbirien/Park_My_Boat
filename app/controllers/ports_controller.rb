@@ -2,7 +2,6 @@ class PortsController < ApplicationController
   skip_before_action :authenticate_user!, only: [:index]
 
   def index
-    ap params
     port_filter = PortFilter.new(params)
     port_filter.filter
     @ports = port_filter.ports

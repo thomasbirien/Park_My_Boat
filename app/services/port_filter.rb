@@ -17,6 +17,7 @@ class PortFilter
 
   def cleaned_params
     {
+      port_name: params[:port_name],
       length: params[:length],
       width: params[:width],
       draught: params[:draught],
