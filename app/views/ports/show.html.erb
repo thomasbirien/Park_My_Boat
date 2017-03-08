@@ -3,76 +3,100 @@
   <div class="row">
     <div class="col-xs-12 col-md-6">
       <div class="card-port-show">
-        <blockquote class="card-blockquote">
-          <%= image_tag @port.picture, class: "card-img-index"%>
-          <div class="card-block">
-            <h3><%= @port.port_name %></h3>
-            <h4>Place de disponible: <%=@port.places.count %> </h4>
-            <p>Capacité d'accueil: <%=@port.size %></p>
-          </div>
-          <div class="card-block">
-            <h5>Situation et coordonnées</h5>
-            <p>Coordonnées GPS:
-              <p>-lng <%=@port.longitude%>  </p>
-              <p>-lat <%= @port.latitude %></p>
-            <p>VHF: <%= @port.radio_channel %></p>
-            <p>téléphone: <%= @port.phone_number %></p>
-            <p>Email: <%= @port.email %></p>
-            <p>Adresse: <%= @port.address %></p>
-          </div>
-          <div class="card-block">
-          <h5>Ravitaillement disponible:</h5>
-          <% if @place_select.ss_elec %>
-           <p>-éléctricité</p>
-          <% end %>
-          <% if @place_select.ss_fuel %>
-            <p>-fuel</p>
-          <% end %>
-          <% if @place_select.ss_fresh_water %>
-            <p>-eau</p>
-          <% end %>
-          <% if @place_select.ss_ice %>
-            <p>-glace</p>
-          <% end %>
+        <%= image_tag @port.picture, class: "card-img-index"%>
+        <div class="card-block">
+          <h3><%= @port.port_name %></h3>
+          <h4>Place de disponible: <%=@port.places.count %> </h4>
+          <p>Capacité d'accueil: <%=@port.size %></p>
+        </div>
+        <div class="card-block">
+          <h5>Situation et coordonnées</h5>
+          <p>Coordonnées GPS:
+            <p>-lng <%=@port.longitude%>  </p>
+            <p>-lat <%= @port.latitude %></p>
+          <p>VHF: <%= @port.radio_channel %></p>
+          <p>téléphone: <%= @port.phone_number %></p>
+          <p>Email: <%= @port.email %></p>
+          <p>Adresse: <%= @port.address %></p>
+        </div>
+        <div class="card-block">
+        <h5>Ravitaillement disponible:</h5>
+        <% if @place_select.ss_elec %>
+         <p>-éléctricité</p>
+        <% end %>
+        <% if @place_select.ss_fuel %>
+          <p>-fuel</p>
+        <% end %>
+        <% if @place_select.ss_fresh_water %>
+          <p>-eau</p>
+        <% end %>
+        <% if @place_select.ss_ice %>
+          <p>-glace</p>
+        <% end %>
 
 
-          <h5>Commoditées disponible:</h5>
-          <% if @place_select.ss_tel %>
-            <p>-téléphonie</p>
-          <% end %>
-          <% if @place_select.ss_wifi %>
-            <p>-wifi</p>
-          <% end %>
-          <% if @place_select.ss_shower %>
-            <p>-douche</p>
-          <% end %>
-          <% if @place_select.sc_waste_sorting %>
-            <p>-tri des déchets</p>
-          <% end %>
-          <% if @place_select.sc_waste_pumping %>
-            <p>-pompage des déchets</p>
-          <% end %>
-          <% if @place_select.sc_waste_container %>
-            <p>-containeur à déchet</p>
-          <% end %>
-          <% if @place_select.sc_security %>
-            <p>-service de sécurité</p>
-          <% end %>
-          </div>
-          </blockquote>
+        <h5>Commoditées disponible:</h5>
+        <% if @place_select.ss_tel %>
+          <p>-téléphonie</p>
+        <% end %>
+        <% if @place_select.ss_wifi %>
+          <p>-wifi</p>
+        <% end %>
+        <% if @place_select.ss_shower %>
+          <p>-douche</p>
+        <% end %>
+        <% if @place_select.sc_waste_sorting %>
+          <p>-tri des déchets</p>
+        <% end %>
+        <% if @place_select.sc_waste_pumping %>
+          <p>-pompage des déchets</p>
+        <% end %>
+        <% if @place_select.sc_waste_container %>
+          <p>-containeur à déchet</p>
+        <% end %>
+        <% if @place_select.sc_security %>
+          <p>-service de sécurité</p>
+        <% end %>
+        </div>
       </div>
     </div>
-    <div class="col-xs-12 col-md-6">
+    <div class="col-xs-12 col-md-4">
       <div class="card-port-show-book">
-        <div class="card-block">
-          <h4>Booking this place</h4>
-          <p><%= @arrival_date %></p>
-          <p><%= @departure_date %></p>
-          <p>les caractéristique de votre bateau :</p>
-          <p> -<%= params[:length] %>  mètre</p>
-          <p> -<%= params[:width] %>  mètre</p>
-          <p> -<%= params[:draught] %>  mètre</p>
-          <p>prix total estimé:<%= @invoiced %>€</p>
+        <div class="card-block-show-booking">
+        <div class="row">
+          <div class="col-xs-8"><h4>Votre réservation</h4></div>
+        </div>
+          <div class="price_show">
+            <i class="fa fa-tag"></i>
+            <h5><%= @invoiced %>€</h5>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-xs-6">
+            <h6>date d'arrivé</h6>
+            <p><%= @arrival_date %></p>
+          </div>
+          <div class="col-xs-6">
+            <h6>date de départ</h6>
+            <p><%= @departure_date %></p>
+          </div>
+        </div>
+        <div class="row">
+        <div class="col-xs-12"><h6>les caractéristique de votre bateau </h6></div>
+          <div class="col-xs-4">
+            <p>longueur</p>
+            <p><%= params[:length] %> mètre</p>
+          </div>
+          <div class="col-xs-4">
+            <p>largeur </p>
+            <p><%= params[:width] %> mètre</p>
+          </div>
+          <div class="col-xs-4">
+            <p>tirant d'eau </p>
+            <p><%= params[:draught] %> mètre</p>
+          </div>
+        </div>
+
           <%= simple_form_for([@port,@booking]) do |f| %>
           <%= f.error_notification %>
           <p><%= f.input :arrival_date, input_html: {value: @arrival_date}, as: :hidden %></p>

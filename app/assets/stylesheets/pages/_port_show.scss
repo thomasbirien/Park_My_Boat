@@ -32,5 +32,25 @@
   margin: 0 auto;
 }
 
+.card-block-show-booking {
+  position: relative;
+
+}
+
+.price_show {
+  h5 {
+  position: absolute;
+  top : 6px;
+  right: 13px;
+
+  }
+  i {
+  position: absolute;
+  top : 16px;
+  right: 82px;
+
+  }
+}
+
 
 
