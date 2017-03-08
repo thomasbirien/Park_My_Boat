@@ -1,42 +1,44 @@
 <%= render 'pages/search_bar' %>
-
 <div class="container">
 
-  <div class="row">
-    <div class="col-xs-12 col-sm-12">
+  <div class="container">
 
-      <div id="map" style="width: 100%; height: 450px;" >
-        <% content_for(:after_js) do %>
-          <%= javascript_tag do %>
-          $(document).ready(function() {
-            var handler = Gmaps.build('Google');
+    <div class="row">
+      <div class="col-xs-12 col-sm-12">
+
+        <div id="map" style="width: 100%; height: 450px;" >
+          <% content_for(:after_js) do %>
+            <%= javascript_tag do %>
+            $(document).ready(function() {
+              var handler = Gmaps.build('Google');
 
 
-            handler.buildMap({
-              internal: { id: 'map' },
-              provider: { center: {
-                  lat: <%= @geographic_center[0] %>,
-                  lng: <%= @geographic_center[1] %>
+              handler.buildMap({
+                internal: { id: 'map' },
+                provider: { center: {
+                    lat: <%= @geographic_center[0] %>,
+                    lng: <%= @geographic_center[1] %>
+                  }
                 }
-              }
-            },
-            function() {
-              <% @hash.each do |marker| %>
-                markers = handler.addMarker(<%= raw ({ lat: marker[:lat], lng: marker[:lng] }.to_json) %>, { label: '<%= @places[marker[:id]] %>' });
-                handler.bounds.extendWith(markers);
-              <% end %>
-              handler.fitMapToBounds();
-              if (markers.length == 0) {
-                handler.getMap().setZoom(6);
-              } else if (markers.length == 1) {
-                handler.getMap().setZoom(14);
-              }
+              },
+              function() {
+                <% @hash.each do |marker| %>
+                  markers = handler.addMarker(<%= raw ({ lat: marker[:lat], lng: marker[:lng] }.to_json) %>, { label: '<%= @places[marker[:id]] %>' });
+                  handler.bounds.extendWith(markers);
+                <% end %>
+                handler.fitMapToBounds();
+                if (markers.length == 0) {
+                  handler.getMap().setZoom(6);
+                } else if (markers.length == 1) {
+                  handler.getMap().setZoom(14);
+                }
+              });
             });
-          });
+            <% end %>
           <% end %>
-        <% end %>
+        </div>
       </div>
-    </div>
+
 
     <div class="col-xs-12 col-sm-12">
       <div id="port-sidebar">
@@ -55,10 +57,11 @@
               <br>Latitude: <%= port.latitude %>
               <div class="button-align">
               <%= link_to "Réserver une place", port_path(port, @target), class: "btn"%>
+
               </div>
             </div>
-          </div>
-        <% end %>
+          <% end %>
+        </div>
       </div>
     </div>
   </div>
