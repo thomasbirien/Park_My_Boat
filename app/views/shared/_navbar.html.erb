@@ -14,22 +14,19 @@
       <!-- Profile picture and dropdown -->
       <div class="navbar-wagon-item">
 
-        <%= link_to profile_path do %>
-          <i class="fa fa-user"></i> <%= t(".profile", default: "Profile") %>
+        <%= link_to root_path do %>
+        <%= t(".profile", default: "Home") %>
         <% end %>
 
-        <%= link_to root_path do %>
-          <i class="fa fa-home"></i>  <%= t(".profile", default: "Home") %>
+        <%= link_to profile_path do %>
+        <%= t(".profile", default: "Profile") %>
         <% end %>
 
         <%= link_to destroy_user_session_path, method: :delete do %>
-          <i class="fa fa-sign-out"></i>  <%= t(".sign_out", default: "Log out") %>
+        <%= t(".sign_out", default: "Log out") %>
         <% end %>
 
-        <%= link_to "Change your password", edit_user_registration_path %>
-        <%= link_to "Destroy your account", user_path, method: :delete, data: { confirm: "You sure?" } %>
-
-        <%= image_tag "http://placehold.it/30x30", class: "avatar dropdown-toggle", id: "navbar-wagon-menu", "data-toggle" => "dropdown" %>
+        <%= image_tag current_user.picture, class: "avatar dropdown-toggle", id: "navbar-wagon-menu", "data-toggle" => "dropdown" %>
 
       </div>
 

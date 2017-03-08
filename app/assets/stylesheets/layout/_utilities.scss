@@ -32,3 +32,8 @@
 .wrapper {
   background-image: url(cartographer_@2X.png);
 }
+
+.inner-wrapper {
+  min-height: calc(100vh - #{$footer-height});
+  margin-top: $navbar-height;
+}
