@@ -3,8 +3,7 @@ class PortFilter
 
   def initialize(params)
     @params = params
-    @ports = Port.all.joins(:places, :bookings)
-    binding.pry
+    @ports = Port.all.left_outer_joins(places: :bookings)
   end
 
   def filter
@@ -38,7 +37,7 @@ class PortFilter
     if params[:arrival_date].present? && params[:departure_date].present?
       ad = Date.strptime(params[:arrival_date], '%d/%m/%Y')
       dd = Date.strptime(params[:departure_date], '%d/%m/%Y')
-      @ports = @ports.where('places.id NOT IN (SELECT place_id FROM bookings WHERE ((arrival_date, departure_date) OVERLAPS (?, ?)))', ad, dd + 1).distinct
+      @ports = @ports.where('places.id NOT IN (SELECT place_id FROM bookings WHERE ((arrival_date, departure_date) OVERLAPS (?, ?)))', ad, dd + 1)
     end
   end
 

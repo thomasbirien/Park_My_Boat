@@ -2,7 +2,7 @@ class PortsController < ApplicationController
   skip_before_action :authenticate_user!, only: [:index]
 
   def index
-    binding.pry
+    ap params
     port_filter = PortFilter.new(params)
     port_filter.filter
     @ports = port_filter.ports
@@ -14,7 +14,6 @@ class PortsController < ApplicationController
 
   def show
     @port = Port.find(params[:id])
-
     places_filter = PlaceFilter.new(params)
     places_filter.filter
     @places = places_filter.places
