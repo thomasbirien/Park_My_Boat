@@ -108,7 +108,7 @@
               <% if user_signed_in? %>
                 <button type="button" class="btn" data-toggle="modal" data-target="#modalbooking">Booking</button>
               <% else %>
-                <button class="btn"><%= link_to t(".sign_in", default: "Login"), new_user_session_path %></button>
+                <button class="btn"><%= link_to t(".sign_in", default: "réservation"), new_user_session_path %></button>
               <% end %>
             <% end %>
         </div>
