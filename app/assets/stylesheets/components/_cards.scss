@@ -64,6 +64,9 @@
   position: relative;
   background:#FEFDFF;
   margin-bottom: 50px;
+  br {
+    border-top: 1px solid grey;
+  }
 }
 
 .card-image {
@@ -74,6 +77,10 @@
 
 .card-description {
   margin-top: 15px;
+  ul {
+    list-style: none;
+    padding-left: 0;
+  }
 }
 
 .price {
@@ -84,9 +91,6 @@
   color: white;
   }
   i {
-  position: absolute;
-  top : 19px;
-  right: 84px;
   color: white;
   }
 }

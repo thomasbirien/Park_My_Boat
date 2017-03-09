@@ -12,11 +12,15 @@
             <div class="card-image" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= booking.place.port.picture %>');">
             </div>
             <div class="price">
-              <i class="fa fa-tag"></i>
-              <h5> <%= booking.invoiced_price %> €</h5>
+              <h5><i class="fa fa-tag"></i> <%= booking.invoiced_price %> €</h5>
             </div>
             <div class="card-description">
               <div class="row">
+
+                <div class="col-xs-12">
+                  <h5><%= booking.place.port.port_name %></h5>
+                </div>
+                <br>
                 <div class="col-xs-6">
                   <h6>Date d'arrivée</h6>
                   <p><%= booking.arrival_date.strftime ("%d/%m/%Y") %></p>
@@ -25,9 +29,14 @@
                   <h6>Date de départ</h6>
                   <p><%= booking.departure_date.strftime ("%d/%m/%Y") %></p>
                 </div>
+                <br>
                 <div class="col-xs-12">
-                  <h6>Commentaire:</h6>
-                  <p><%= booking.comment %></p>
+                  <h6>Dimensions de votre place</h6>
+                  <ul>
+                    <li>Longueur: <%= booking.place.length %></li>
+                    <li>Largeur: <%= booking.place.width %></li>
+                    <li>Tirant d'eau: <%= booking.place.draught %></li>
+                  </ul>
                 </div>
               </div>
             </div>
