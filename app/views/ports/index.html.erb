@@ -6,21 +6,23 @@
 
       <div class="col-xs-12 col-sm-12">
 
-        <div id="map" style="width: 100%; height: 450px;" >
+        <div id="custom_style" style="width: 100%; height: 450px;" >
           <% content_for(:after_js) do %>
             <%= javascript_tag do %>
             $(document).ready(function() {
-
 
               var handler = Gmaps.build('Google');
 
 
               handler.buildMap({
-                internal: { id: 'map' },
-                provider: { center: {
+                internal: { id: 'custom_style' },
+                provider: {
+                  center: {
                     lat: <%= @geographic_center[0] %>,
                     lng: <%= @geographic_center[1] %>
-                  }
+                  },
+                  mapTypeId: google.maps.MapTypeId.ROADMAP,
+                  styles: [{"featureType":"administrative","elementType":"labels.text.fill","stylers":[{"color":"#444444"}]},{"featureType":"landscape","elementType":"all","stylers":[{"color":"#f2f2f2"}]},{"featureType":"poi","elementType":"all","stylers":[{"visibility":"off"}]},{"featureType":"road","elementType":"all","stylers":[{"saturation":-100},{"lightness":45}]},{"featureType":"road.highway","elementType":"all","stylers":[{"visibility":"simplified"}]},{"featureType":"road.arterial","elementType":"labels.icon","stylers":[{"visibility":"off"}]},{"featureType":"transit","elementType":"all","stylers":[{"visibility":"off"}]},{"featureType":"water","elementType":"all","stylers":[{"color":"#46bcec"},{"visibility":"on"}]}]
                 }
               },
               function() {
