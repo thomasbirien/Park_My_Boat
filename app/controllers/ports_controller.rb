@@ -22,8 +22,9 @@ class PortsController < ApplicationController
     @arrival_date = @date_arr.strftime("%d/%m/%Y")
     @date_dep = (Date.strptime(params[:departure_date], '%d/%m/%Y'))
     @departure_date = @date_dep.strftime("%d/%m/%Y")
-    @prices = @places.sort_by { |place| place[:place_price] }
-    @price = @places.order(:place_price).first.place_price
+    # @prices = @places.sort_by { |place| place[:place_price] }
+    @price = @port.place_minimum_price
+    # port.place_minimum_price
 
     @place_select = @places.order(:place_price).first
     @place_id = @place_select.id
