@@ -64,16 +64,27 @@
   position: relative;
   background:#FEFDFF;
   margin-bottom: 50px;
+    p {
+    font-size: 90%;
+    }
+    ul {
+      font-size: 90%;
+    }
 }
 
 .card-image {
     width: 100%;
     height: 200px;
     background-size: cover;
+    border-radius: 4px;
 }
 
 .card-description {
   margin-top: 15px;
+  ul {
+    list-style: none;
+    padding-left: 0;
+  }
 }
 
 .price {
@@ -84,9 +95,6 @@
   color: white;
   }
   i {
-  position: absolute;
-  top : 19px;
-  right: 84px;
   color: white;
   }
 }
