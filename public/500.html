@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>We're sorry, but something went wrong (500)</title>
+  <title>The page you were looking for doesn't exist (404)</title>
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <style>
   body {
@@ -51,16 +51,75 @@
     color: #666;
     box-shadow: 0 3px 8px rgba(50, 50, 50, 0.17);
   }
+
+.home-banner {
+  color: white;
+  text-align: center;
+  height: 100vh;
+  /* if you have a 70px navbar => height: calc(100vh - 70px); */
+  background-size: cover !important;
+  display: flex;
+  align-items: center;
+}
+.home-banner h1 {
+  font-size: 50px;
+  text-shadow: 0px 1px rgba(0, 0, 0, 0.2);
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+.home-banner p {
+  font-size: 20px;
+  font-weight: lighter;
+  color: rgba(255, 255, 255, 0.7);
+  margin-bottom: 20px;
+}
+
+
+.banner-bookings {
+  background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), image-url('booking-banner.jpg');
+  height: 40vh;
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 30px;
+  h2 {
+    color: white;
+  }
+}
+
+.home-banner-content {
+
+  .well {
+    background-color: rgba(255, 255, 255, 0.4);
+    border: 0;
+    border-radius: 4px;
+  }
+}
+
+.well {
+  margin-bottom: 0;
+}
+
+
   </style>
 </head>
 
 <body>
-  <!-- This file lives in public/500.html -->
-  <div class="dialog">
-    <div>
-      <h1>We're sorry, but something went wrong.</h1>
+  <!-- This file lives in public/404.html -->
+
+<div class="home-banner" style="background-image: linear-gradient(-225deg, rgba(0,101,168,0.6) 0%, rgba(0,36,61,0.6) 50%), url('https://files.slack.com/files-pri/T02NE0241-F4G35TR27/error500.jpg');">
+
+  <div class="container">
+    <div class="home-banner-content dialog" >
+      <h1>Nous sommes désolés. L'application vient de faire naufrage</h1>
+      <p>La page a probablement été déplacée.</p>
+      <br>
     </div>
-    <p>If you are the application owner check the logs for more information.</p>
   </div>
+</div>
+
 </body>
+
 </html>
