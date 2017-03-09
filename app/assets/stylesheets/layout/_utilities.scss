@@ -44,5 +44,18 @@
 .inner-wrapper {
   min-height: calc(100vh - #{$footer-height});
   margin-top: $navbar-height;
+  .btn-secondary {
+    border: 1px solid #aaa;
+    color: #aaa;
+  }
+  .options {
+    color: #aaa;
+    label {
+      font-weight: lighter;
+    }
+    h4 {
+       border-bottom: 1px solid #aaa;
+    }
+  }
 }
 
