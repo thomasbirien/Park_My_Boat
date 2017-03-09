@@ -26,8 +26,13 @@
         <%= t(".sign_out", default: "Log out") %>
         <% end %>
 
+
         <%= image_tag current_user.picture, class: "avatar dropdown-toggle", id: "navbar-wagon-menu", "data-toggle" => "dropdown" %>
 
+        <ul class="dropdown-menu dropdown-menu-right navbar-wagon-dropdown-menu">
+          <li><%= link_to "Change your password", edit_user_registration_path %></li>
+          <li>   <%= link_to "Destroy your account", user_path, method: :delete, data: { confirm: "You sure?" } %></li>
+        </ul>
       </div>
 
     <% else %>
