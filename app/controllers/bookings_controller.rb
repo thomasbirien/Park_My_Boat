@@ -11,7 +11,7 @@ class BookingsController < ApplicationController
     @port =  Place.find(@booking.place_id).port
 
     if @booking.save
-      redirect_to profile_path
+
     else
       @place_id = @booking.place_id
       @place_select = Place.find(@place_id)
