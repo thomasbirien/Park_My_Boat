@@ -29,9 +29,9 @@
 }
 
 .card-img-show {
-  width: 100%;
+  width: 60%;
   height: auto;
-  max-height: 194px;
+  // max-height: 194px;
   border-radius: 10px;
 }
 
@@ -92,6 +92,32 @@
   margin-top: 2em;
 }
 
-.spacing-bot{
+
+.box {
+  border: 1px solid #666;
+  height: 50px;
+  width: 50px;
+  border-radius: 4px;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto;
+  margin-bottom: 10px;
+
+  i {
+    font-size: 2em;
+    color: #999;
+  }
+}
+
+.main-box {
+  p {
+    font-size: $base-size * 0.85;
+  }
+}
+
+.spacing-bot {
   margin-bottom: 2em;
 }
+
