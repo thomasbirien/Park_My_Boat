@@ -1,9 +1,8 @@
 
 .card-img-index {
-  width: 40%;
   height: auto;
-  border-radius: 10px;
-  max-height: 140px;
+  // border-radius: 10px;
+  // max-height: 140px;
 }
 
 .card-port {
@@ -27,7 +26,6 @@ box-shadow: 0px 1px 2px 1px rgba(0, 0, 0, 0.2);
 // }
 
 #port-sidebar {
-overflow-y: scroll;
 // border: 1px solid black;
 // width:  250px;
 // margin-bottom: 12px;
@@ -61,3 +59,13 @@ overflow: hidden;
 text-align: center;
 }
 
+.img-text-block
+{
+display:inline-block;
+}
+
+.line-port
+{
+width: 50%;
+float:left;
+}

@@ -1,8 +1,9 @@
 <%= render 'pages/search_bar' %>
 
-  <div class="container">
+<div class="container">
 
-    <div class="row">
+  <div class="row">
+
       <div class="col-xs-12 col-sm-12">
 
         <div id="map" style="width: 100%; height: 450px;" >
@@ -37,32 +38,38 @@
           <% end %>
         </div>
       </div>
+  </div>
 
-
+  <div class="row">
     <div class="col-xs-12 col-sm-12">
       <div id="port-sidebar">
         <% @ports.each do |port| %>
           <div class="card-port">
-          <h4 class="card-title"><%= port.port_name%> : <%= @places[port.id] || 0 %> place(s) disponible(s) répondant à votre recherche</h4>
-            <br><%= image_tag port.picture, class: "card-img-index" %>
-            <div class="card-block">
-            <h4>Prix de la place la moins chère / jour : <%= port.place_minimum_price %> €</h4
-              <h6 class="card-subtitle mb-2 text-muted"><%= "#{port.size} places totales dans le port"%></h6>
-              <p id="port-desc" class="card-text"><%= port.description%></p>
+          <h4 class="card-title"><%= port.port_name%> : <%= @places[port.id] || 0 %> place(s) disponible(s) </h4>
+          <h5>Prix estimé de la place / jour : <%= port.place_minimum_price %> €</h5>
+          <div class="card-block">
+            <div class="row">
+              <div class="col-xs-6">
+                <br><%= image_tag port.picture, class: "card-img-index img-responsive img-rounded" %>
+              </div>
+              <div class="col-xs-6">
               Numéro de téléphone: <%= port.phone_number %>
               <br>Radio: <%= port.radio_channel %>
+              </div>
+            </div>
+              <h6 class="card-subtitle mb-2 text-muted"><%= "#{port.size} places totales dans le port"%></h6>
+              <h5 id="port-desc" class="card-text"><%= port.description%></h5>
               <h5>Coordonnées GPS:</h5>
-              Longitude: <%= port.longitude %>
+              <br>Longitude: <%= port.longitude %>
               <br>Latitude: <%= port.latitude %>
               <div class="button-align">
               <%= link_to "Réserver une place", port_path(port, @target), class: "btn"%>
-
               </div>
             </div>
-          <% end %>
-        </div>
+          </div>
+        <% end %>
       </div>
     </div>
   </div>
-</div>
 
+</div>
