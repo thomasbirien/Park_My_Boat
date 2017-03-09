@@ -16,6 +16,7 @@
   top: 0px;
   background-color: $backgroundnavbar;
   width: 100%;
+  z-index: 10;
 
   a {
     color: white;
@@ -126,14 +127,14 @@
 
 /* Navbar dropdown menu */
 .navbar-wagon-dropdown-menu {
-  margin-top: 15px;
+  margin-right: 45px;
   box-shadow: 1px 1px 4px #E6E6E6;
   border-color: #E6E6E6;
 }
 .navbar-wagon-dropdown-menu li > a {
   transition: color 0.3s ease;
   font-weight: lighter !important;
-  color: #999999 !important;
+  color: #42A3E1 !important;
   font-size: 15px !important;
   line-height: 22px !important;
   padding: 10px 20px;
