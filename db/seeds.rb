@@ -1,10 +1,4 @@
-#This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the rails db:seed command (or created alongside the database with db:setup).
-#
-# Examples:
-#
-#   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
-#   Character.create(name: 'Luke', movie: movies.first)
+# seed v3
 
 Booking.with_deleted.each(&:really_destroy!)
 Boat.with_deleted.each(&:really_destroy!)
@@ -43,7 +37,7 @@ end
 
 # creation places aléatoires
 6.times do
-  prices = [3.0, 7.0, 10.00, 100.15, 120.00, 99.99]
+  prices = [10.00, 11.00, 11.50, 15.50, 28.00, 32.00]
   lengths = [10.35, 15.50, 25.35, 9.90, 20.10]
   widths = [4.3, 6.2, 3.45, 7.3]
   draughts = [2.45, 3.5, 1.5]
@@ -74,13 +68,8 @@ counter = 0
 10.times do
   print '.'
   counter += 1
-  prices = [20.5, 30.10, 50.00, 100.15, 120.00, 99.99]
-  lengths = [10.35, 15.50, 25.35, 9.90, 20.10]
-  widths = [4.3, 6.2, 3.45, 7.3]
-  draughts = [2.45, 3.5, 1.5]
-  boolean = [true, false]
   Place.create!(
-    place_price: [3.0, 3.0, 3.0, 7.0, 7.0, 8.0, 8.0, 15.0, 15.0, 30.0][counter - 1],
+    place_price: [8.00, 8.00, 15.00, 15.00, 16.00, 18.00, 20.00, 25.00, 25.00, 30.00][counter - 1],
     length: [6.00, 6.00, 11.00, 11.00, 12.00, 12.00, 12.00, 25.00, 30.00, 35,00][counter - 1],
     width: [3.00, 3.00, 3.00, 4.00, 4.00, 4.00, 5.00, 7.00, 10.00, 14,00][counter - 1],
     draught: [2.00, 2.00, 2.00, 3.00, 4.00, 4.00, 4.00, 5.00, 6.00, 6,00][counter - 1],
@@ -104,13 +93,9 @@ counter = 0
 5.times do
   print '.'
   counter += 1
-  prices = [15.0, 33.00, 50.00, 100.15, 120.00, 99.99]
-  lengths = [10.35, 15.50, 25.35, 9.90, 20.10]
-  widths = [4.3, 6.2, 3.45, 7.3]
-  draughts = [2.45, 3.5, 1.5]
-  boolean = [true, false]
+
   Place.create!(
-    place_price: [3.00, 3.00, 3.00, 7.00, 7.00][counter - 1],
+    place_price: [10.00, 10.00, 30.00, 30.00, 35.00][counter - 1],
     length: [6.00, 6.00, 11.00, 11.00, 12.00][counter - 1],
     width: [3.00, 3.00, 3.00, 4.00, 4.00][counter - 1],
     draught: [2.00, 2.00, 2.00, 3.00, 4.00][counter - 1],
@@ -134,13 +119,9 @@ counter = 0
 5.times do
   print '.'
   counter += 1
-  # prices = [15.0, 33.00, 50.00, 100.15, 120.00, 99.99]
-  lengths = [10.35, 15.50, 25.35, 9.90, 20.10]
-  widths = [4.3, 6.2, 3.45, 7.3]
-  draughts = [2.45, 3.5, 1.5]
-  boolean = [true, false]
+
   Place.create!(
-    place_price: [3.00, 3.00, 3.00, 7.00, 7.00][counter - 1],
+    place_price: [12.00, 12.00, 35.00, 35.00, 35.00][counter - 1],
     length: [6.00, 6.00, 11.00, 11.00, 12.00][counter - 1],
     width: [3.00, 3.00, 3.00, 4.00, 4.00][counter - 1],
     draught: [2.00, 2.00, 2.00, 3.00, 4.00][counter - 1],
@@ -155,7 +136,7 @@ counter = 0
     sc_waste_pumping: [true, false, true, true, true][counter - 1],
     sc_security: [true, false, true, true, true][counter - 1],
     sc_waste_container: [true, false, true, true, false][counter - 1],
-    port_id: Port.find_by(port_name: "Sète").id
+    port_id: Port.find_by(port_name: "Cannes").id
     )
 end
 
