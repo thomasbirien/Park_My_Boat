@@ -61,11 +61,11 @@ class PlaceFilter
       @places = @places.where(ss_shower: true)
     end
 
-    if params[:ss_waste_sorting] == '1'
+    if params[:sc_waste_sorting] == '1'
       @places = @places.where(ss_waste_sorting: true)
     end
 
-    if params[:ss_waste_pumping] == '1'
+    if params[:sc_waste_pumping] == '1'
       @places = @places.where(ss_waste_pumping: true)
     end
 

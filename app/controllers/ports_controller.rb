@@ -17,7 +17,6 @@ class PortsController < ApplicationController
     places_filter.filter
     @places = places_filter.places
 
-    @port = Port.find(params[:id])
     @date_arr = (Date.strptime(params[:arrival_date], '%d/%m/%Y'))
     @arrival_date = @date_arr.strftime("%d/%m/%Y")
     @date_dep = (Date.strptime(params[:departure_date], '%d/%m/%Y'))
