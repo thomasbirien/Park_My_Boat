@@ -21,7 +21,7 @@
   a {
     color: white;
     margin: 0px 5px;
-
+    font-size: ( $base-size * .85);
       &:hover{
       color: #42A3E1;
       transition: background 0.2s;

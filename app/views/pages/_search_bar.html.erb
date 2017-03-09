@@ -25,21 +25,21 @@
 
          <!-- Dimensions -->
 
-          <div class="col-xs-12 col-md-3">
+          <div class="col-xs-12 col-md-4">
             <div class="dimensions">
-              <%= label_tag(:length, "Dimensions (m)") %>
-              <%= text_field_tag(:length, nil, required: true, placeholder: "Long.", value: (@target.present? ? @target[:length] : nil )) %>
+              <%= label_tag(:length, "Dimensions du bateau (m)") %>
+              <%= text_field_tag(:length, nil, required: true, placeholder: "Longueur", value: (@target.present? ? @target[:length] : nil )) %>
 
-              <%= text_field_tag(:width, nil, required: true, placeholder: "Larg.", value: (@target.present? ? @target[:width] : nil )) %>
+              <%= text_field_tag(:width, nil, required: true, placeholder: "Largeur", value: (@target.present? ? @target[:width] : nil )) %>
 
-              <%= text_field_tag(:draught, nil, required: true, placeholder: "T. eau", value: (@target.present? ? @target[:draught] : nil )) %>
+              <%= text_field_tag(:draught, nil, required: true, placeholder: "Tirant d'eau", value: (@target.present? ? @target[:draught] : nil )) %>
             </div>
           </div>
 
 
         <!-- Search button -->
 
-          <div class="col-xs-12 col-md-3">
+          <div class="col-xs-12 col-md-2">
             <div class="search-btn text-center">
               <%= submit_tag("Chercher", class: "btn")  %>
             </div>

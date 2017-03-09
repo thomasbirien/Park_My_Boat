@@ -22,16 +22,14 @@
         <%= t(".profile", default: "Réservations") %>
         <% end %>
 
-        <%= link_to destroy_user_session_path, method: :delete do %>
-        <%= t(".sign_out", default: "Déconnexion") %>
-        <% end %>
-
-
         <%= image_tag current_user.picture, class: "avatar dropdown-toggle", id: "navbar-wagon-menu", "data-toggle" => "dropdown" %>
 
         <ul class="dropdown-menu dropdown-menu-right navbar-wagon-dropdown-menu">
           <li><%= link_to "Changer votre mot de passe", edit_user_registration_path %></li>
           <li>   <%= link_to "Supprimer votre compte", user_path, method: :delete, data: { confirm: "Êtes vous sûr?" } %></li>
+          <li><%= link_to destroy_user_session_path, method: :delete do %>
+        <%= t(".sign_out", default: "Déconnexion") %>
+        <% end %></li>
         </ul>
       </div>
 

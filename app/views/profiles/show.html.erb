@@ -1,6 +1,6 @@
 
 <div class="banner-bookings">
-  <h2>Vos réservations, Capitaine</h2>
+  <h2>Vos réservations en cours, Capitaine</h2>
 </div>
 
 
@@ -20,7 +20,7 @@
               <div class="row">
 
                 <div class="col-xs-12">
-                  <h5><%= booking.place.port.port_name %></h5>
+                  <h4><%= booking.place.port.port_name %></h4>
                 </div>
                 <br>
                 <div class="col-xs-6">
@@ -43,7 +43,7 @@
               </div>
             </div>
             <div class="card-btn">
-              <%= link_to "Supprimer", booking_path(booking), method: :delete, data: { confirm: "Are your sure to delete this booking ?"}, class: "btn" %>
+              <%= link_to "Annuler", booking_path(booking), method: :delete, data: { confirm: "Are your sure to delete this booking ?"}, class: "btn-delete" %>
             </div>
           </div>
         </div>
