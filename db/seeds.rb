@@ -7,7 +7,7 @@ Place.with_deleted.each(&:really_destroy!)
 Port.with_deleted.each(&:really_destroy!)
 
 # Creation ports db
-img_Ciotat = "http://images.figaronautisme.com/image/figaro-nautisme/ports/photos/120509_175212_10100-la-ciotat-240312.jpg"
+img_Ciotat = "http://images.figaronautisme.com/image/figaro-nautisme/ports/photos/120509_175345_10100-la-ciotat-240312.jpg"
 img_Sete = "http://images.figaronautisme.com/image/figaro-nautisme/ports/photos/120510_113203_09941-sete-290212.jpg"
 img_Toulon = "http://images.figaronautisme.com/image/figaro-nautisme/ports/photos/120510_100215_10134-toulon-240312.jpg"
 img_Cannes = "http://images.figaronautisme.com/image/figaro-nautisme/ports/photos/120523_120713_-palais-des-festivals-et-des-congr-s-de-cannes-kelagopian-pour-la-wbor6044-.jpg"
@@ -95,8 +95,8 @@ counter = 0
   counter += 1
 
   Place.create!(
-    place_price: [10.00, 10.00, 30.00, 30.00, 35.00][counter - 1],
     length: [6.00, 6.00, 11.00, 11.00, 12.00][counter - 1],
+    place_price: [10.00, 10.00, 30.00, 30.00, 35.00][counter - 1],
     width: [3.00, 3.00, 3.00, 4.00, 4.00][counter - 1],
     draught: [2.00, 2.00, 2.00, 3.00, 4.00][counter - 1],
     ss_elec: [true, false, true, true, false][counter - 1],
