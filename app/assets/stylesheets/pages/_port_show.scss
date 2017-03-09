@@ -91,3 +91,28 @@
 .spacing{
   margin-top: 2em;
 }
+
+.box {
+  border: 1px solid #666;
+  height: 50px;
+  width: 50px;
+  border-radius: 4px;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto;
+  margin-bottom: 10px;
+
+  i {
+    font-size: 2em;
+    color: #999;
+  }
+}
+
+.main-box {
+  p {
+    font-size: $base-size * 0.85;
+  }
+}
+

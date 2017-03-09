@@ -53,28 +53,35 @@
                 <h4>Ravitaillement disponible:</h4>
                 </div>
                 <% if @place_select.ss_elec %>
-                  <div class="col-xs-6">
-                  <div class="box"></div>
-                    <p><i class="fa fa-bolt" aria-hidden="true"></i>
-                    éléctricité</p>
+                  <div class="main-box col-xs-2">
+                    <div class="box">
+                      <i class="fa fa-bolt" aria-hidden="true"></i>
+                    </div>
+                    <p class= "text-center">éléctricité</p>
                   </div>
                 <% end %>
                 <% if @place_select.ss_fuel %>
-                  <div class="col-xs-6">
-                    <p><i class="fa fa-fire" aria-hidden="true"></i>
-                    fuel</p>
+                  <div class="main-box col-xs-2">
+                    <div class="box">
+                      <i class="fa fa-fire" aria-hidden="true"></i>
+                    </div>
+                    <p class= "text-center">fuel</p>
                   </div>
                 <% end %>
                 <% if @place_select.ss_fresh_water %>
-                  <div class="col-xs-6">
-                    <p><i class="fa fa-tint" aria-hidden="true"></i>
-                    eau</p>
+                  <div class="main-box col-xs-2">
+                    <div class="box">
+                      <i class="fa fa-tint" aria-hidden="true"></i>
+                    </div>
+                    <p class= "text-center">eau</p>
                   </div>
                 <% end %>
                 <% if @place_select.ss_ice %>
-                  <div class="col-xs-6">
-                    <p><i class="fa fa-thermometer-empty" aria-hidden="true"></i>
-                    glace</p>
+                  <div class="main-box col-xs-2">
+                    <div class="box">
+                      <i class="fa fa-thermometer-empty" aria-hidden="true"></i>
+                    </div>
+                    <p class= "text-center">glace</p>
                   </div>
                 <% end %>
               </div>
