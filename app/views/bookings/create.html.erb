@@ -1,0 +1,24 @@
+<div class="container">
+  <div class="card-create text-center">
+    <div class="row">
+      <div class="col-xs-12">
+        <h3><i class="fa fa-exclamation-triangle" aria-hidden="true"></i>
+          Votre réservation a bien été envoyée à la capitainerie
+          <i class="fa fa-exclamation-triangle" aria-hidden="true"></i>
+        </h3>
+      </div>
+      <div class="col-xs-12">
+        <h5>
+          à l'email <%= @port.email %>, au port suivant: <%= @port.port_name %>
+        </h5>
+      </div>
+      <div class="col-xs-12">
+        <h6>
+          Si vous n'avez pas reçue de réponse de notre part d'ici 30 minutes, considéré votre réservation comme étant annulé.
+        </h6>
+      </div>
+      <%= link_to "Home", root_path, class: "btn"  %>
+      <%= link_to "profile", profile_path, class: "btn"  %>
+    </div>
+  </div>
+</div>
