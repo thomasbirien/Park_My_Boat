@@ -22,11 +22,6 @@
         <%= t(".profile", default: "Profile") %>
         <% end %>
 
-        <%= link_to destroy_user_session_path, method: :delete do %>
-        <%= t(".sign_out", default: "Log out") %>
-        <% end %>
-
-
         <%= image_tag current_user.picture, class: "avatar dropdown-toggle", id: "navbar-wagon-menu", "data-toggle" => "dropdown" %>
 
         <ul class="dropdown-menu dropdown-menu-right navbar-wagon-dropdown-menu">
