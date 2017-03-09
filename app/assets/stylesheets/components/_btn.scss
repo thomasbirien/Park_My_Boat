@@ -46,4 +46,11 @@
   }
 }
 
-
+.btn-delete {
+  color: #ccc;
+  font-size: ($base-size * 0.75);
+  &:hover {
+    text-decoration: none;
+    color: red;
+  }
+}
