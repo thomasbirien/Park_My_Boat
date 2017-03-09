@@ -22,7 +22,17 @@ class PortFilter
       width: params[:width],
       draught: params[:draught],
       arrival_date: params[:arrival_date],
-      departure_date: params[:departure_date]
+      departure_date: params[:departure_date],
+      ss_elec: params[:ss_elec],
+      ss_ice: params[:ss_ice],
+      ss_fuel: params[:ss_fuel],
+      ss_tel: params[:ss_tel],
+      ss_wifi: params[:ss_wifi],
+      ss_shower: params[:ss_shower],
+      sc_waste_sorting: params[:sc_waste_sorting],
+      sc_waste_pumping: params[:sc_waste_pumping],
+      sc_waste_container: params[:sc_waste_container],
+      sc_security: params[:sc_security]
     }
   end
 
@@ -53,13 +63,9 @@ class PortFilter
 
   def filter_by_options
 
-    ap 'ss elec'
-
     if params[:ss_elec] == '1'
       @ports = @ports.where('places.ss_elec = ?', true)
     end
-
-    ap @ports
 
     if params[:ss_ice] == '1'
       @ports = @ports.where('places.ss_ice = ?', true)
@@ -81,11 +87,11 @@ class PortFilter
       @ports = @ports.where('places.ss_shower = ?', true)
     end
 
-    if params[:ss_waste_sorting] == '1'
+    if params[:sc_waste_sorting] == '1'
       @ports = @ports.where('places.ss_waste_sorting = ?', true)
     end
 
-    if params[:ss_waste_pumping] == '1'
+    if params[:sc_waste_pumping] == '1'
       @ports = @ports.where('places.ss_waste_pumping = ?', true)
     end
 
