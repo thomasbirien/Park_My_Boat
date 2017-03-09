@@ -13,15 +13,17 @@
 
 .search_bar_visibe  {
   input{
-  width: 100%;
-  color: black;
-  border-radius: 4px;
+  color: white;
+  border-radius: 5px;
   }
   .date {
     input{
       width: 48%;
       text-align: center;
       border: 0px;
+      color: black;
+      font-size: 85%;
+      border-radius: 2px;
     }
   }
   .dimensions {
@@ -29,11 +31,19 @@
       width: 31%;
       text-align: center;
       border: 0px;
+      color: black;
+      font-size: 85%;
+      border-radius: 2px;
     }
   }
   .port {
     input {
+      width: 100%;
       border: 0px;
+      color: black;
+      padding-left: 5px;
+      font-size: 85%;
+      border-radius: 2px;
     }
   }
 }
@@ -59,12 +69,8 @@
   display: inline;
 }
 
-.options-padding {
-  padding-top: 1%;
-}
-
 .search-btn {
-  margin-top: 23px;
+  margin-top: 12px;
   padding-left: 15px;
   padding-right: 15px;
 }
