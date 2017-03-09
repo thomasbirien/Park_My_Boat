@@ -2,7 +2,7 @@
   <div class="container-fluide">
     <div class="container">
       <div class="row">
-        <div class="col-xs-12 col-md-6">
+        <div class="col-xs-12 col-md-7">
           <div class="card-port-show">
             <div class="card-block">
               <h3><%= @port.port_name %></h3>
@@ -13,46 +13,44 @@
             <%= image_tag @port.picture, class: "card-img-show"%>
             <div class="card-block">
               <p>Capacité d'accueil <%=@port.size %></p>
-              <br>
-                <div class="row">
-              <div class="col-xs-12">
-                <h5>Situation et coordonnées</h5>
-              </div>
-              <div class="col-xs-7 col">
-                <p><i class="fa fa-phone" aria-hidden="true"></i>
-                <%= @port.phone_number %></p>
-              </div>
-              <div class="col-xs-5">
-                <p><i class="fa fa-ravelry" aria-hidden="true"></i>
-                Coordonnées GPS:</p>
-              </div>
-              <div class="col-xs-7">
-                <p><i class="fa fa-microphone" aria-hidden="true"></i>
-                <%= @port.radio_channel %></p>
-              </div>
-              <div class="col-xs-5">
-                <p><i class="fa fa-arrow-circle-o-left" aria-hidden="true"></i><i class="fa fa-arrow-circle-o-right" aria-hidden="true"></i>
-                latitude <%= @port.latitude %></p>
-              </div>
-              <div class="col-xs-7">
-                <p><i class="fa fa-envelope" aria-hidden="true"></i>
-                <%= @port.email %></p>
-              </div>
-              <div class="col-xs-5">
-                <p><i class="fa fa-arrow-circle-o-up" aria-hidden="true"></i><i class="fa fa-arrow-circle-o-down" aria-hidden="true"></i>
-                longitude <%=@port.longitude%> </p>
-              </div>
-              <div class="col-xs-7">
-                <p><i class="fa fa-home" aria-hidden="true"></i>
-                <%= @port.address %></p>
-              </div>
-                </div>
-            </div>
-            <br>
-            <div class="card-block">
-              <div class="row">
+              <div class="row spacing">
                 <div class="col-xs-12">
-                <h5>Ravitaillement disponible:</h5>
+                  <h4>Situation et coordonnées</h4>
+                </div>
+                <div class="col-sm-7 col-xs-12">
+                  <p>
+                  <%= @port.phone_number %></p>
+                </div>
+                <div class="col-sm-5 col-xs-12">
+                  <p>
+                  Coordonnées GPS:</p>
+                </div>
+                <div class="col-sm-7 col-xs-12">
+                  <p>
+                  <%= @port.radio_channel %></p>
+                </div>
+                <div class="col-sm-5 col-xs-12">
+                  <p>
+                  latitude <%= @port.latitude %></p>
+                </div>
+                <div class="col-sm-7 col-xs-12">
+                  <p>
+                  <%= @port.email %></p>
+                </div>
+                <div class="col-sm-5 col-xs-12">
+                  <p>
+                  longitude <%=@port.longitude%> </p>
+                </div>
+                <div class="col-sm-7 col-xs-12">
+                  <p>
+                  <%= @port.address %></p>
+                </div>
+              </div>
+            </div>
+            <div class="card-block">
+              <div class="row spacing">
+                <div class="col-xs-12">
+                <h4>Ravitaillement disponible:</h4>
                 </div>
                 <% if @place_select.ss_elec %>
                   <div class="col-xs-6">
@@ -80,9 +78,9 @@
                 <% end %>
               </div>
               <br>
-              <div class="row">
+              <div class="row spacing">
                 <div class="col-xs-12">
-                  <h5>Commoditées disponible:</h5>
+                  <h4>Commoditées disponible:</h4>
                 </div>
                 <% if @place_select.ss_tel %>
                   <div class="col-xs-6">
@@ -183,10 +181,10 @@
               <p><%= f.input :departure_date, input_html: {value: @departure_date}, as: :hidden %></p>
               <p><%= f.input :place_id, input_html: {value: @place_id}, as: :hidden %></p>
                 <% if user_signed_in? %>
-                  <button type="button" class="btn" data-toggle="modal" data-target="#modalbooking">Réservation</button>
+                  <button type="button" class="btn btn-block spacing" data-toggle="modal" data-target="#modalbooking">Réservation</button>
                 <% else %>
 
-                  <button class="btn"><%= link_to t(".sign_in", default: "Réservation"), new_user_session_path %></button>
+                  <button class="btn btn-block spacing"><%= link_to t(".sign_in", default: "Réservation"), new_user_session_path %></button>
                 <% end %>
               <% end %>
           </div>
@@ -235,18 +233,21 @@
                 <p><%= params[:draught] %> mètre</p>
               </div>
             </div>
-            <div>
-              <%= simple_form_for([@port,@booking]) do |f| %>
-              <%= f.error_notification %>
-              <p><%= f.input :arrival_date, input_html: {value: @arrival_date}, as: :hidden %></p>
-              <p><%= f.input :departure_date, input_html: {value: @departure_date}, as: :hidden %></p>
-              <p><%= f.input :place_id, input_html: {value: @place_id}, as: :hidden %></p>
-            </div>
-              <% if user_signed_in? %>
-                  <button type="button" class="btn" data-toggle="modal" data-target="#modalbooking">Réservation</button>
-                <% else %>
-                  <button class="btn"><%= link_to t(".sign_in", default: "Réservation"), new_user_session_path %></button>
-                <% end %>
+
+              <div>
+                <%= simple_form_for([@port,@booking]) do |f| %>
+                <%= f.error_notification %>
+                <p><%= f.input :arrival_date, input_html: {value: @arrival_date}, as: :hidden %></p>
+                <p><%= f.input :departure_date, input_html: {value: @departure_date}, as: :hidden %></p>
+                <p><%= f.input :place_id, input_html: {value: @place_id}, as: :hidden %></p>
+              </div>
+
+                <% if user_signed_in? %>
+                    <button type="button" class="btn btn-block spacing" data-toggle="modal" data-target="#modalbooking">Réservation</button>
+                  <% else %>
+                    <button class="btn btn-block spacing"><%= link_to t(".sign_in", default: "Réservation"), new_user_session_path %></button>
+                  <% end %>
+
               <% end %>
           </div>
         </div>
