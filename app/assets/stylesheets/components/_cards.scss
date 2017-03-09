@@ -58,18 +58,15 @@
 
 .card-container {
   padding: 15px;
-  border: 1px solid #dadada;
-  box-shadow: 2px 2px 2px #dedede;
+  box-shadow: 9px 9px 20px 0px rgba(0, 0, 0, 0.1);
   border-radius: 5px;
   position: relative;
   background:#FEFDFF;
   margin-bottom: 50px;
-    p {
-    font-size: 90%;
-    }
-    ul {
-      font-size: 90%;
-    }
+  font-size: ($base-size * 0.85);
+  h6 {
+    margin-bottom: 5px;
+  }
 }
 
 .card-image {
@@ -100,5 +97,5 @@
 }
 
 .card-btn {
-  text-align: right;
+  text-align: left;
 }
