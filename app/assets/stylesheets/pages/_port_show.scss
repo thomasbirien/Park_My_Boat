@@ -15,7 +15,7 @@
   padding-top: 20px;
   padding-right: 20px;
   padding-left: 20px;
-  margin-top: 40px;
+
   margin-bottom: 80px;
   margin-left: 5px;
 
@@ -92,6 +92,7 @@
   margin-top: 2em;
 }
 
+
 .box {
   border: 1px solid #666;
   height: 50px;
@@ -114,5 +115,9 @@
   p {
     font-size: $base-size * 0.85;
   }
+}
+
+.spacing-bot {
+  margin-bottom: 2em;
 }
 
