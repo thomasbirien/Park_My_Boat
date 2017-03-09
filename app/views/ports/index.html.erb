@@ -10,6 +10,8 @@
           <% content_for(:after_js) do %>
             <%= javascript_tag do %>
             $(document).ready(function() {
+
+
               var handler = Gmaps.build('Google');
 
 
@@ -60,7 +62,7 @@
             </div>
             <div class="row">
               <div class="col-xs-8">
-                <h6 class="card-subtitle mb-2 text-muted"><%= "#{port.size} places totales dans ce port"%></h6>
+                <h5 class="card-subtitle mb-2 text-muted"><%= "#{port.size} places totales dans ce port"%></h5>
                 <h5>Coordonnées GPS du port:</h5>
                 <p>Longitude: <%= port.longitude %></p>
                 <p>Latitude: <%= port.latitude %></p>
