@@ -50,18 +50,18 @@
           <div class="card-block">
             <div class="row">
               <div class="col-xs-6">
-                <br><%= image_tag port.picture, class: "card-img-index img-responsive img-rounded" %>
+                <%= image_tag port.picture, class: "card-img-index img-responsive img-rounded" %>
               </div>
-              <div class="col-xs-6">
-              Numéro de téléphone: <%= port.phone_number %>
-              <br>Radio: <%= port.radio_channel %>
-              </div>
+                <div class="col-xs-6 align-blocks">
+                  <p>Numéro de téléphone: <%= port.phone_number %>
+                  <br>Radio: <%= port.radio_channel %></p>
+                </div>
             </div>
-              <h6 class="card-subtitle mb-2 text-muted"><%= "#{port.size} places totales dans le port"%></h6>
+              <h6 class="card-subtitle mb-2 text-muted"><%= "#{port.size} places totales dans ce port"%></h6>
               <h5 id="port-desc" class="card-text"><%= port.description%></h5>
-              <h5>Coordonnées GPS:</h5>
-              <br>Longitude: <%= port.longitude %>
-              <br>Latitude: <%= port.latitude %>
+              <h5>Coordonnées GPS du port:</h5>
+              <p>Longitude: <%= port.longitude %></p>
+              <p>Latitude: <%= port.latitude %></p>
               <div class="button-align">
               <%= link_to "Réserver une place", port_path(port, @target), class: "btn"%>
               </div>
