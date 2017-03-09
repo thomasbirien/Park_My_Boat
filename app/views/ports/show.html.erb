@@ -8,12 +8,12 @@
               <h3><%= @port.port_name %></h3>
               <h4><i class="fa fa-anchor" aria-hidden="true"></i>
 
-              Place de disponible: <%=@port.places.count %> </h4>
+              <%=@places.count %> Place(s) disponible(s) </h4>
             </div>
             <%= image_tag @port.picture, class: "card-img-show"%>
             <div class="card-block">
 
-              <p>Capacité d'accueil <%=@port.size %></p>
+              <p>Capacité d'accueil: <%=@port.size %> places</p>
               <div class="row spacing">
                 <div class="col-xs-12">
                   <h4>Situation et coordonnées</h4>
@@ -32,7 +32,7 @@
                 </div>
                 <div class="col-sm-5 col-xs-12">
                   <p>
-                  latitude <%= @port.latitude %></p>
+                  latitude: <%= @port.latitude %></p>
                 </div>
                 <div class="col-sm-7 col-xs-12">
                   <p>
@@ -40,7 +40,7 @@
                 </div>
                 <div class="col-sm-5 col-xs-12">
                   <p>
-                  longitude <%=@port.longitude%> </p>
+                  longitude: <%=@port.longitude%> </p>
                 </div>
                 <div class="col-sm-7 col-xs-12">
                   <p>
@@ -89,7 +89,7 @@
               <br>
               <div class="row spacing">
                 <div class="col-xs-12">
-                  <h4>Commoditées disponible:</h4>
+                  <h4>Commodités disponibles:</h4>
                 </div>
                 <% if @place_select.ss_tel %>
                   <div class="col-xs-6">
@@ -118,13 +118,13 @@
                 <% if @place_select.sc_waste_pumping %>
                   <div class="col-xs-6">
                     <p><i class="fa fa-trash" aria-hidden="true"></i>
-                    pompage des déchets</p>
+                    pompage des eaux usées</p>
                   </div>
                 <% end %>
                 <% if @place_select.sc_waste_container %>
                   <div class="col-xs-6">
                     <p><i class="fa fa-trash" aria-hidden="true"></i>
-                    containeur à déchets</p>
+                    containeur sélectif de déchets</p>
                   </div>
                 <% end %>
                 <% if @place_select.sc_security %>
@@ -155,7 +155,7 @@
             <br>
             <div class="row">
               <div class="col-xs-6">
-                <h6>date d'arrivé</h6>
+                <h6>date d'arrivée</h6>
                 <p><%= @arrival_date %></p>
               </div>
               <div class="col-xs-6">
@@ -166,20 +166,20 @@
             <br>
             <div class="row">
               <div class="col-xs-12">
-                <h6>les caractéristique de votre bateau </h6>
+                <h6>Dimensions du bateau </h6>
               </div>
               <div class="col-xs-12">
                 <ul>
-                  <li>longueur
-                  <%= params[:length] %> mètre
+                  <li>longueur :
+                  <%= params[:length] %> m
                   </li>
                   <li>
-                    largeur
-                  <%= params[:width] %> mètre
+                    largeur :
+                  <%= params[:width] %> m
                   </li>
                   <li>
-                  tirant d'eau
-                  <%= params[:draught] %> mètre
+                  tirant d'eau :
+                  <%= params[:draught] %> m
                   </li>
                 </ul>
               </div>
@@ -227,7 +227,7 @@
             <br>
             <div class="row">
               <div class="col-xs-12">
-                <h6>les caractéristique de votre bateau </h6>
+                <h6>Dimensions de votre bateau </h6>
               </div>
               <div class="col-xs-4">
                 <p>longueur</p>
@@ -282,19 +282,19 @@
               </div>
 
               <div class="col-xs-12 spacing">
-                <h6>les caractéristique de votre bateau </h6>
+                <h6>Dimensions de votre bateau </h6>
               </div>
               <div class="col-xs-4">
                 <p>longueur</p>
-                <p><%= params[:length] %> mètre</p>
+                <p><%= params[:length] %> m</p>
               </div>
               <div class="col-xs-4">
                 <p>largeur </p>
-                <p><%= params[:width] %> mètre</p>
+                <p><%= params[:width] %> m</p>
               </div>
               <div class="col-xs-4">
                 <p>tirant d'eau </p>
-                <p><%= params[:draught] %> mètre</p>
+                <p><%= params[:draught] %> m</p>
               </div>
               <div class="col-xs-12 spacing ">
                 <h6>prix total estimé:<%= @invoiced %>€</h6>
@@ -303,7 +303,7 @@
               <%= simple_form_for([@port,@booking]) do |f| %>
               <%= f.error_notification %>
               <div class="col-xs-12 spacing">
-                <p><%= f.input :comment, label: "Un commentaire à ajouter à la capitainerie ?" %></p>
+                <p><%= f.input :comment, label: "Un message à communiquer à la capitainerie ?" %></p>
               </div>
                 <p><%= f.input :arrival_date, input_html: {value: @arrival_date}, as: :hidden %></p>
                 <p><%= f.input :departure_date, input_html: {value: @departure_date}, as: :hidden %></p>
