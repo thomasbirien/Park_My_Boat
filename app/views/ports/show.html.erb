@@ -6,17 +6,19 @@
           <div class="card-port-show">
             <div class="card-block">
               <h3><%= @port.port_name %></h3>
-              <h4>Place de disponible: <%=@port.places.count %> </h4>
+              <h4><i class="fa fa-anchor" aria-hidden="true"></i>
+
+              Place de disponible: <%=@port.places.count %> </h4>
             </div>
             <%= image_tag @port.picture, class: "card-img-show"%>
             <div class="card-block">
-              <p>Capacité d'accueil: <%=@port.size %></p>
+              <p>Capacité d'accueil <%=@port.size %></p>
               <br>
                 <div class="row">
               <div class="col-xs-12">
                 <h5>Situation et coordonnées</h5>
               </div>
-              <div class="col-xs-6">
+              <div class="col-xs-6 col">
                 <p><i class="fa fa-phone" aria-hidden="true"></i>
 
                 <%= @port.phone_number %></p>
@@ -27,7 +29,8 @@
                 Coordonnées GPS:</p>
               </div>
               <div class="col-xs-6">
-                <p><%= @port.radio_channel %></p>
+                <p><i class="fa fa-phone-square" aria-hidden="true"></i>
+                <%= @port.radio_channel %></p>
               </div>
               <div class="col-xs-6">
                 <p><i class="fa fa-arrows-h" aria-hidden="true"></i>
@@ -35,19 +38,16 @@
                 latitude <%= @port.latitude %></p>
               </div>
               <div class="col-xs-6">
-                <p><i class="fa fa-envelope" aria-hidden="true"></i>
-
-                <%= @port.email %></p>
+                <p><i class="fa fa-envelope" aria-hidden="true"></i> <%= @port.email %></p>
               </div>
               <div class="col-xs-6">
                 <p><i class="fa fa-arrows-v" aria-hidden="true"></i>
 
-                longitude <%=@port.longitude%>  </p>
+                longitude <%=@port.longitude%> </p>
               </div>
-              <div class="col-xs-6">
-                <p><i class="fa fa-home" aria-hidden="true"></i>
 
-                <%= @port.address %></p>
+              <div class="col-xs-6">
+                <p><i class="fa fa-home" aria-hidden="true"></i> <%= @port.address %></p>
               </div>
                 </div>
             </div>
@@ -138,10 +138,10 @@
           <div class="card-port-show-book fixed">
             <div class="card-block-show-booking">
               <div class="row">
-                <div class="col-xs-6">
+                <div class="card-block-resa">
                   <h5>Votre réservation</h5>
                 </div>
-                <div class="col-xs-6">
+                <div class="col-xs-6 col-xs-offset-6  ">
                   <div class="price_show">
                     <h3><i class="fa fa-tag"></i>
                     <%= @invoiced %>€</h3>
@@ -206,13 +206,16 @@
           <div class="card-port-show-book">
             <div class="card-block-show-booking">
               <div class="row">
-                <div class="col-xs-8">
+                <div class="card-block-resa-xs">
                   <h5>Votre réservation</h5>
                 </div>
               </div>
               <div class="price_show">
-                <i class="fa fa-tag"></i>
-                <h4><%= @invoiced %>€</h4>
+
+                <div class="col-xs-6 col-xs-offset-6">
+                  <h4><i class="fa fa-tag"></i>
+                  <%= @invoiced %>€</h4>
+                </div>
               </div>
             </div>
             <br>

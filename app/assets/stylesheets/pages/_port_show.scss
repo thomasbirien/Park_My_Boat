@@ -1,5 +1,5 @@
 .card-port-show {
-  background-color: #fff9ed;
+  background-color: white;
   padding: 10px;
   margin-top: 40px;
   margin-bottom: 40px;
@@ -38,7 +38,7 @@
 }
 
 .card-block-show-booking {
-
+  position: relative;
 
 }
 
@@ -71,4 +71,16 @@
 
 .container {
 
+}
+
+.card-block-resa{
+  position: absolute;
+  top: 20px;
+  left: 0px;
+}
+
+.card-block-resa-xs{
+  position: absolute;
+  top: 5px;
+  left: -1px;
 }
