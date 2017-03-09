@@ -51,17 +51,76 @@
     color: #666;
     box-shadow: 0 3px 8px rgba(50, 50, 50, 0.17);
   }
+
+.home-banner {
+  color: white;
+  text-align: center;
+  height: 100vh;
+  /* if you have a 70px navbar => height: calc(100vh - 70px); */
+  background-size: cover !important;
+  display: flex;
+  align-items: center;
+}
+.home-banner h1 {
+  font-size: 50px;
+  text-shadow: 0px 1px rgba(0, 0, 0, 0.2);
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+.home-banner p {
+  font-size: 20px;
+  font-weight: lighter;
+  color: rgba(255, 255, 255, 0.7);
+  margin-bottom: 20px;
+}
+
+
+.banner-bookings {
+  background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), image-url('booking-banner.jpg');
+  height: 40vh;
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 30px;
+  h2 {
+    color: white;
+  }
+}
+
+.home-banner-content {
+
+  .well {
+    background-color: rgba(255, 255, 255, 0.4);
+    border: 0;
+    border-radius: 4px;
+  }
+}
+
+.well {
+  margin-bottom: 0;
+}
+
+
   </style>
 </head>
 
 <body>
   <!-- This file lives in public/404.html -->
-  <div class="dialog">
-    <div>
-      <h1>The page you were looking for doesn't exist.</h1>
-      <p>You may have mistyped the address or the page may have moved.</p>
+
+<div class="home-banner" style="background-image: linear-gradient(-225deg, rgba(0,101,168,0.6) 0%, rgba(0,36,61,0.6) 50%), url('http://marcidiehl.com/wp-content/uploads/2012/06/bigstock-rescued-man-in-boat-looking-on-20698394.jpg');">
+
+  <div class="container">
+    <div class="home-banner-content dialog" >
+      <h1>Naufrage ! Cette page n'existe pas.</h1>
+      <p>La page a probablement été déplacée.</p>
+      <br>
     </div>
-    <p>If you are the application owner check the logs for more information.</p>
   </div>
+</div>
+
 </body>
+
 </html>
+
