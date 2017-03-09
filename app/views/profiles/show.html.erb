@@ -11,7 +11,7 @@
       <% @bookings.each do |booking| %>
         <div class="col-xs-12 col-md-4">
           <div class="card-container">
-            <div class="card-image" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= booking.place.port.picture %>');">
+            <div class="card-image" style="background-image: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0)), url('<%= booking.place.port.picture %>');">
             </div>
             <div class="price">
               <h5><i class="fa fa-tag"></i> <%= booking.invoiced_price %> €</h5>
