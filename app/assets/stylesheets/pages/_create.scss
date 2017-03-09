@@ -4,10 +4,23 @@
 .card-create{
   padding-right: 50px;
   padding-left: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 
 
 .card-create-child{
 
+}
+.test {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+}
+
+.spacing{
+  margin-top: 2em;
 }
