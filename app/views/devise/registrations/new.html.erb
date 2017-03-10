@@ -1,25 +1,32 @@
-<h2>Sign up</h2>
 
 <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
   <%= f.error_notification %>
 
-  <div class="form-inputs">
-    <%= f.input :email, required: true, autofocus: true %>
-    <%= f.input :password, required: true, hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length) %>
-    <%= f.input :password_confirmation, required: true %>
-    <%= f.input :first_name %>
-    <%= f.input :last_name %>
-    <%= f.input :phone_number %>
-    <%= f.input :civility, collection: ["Monsieur", "Madame"] %>
-    <%= f.input :address %>
-    <%= f.input :post_code %>
-    <%= f.input :city %>
-    <%= f.input :country%>
-  </div>
+<div class="container text-align">
+  <div class="user-sign-in">
+    <h2>Inscription</h2>
+    <br>
 
-  <div class="form-actions">
-    <%= f.button :submit, "Sign up" %>
-  </div>
-<% end %>
 
-<%= render "devise/shared/links" %>
+      <div class="form-inputs">
+        <%= f.input :email, required: true, autofocus: true %>
+        <%= f.input :password, required: true, hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length), label: "Mot de passe" %>
+        <%= f.input :password_confirmation, required: true ,label: "Confirmation du mot de passe" %>
+        <%= f.input :first_name, label: "Prénom" %>
+        <%= f.input :last_name, label: "Nom" %>
+        <%= f.input :phone_number, label: "Téléphone" %>
+        <%= f.input :civility, label: "Civilité", collection: ["Monsieur", "Madame"] %>
+        <%= f.input :address, label: "Adresse" %>
+        <%= f.input :post_code, label: "Code postal" %>
+        <%= f.input :city, label: "Ville" %>
+        <%= f.input :country, label: "Pays"%>
+      </div>
+      <br>
+      <div class="form-actions">
+        <%= f.button :submit, "Inscription" %>
+      </div>
+    <% end %>
+    <br>
+    <%= render "devise/shared/links" %>
+  </div>
+</div>
