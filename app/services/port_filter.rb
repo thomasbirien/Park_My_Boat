@@ -29,6 +29,7 @@ class PortFilter
       ss_tel: params[:ss_tel],
       ss_wifi: params[:ss_wifi],
       ss_shower: params[:ss_shower],
+      ss_fresh_water: params[:ss_fresh_water],
       sc_waste_sorting: params[:sc_waste_sorting],
       sc_waste_pumping: params[:sc_waste_pumping],
       sc_waste_container: params[:sc_waste_container],
@@ -88,11 +89,11 @@ class PortFilter
     end
 
     if params[:sc_waste_sorting] == '1'
-      @ports = @ports.where('places.ss_waste_sorting = ?', true)
+      @ports = @ports.where('places.sc_waste_sorting = ?', true)
     end
 
     if params[:sc_waste_pumping] == '1'
-      @ports = @ports.where('places.ss_waste_pumping = ?', true)
+      @ports = @ports.where('places.sc_waste_pumping = ?', true)
     end
 
     if params[:sc_waste_container] == '1'
