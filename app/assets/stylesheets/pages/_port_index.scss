@@ -12,7 +12,11 @@ padding: 10px;
 margin: 5px;
 border-radius: 4px;
 box-shadow: 9px 9px 20px 0px rgba(0, 0, 0, 0.1);
-margin-bottom: 10px;
+margin-bottom: 20px;
+  p {
+   font-size: ($base-size * 0.85);
+   text-align: justify;
+  }
 }
 
 // .port-bar {
@@ -47,18 +51,12 @@ margin-bottom: 10px;
   opacity: 0.1;
 }
 
-#port-desc
-{
-width: auto;
-height: 40px;
-line-height: 20px;
-overflow: hidden;
-}
+
 
 .button-align
 {
 text-align: center;
-height:119px;
+height:100px;
 display:flex;
 align-items:flex-end;
 justify-content: flex-end;
@@ -94,7 +92,7 @@ align-items:center;
 
 .img-rounded
 {
-border-radius:10px;
+border-radius:4px;
 height:200px;
 }
 
@@ -102,6 +100,29 @@ height:200px;
 .button-align {
   display:inline-block;
   width:100%;
+  margin-bottom: 10px;
   }
+}
+
+.card-price-port {
+  text-align: right;
+  h5 {
+  margin-top: 0px;
+  margin-bottom: 0px;
+  margin-right: 20px;
+  }
+}
+
+.coordinary {
+  p {
+    margin-bottom: 0px;
+  }
+  h5 {
+    margin-top: 20px;
+  }
+}
+
+.card-title {
+ margin-bottom: 0px;
 }
 
