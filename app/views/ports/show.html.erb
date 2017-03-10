@@ -58,7 +58,7 @@
                       <div class="box">
                         <i class="fa fa-bolt" aria-hidden="true"></i>
                       </div>
-                      <p class= "text-center">éléctricité</p>
+                      <p class= "text-center">électricité</p>
                     </div>
                   <% end %>
                   <% if @place_select.ss_fuel %>
@@ -155,11 +155,11 @@
               <br>
               <div class="row">
                 <div class="col-xs-6">
-                  <h6>date d'arrivée</h6>
+                  <h6>Date d'arrivée</h6>
                   <p><%= @arrival_date %></p>
                 </div>
                 <div class="col-xs-6">
-                  <h6>date de départ</h6>
+                  <h6>Date de départ</h6>
                   <p><%= @departure_date %></p>
                 </div>
               </div>
@@ -216,11 +216,11 @@
               <br>
               <div class="row">
                 <div class="col-xs-6">
-                  <h6>date d'arrivé</h6>
+                  <h6>Date d'arrivé</h6>
                   <p><%= @arrival_date %></p>
                 </div>
                 <div class="col-xs-6">
-                  <h6>date de départ</h6>
+                  <h6>Date de départ</h6>
                   <p><%= @departure_date %></p>
                 </div>
               </div>
@@ -268,36 +268,40 @@
               <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                 <span aria-hidden="true">X</span>
               </button>
-              <h4 class="modal-title" id="myModalLabel">Verification de votre réservation: </h4>
+              <h4 class="modal-title" id="myModalLabel">Vérification de votre réservation: </h4>
             </div>
             <div class="modal-body">
               <div class="row">
-                <div class="col-xs-6">
-                  <h6>date d'arrivée</h6>
+                <div class="col-xs-3">
+                  <h6>Date d'arrivée</h6>
                   <p><%= @arrival_date %></p>
                  </div>
-                <div class="col-xs-6">
-                  <h6>date de départ</h6>
+                <div class="col-xs-3">
+                  <h6>Date de départ</h6>
                   <p><%= @departure_date %></p>
                 </div>
 
                 <div class="col-xs-12 spacing">
                   <h6>Dimensions de votre bateau </h6>
                 </div>
-                <div class="col-xs-4">
-                  <p>longueur</p>
-                  <p><%= params[:length] %> m</p>
+                <div class="col-xs-12">
+                  <ul>
+                    <li>longueur :
+                    <%= params[:length] %> m
+                    </li>
+                    <li>
+                      largeur :
+                    <%= params[:width] %> m
+                    </li>
+                    <li>
+                    tirant d'eau :
+                    <%= params[:draught] %> m
+                    </li>
+                  </ul>
                 </div>
-                <div class="col-xs-4">
-                  <p>largeur </p>
-                  <p><%= params[:width] %> m</p>
-                </div>
-                <div class="col-xs-4">
-                  <p>tirant d'eau </p>
-                  <p><%= params[:draught] %> m</p>
-                </div>
-                <div class="col-xs-12 spacing ">
-                  <h6>prix total estimé:<%= @invoiced %>€</h6>
+
+                <div class="col-xs-12">
+                  <h6>Prix total estimé: <%= @invoiced %>€</h6>
                 </div>
 
                 <%= simple_form_for([@port,@booking]) do |f| %>
