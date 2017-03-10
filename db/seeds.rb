@@ -12,31 +12,48 @@ img_Sete = "http://images.figaronautisme.com/image/figaro-nautisme/ports/photos/
 img_Toulon = "http://images.figaronautisme.com/image/figaro-nautisme/ports/photos/120510_100215_10134-toulon-240312.jpg"
 img_Cannes = "http://images.figaronautisme.com/image/figaro-nautisme/ports/photos/120523_120713_-palais-des-festivals-et-des-congr-s-de-cannes-kelagopian-pour-la-wbor6044-.jpg"
 img_Vauban_Antibe = "http://images.figaronautisme.com/image/figaro-nautisme/ports/photos/120510_105704_10227-antibes-240312.jpg"
+img_Galere = "http://images.figaronautisme.com/image/figaro-nautisme/ports/photos/120509_182644_10195-la-galere-240312.jpg"
+img_Theoule = "http://images.figaronautisme.com/image/figaro-nautisme/ports/photos/120509_183151_10197-theoule-240312.jpg"
+img_Mandelieu = "http://images.figaronautisme.com/image/figaro-nautisme/ports/photos/120510_090728_10202-la-napoule-240312.jpg"
+img_Gruissan = "http://images.figaronautisme.com/image/figaro-nautisme/ports/photos/120509_115529_09904-gruissan-290212.jpg"
+img_Sainte_Maxime ="http://images.figaronautisme.com/image/figaro-nautisme/ports/photos/120510_105638_10173-ste-maxime-240312.jpg"
+img_Istres = "http://images.figaronautisme.com/image/figaro-nautisme/ports/photos/120509_165005_10052-istres-240312.jpg"
 
 counter = 0
 puts "Creating Ports"
-5.times do
+11.times do
   print '.'
   counter += 1
   Port.create!(
-    port_name: ["La Ciotat","Sète","Toulon Côte d'Azur", "Cannes", "Antibes-Vauban"][counter - 1],
+    port_name: ["La Ciotat","Sète","Toulon", "Cannes", "Antibes-Vauban", "La Galère", "Théoule sur mer", "Mandelieu", "Gruissan", "Sainte-Maxime", "Istres"][counter - 1],
     legal_entity: "Capitainerie",
-    description:["Port situé dans la ville au Nord de l’ensemble portuaire. Il est composé de deux bassins séparés par un large terre-plein.", "Le port de plaisance de Sète est une escale attractive et originale. Le charme des canaux et le côté pittoresque de son Port de Pêche, font de Sète une ville de caractère, baignée à la fois par la Méditerranée et par l’Etang de Thau.", "Venez découvrir les 6 ports de plaisance de Toulon Vieille Darse, Toulon Darse Nord, La Seyne-sur-Mer, Saint-Mandrier, Saint-Louis du Mourillon et du Niel.", "Un très beau port, incontournable à l'occasion de ses nombreux festivals", "Cette merveilleuse crique naturelle est devenue sous le nom de PORT VAUBAN le plus important port de plaisance en tonnage de la Méditerranée."][counter - 1],
-    size: [650, 120, 100, 350, 1700][counter - 1],
-    picture: [img_Ciotat, img_Sete, img_Toulon, img_Cannes, img_Vauban_Antibe][counter - 1],
-    latitude: [43.174834, 43.400949, 43.123514, 43.551362, 43.585404][counter - 1],
-    longitude: [5.607379, 3.697938, 5.933265, 7.015613,7.127177][counter - 1],
-    phone_number: ["04 95 09 52 60", "04 67 74 98 97", "04 94 36 37 38", "04 93 21 72 17", "04 92 91 60 00"][counter - 1],
-    radio_channel: ["VHF Canal 9", "VHF Canal 9", "VHF Canal 9", "VHF Canal 9", "VHF Canal 9"][counter - 1],
-    email: ["contact@ciotat.fr", "portstclair@portsuddefrance-sete.fr", "info@toulon.fr", "contact.rivieraports@cote-azur.cci.fr","reservation@portvauban.net"][counter - 1],
-    address: ["Nouveau port de plaisance, Boulevard Anatole France, 13600 La Ciotat", "Quais d'Orient, République et Moulins, 34200 Sète", "Terminal Toulon, 33 route Vincent, 13890 Toulon", "Prom. de la Pantiero, 06400 Cannes","PORT VAUBAN 06600 ANTIBES FRANCE"][counter - 1],
-    check_in_hour: ["11h00", "12h00", "11h30", "11h30", "11h30"][counter - 1],
-    check_out_hour: ["12h00", "13h00", "12h00", "12h00", "12h00"][counter - 1]
+    description:[
+      "Port situé dans la ville au Nord de l’ensemble portuaire. Il est composé de deux bassins séparés par un large terre-plein.",
+      "Le port de plaisance de Sète est une escale attractive et originale. Le charme des canaux et le côté pittoresque de son Port de Pêche, font de Sète une ville de caractère, baignée à la fois par la Méditerranée et par l’Etang de Thau.",
+      "Venez découvrir les 6 ports de plaisance de Toulon Vieille Darse, Toulon Darse Nord, La Seyne-sur-Mer, Saint-Mandrier, Saint-Louis du Mourillon et du Niel.",
+      "Un très beau port, incontournable à l'occasion de ses nombreux festivals",
+      "Cette merveilleuse crique naturelle est devenue sous le nom de PORT VAUBAN le plus important port de plaisance en tonnage de la Méditerranée.",
+      "Situé à 5 M au sud-ouest de Cannes, entre la pointe de la Galère et la pointe Saint-Marc.",
+      "Port abrité, blotti au pied des escarpements rocheux de l’Esterel, à l’ouest du golfe de La Napoule. À l’écart de l’agitation cannoise, il occupe un emplacement privilégié, face aux Alpes et aux îles de Lérins. Accès difficile par fort vent d’est.",
+      "Port la Napoule est situé au fond du golfe de la Napoule, il s’étend de la pointe de l’Aiguille à celle de la Croisette, à l’est du château de la Napoule. Port bien abrité de tout vent.",
+      "Ancien port de pêche situé face à la Tour Barberousse, au cœur du village de Gruissan.",
+      "Situé sur la rive nord du golfe de Grimaud, face au port de Saint-Tropez, le port de plaisance de Sainte-Maxime est divisé en 2 bassins. Le port est abrité, sauf du mistral, qui s’y fait souvent sentir.",
+      "Le port de plaisance des Heures Claires est situé sur l’étang de Berre, protégé du mistral (NW) par une haute falaise boisée de pins."][counter - 1],
+    size: [650, 120, 100, 350, 1700, 169, 180, 200, 320, 405, 210][counter - 1],
+    picture: [img_Ciotat, img_Sete, img_Toulon, img_Cannes, img_Vauban_Antibe, img_Galere, img_Theoule, img_Mandelieu, img_Gruissan, img_Sainte_Maxime, img_Istres][counter - 1],
+    latitude: [43.174834, 43.400949, 43.123514, 43.551362, 43.585404, 43.497095, 43.505623, 43.546232,43.1101568, 43.306276, 43.4968][counter - 1],
+    longitude: [5.607379, 3.697938, 5.933265, 7.015613,7.127177, 6.947550, 6.940983, 6.938309,3.097493, 6.639777, 4.998484][counter - 1],
+    phone_number: ["04 95 09 52 60", "04 67 74 98 97", "04 94 36 37 38", "04 93 21 72 17", "04 92 91 60 00", "04 93 75 41 74", "04 92 97 47 77", "04 92 97 72 73", "04 68 75 21 60", "06 38 15 48 43", "04 42 55 51 73 "][counter - 1],
+    radio_channel: ["VHF Canal 9", "VHF Canal 9", "VHF Canal 9", "VHF Canal 9", "VHF Canal 9", "VHF Canal 9", "VHF Canal 9", "VHF Canal 9", "VHF Canal 9", "VHF Canal 9", "VHF Canal 9"][counter - 1],
+    email: ["contact@ciotat.fr", "portstclair@portsuddefrance-sete.fr", "info@toulon.fr", "contact.rivieraports@cote-azur.cci.fr","reservation@portvauban.net", "port.galere@orange.fr", "port.theoule@ville-theoulesurmer.fr", "portlanapoule@portlanapoule.com", "port.barberousse@gruissan-mediterranee.com", "semaport@sema83.fr", "portdeplaisance@istres.fr"][counter - 1],
+    address: ["Nouveau port de plaisance, Boulevard Anatole France, 13600 La Ciotat", "Quais d'Orient, République et Moulins, 34200 Sète", "Terminal Toulon, 33 route Vincent, 13890 Toulon", "Prom. de la Pantiero, 06400 Cannes","PORT VAUBAN 06600 ANTIBES FRANCE", "Concessionnaire de Port La Galère 06590 Théoule", "Quai Éd.-Blondy", "Napoule 06210 La Napoule-Plage", "Place Raymond-Gleize 11430 Gruissan", "Quai Léon-Condroyer 83120 Sainte-Maxime", "Service des Sports, Istres."][counter - 1],
+    check_in_hour: ["11h00", "12h00", "11h30", "11h30", "11h30", "11h30", "11h00", "12h00", "11h00", "11h15", "11h00"][counter - 1],
+    check_out_hour: ["12h00", "13h00", "12h00", "12h00", "12h00", "12h00", "12h00", "12h15", "12h00", "11h40", "12h00"][counter - 1]
     )
 end
 
 # creation places aléatoires
-6.times do
+12.times do
   prices = [10.00, 11.00, 11.50, 15.50, 28.00, 32.00]
   lengths = [10.35, 15.50, 25.35, 9.90, 20.10]
   widths = [4.3, 6.2, 3.45, 7.3]
@@ -87,6 +104,33 @@ counter = 0
     port_id: Port.find_by(port_name: "La Ciotat").id
     )
 end
+
+# Creation places Istres
+counter = 0
+10.times do
+  print '.'
+  counter += 1
+  Place.create!(
+    place_price: [8.00, 8.00, 15.00, 15.00, 16.00, 18.00, 20.00, 25.00, 25.00, 30.00][counter - 1],
+    length: [6.00, 6.00, 11.00, 11.00, 12.00, 12.00, 12.00, 25.00, 30.00, 35,00][counter - 1],
+    width: [3.00, 3.00, 3.00, 4.00, 4.00, 4.00, 5.00, 7.00, 10.00, 14,00][counter - 1],
+    draught: [2.00, 2.00, 2.00, 3.00, 4.00, 4.00, 4.00, 5.00, 6.00, 6,00][counter - 1],
+    ss_elec: [true, false, true, true, false, true, false, true, false, true][counter - 1],
+    ss_fresh_water: [true, false, true, true, false, true, false, true, false, true][counter - 1],
+    ss_ice: [true, false, false, true, false, false, false, true, true, true][counter - 1],
+    ss_fuel: [true, false, true, true, false, true, false, true, false, true][counter - 1],
+    ss_tel: [true, false, true, true, true, true, true, true, true, true][counter - 1],
+    ss_wifi: [true, false, true, true, false, true, false, true, false, true][counter - 1],
+    ss_shower: [true, false, true, true, false, true, false, true, false, true][counter - 1],
+    sc_waste_sorting: [true, false, true, true, true, true, true, true, true, true][counter - 1],
+    sc_waste_pumping: [true, false, true, true, true, true, true, true, true, true][counter - 1],
+    sc_security: [true, false, true, true, true, true, true, true, true, true][counter - 1],
+    sc_waste_container: [true, false, true, true, false, true, false, true, false, true][counter - 1],
+    port_id: Port.find_by(port_name: "Istres").id
+    )
+end
+
+
 
 # places pour port de Sète
 counter = 0
@@ -139,6 +183,163 @@ counter = 0
     port_id: Port.find_by(port_name: "Cannes").id
     )
 end
+
+#places pour port de la Galère
+counter = 0
+5.times do
+  print '.'
+  counter += 1
+
+  Place.create!(
+    place_price: [14.00, 14.00, 36.00, 36.00, 36.00][counter - 1],
+    length: [6.00, 6.00, 11.00, 11.00, 12.00][counter - 1],
+    width: [3.00, 3.00, 3.00, 4.00, 4.00][counter - 1],
+    draught: [2.00, 2.00, 2.00, 3.00, 4.00][counter - 1],
+    ss_elec: [true, true, true, true, false][counter - 1],
+    ss_fresh_water: [true, false, true, true, false][counter - 1],
+    ss_ice: [true, false, true, true, false][counter - 1],
+    ss_fuel: [true, false, true, true, false][counter - 1],
+    ss_tel: [true, false, true, true, true][counter - 1],
+    ss_wifi: [true, false, true, true, false][counter - 1],
+    ss_shower: [true, false, true, true, false][counter - 1],
+    sc_waste_sorting: [true, false, true, true, true][counter - 1],
+    sc_waste_pumping: [true, false, true, true, true][counter - 1],
+    sc_security: [true, false, true, true, true][counter - 1],
+    sc_waste_container: [true, false, true, true, false][counter - 1],
+    port_id: Port.find_by(port_name: "La Galère").id
+    )
+end
+
+#places pour port de Théoule sur mer
+counter = 0
+5.times do
+  print '.'
+  counter += 1
+
+  Place.create!(
+    place_price: [11.00, 11.00, 32.00, 32.00, 32.00][counter - 1],
+    length: [6.00, 6.00, 11.00, 11.00, 12.00][counter - 1],
+    width: [3.00, 3.00, 3.00, 4.00, 4.00][counter - 1],
+    draught: [2.00, 2.00, 2.00, 3.00, 4.00][counter - 1],
+    ss_elec: [true, true, true, true, false][counter - 1],
+    ss_fresh_water: [true, false, true, true, false][counter - 1],
+    ss_ice: [true, false, true, true, false][counter - 1],
+    ss_fuel: [true, false, true, true, false][counter - 1],
+    ss_tel: [true, false, true, true, true][counter - 1],
+    ss_wifi: [true, false, true, true, false][counter - 1],
+    ss_shower: [true, false, true, true, false][counter - 1],
+    sc_waste_sorting: [true, false, true, true, true][counter - 1],
+    sc_waste_pumping: [true, false, true, true, true][counter - 1],
+    sc_security: [true, false, true, true, true][counter - 1],
+    sc_waste_container: [true, false, true, true, false][counter - 1],
+    port_id: Port.find_by(port_name: "Théoule sur mer").id
+    )
+end
+
+# port de mandelieu
+counter = 0
+5.times do
+  print '.'
+  counter += 1
+
+  Place.create!(
+    place_price: [10.00, 10.00, 25.00, 25.00, 27.00][counter - 1],
+    length: [6.00, 6.00, 11.00, 11.00, 12.00][counter - 1],
+    width: [3.00, 3.00, 3.00, 4.00, 4.00][counter - 1],
+    draught: [2.00, 2.00, 2.00, 3.00, 4.00][counter - 1],
+    ss_elec: [true, true, true, true, false][counter - 1],
+    ss_fresh_water: [true, false, true, true, false][counter - 1],
+    ss_ice: [true, false, true, true, false][counter - 1],
+    ss_fuel: [true, false, true, true, false][counter - 1],
+    ss_tel: [true, false, true, true, true][counter - 1],
+    ss_wifi: [true, false, true, true, false][counter - 1],
+    ss_shower: [true, false, true, true, false][counter - 1],
+    sc_waste_sorting: [true, false, true, true, true][counter - 1],
+    sc_waste_pumping: [true, false, true, true, true][counter - 1],
+    sc_security: [true, false, true, true, true][counter - 1],
+    sc_waste_container: [true, false, true, true, false][counter - 1],
+    port_id: Port.find_by(port_name: "Mandelieu").id
+    )
+end
+
+# places pour port de Toulon
+counter = 0
+4.times do
+  print '.'
+  counter += 1
+
+  Place.create!(
+    length: [6.00, 6.00, 11.00, 11.00, 12.00][counter - 1],
+    place_price: [10.00, 10.00, 30.00, 30.00, 35.00][counter - 1],
+    width: [3.00, 3.00, 3.00, 4.00, 5.00][counter - 1],
+    draught: [2.00, 2.00, 2.00, 3.00, 5.00][counter - 1],
+    ss_elec: [true, false, true, true, false][counter - 1],
+    ss_fresh_water: [true, false, true, true, false][counter - 1],
+    ss_ice: [true, false, false, true, false][counter - 1],
+    ss_fuel: [true, false, true, true, false][counter - 1],
+    ss_tel: [true, false, true, true, true][counter - 1],
+    ss_wifi: [true, false, true, true, false][counter - 1],
+    ss_shower: [true, false, true, true, false][counter - 1],
+    sc_waste_sorting: [true, false, true, true, true][counter - 1],
+    sc_waste_pumping: [true, false, true, true, true][counter - 1],
+    sc_security: [true, false, true, true, true][counter - 1],
+    sc_waste_container: [true, false, true, true, false][counter - 1],
+    port_id: Port.find_by(port_name: "Toulon").id
+    )
+end
+
+#places pour port de Gruissan
+counter = 0
+5.times do
+  print '.'
+  counter += 1
+
+  Place.create!(
+    place_price: [14.00, 14.00, 36.00, 36.00, 36.00][counter - 1],
+    length: [6.00, 6.00, 11.00, 11.00, 12.00][counter - 1],
+    width: [3.00, 3.00, 3.00, 4.00, 4.00][counter - 1],
+    draught: [2.00, 2.00, 2.00, 3.00, 4.00][counter - 1],
+    ss_elec: [true, true, true, true, false][counter - 1],
+    ss_fresh_water: [true, false, true, true, false][counter - 1],
+    ss_ice: [true, false, true, true, false][counter - 1],
+    ss_fuel: [true, false, true, true, false][counter - 1],
+    ss_tel: [true, false, true, true, true][counter - 1],
+    ss_wifi: [true, false, true, true, false][counter - 1],
+    ss_shower: [true, false, true, true, false][counter - 1],
+    sc_waste_sorting: [true, false, true, true, true][counter - 1],
+    sc_waste_pumping: [true, false, true, true, true][counter - 1],
+    sc_security: [true, false, true, true, true][counter - 1],
+    sc_waste_container: [true, false, true, true, false][counter - 1],
+    port_id: Port.find_by(port_name: "Gruissan").id
+    )
+end
+
+# Creation places Sainte-Maxime
+counter = 0
+10.times do
+  print '.'
+  counter += 1
+  Place.create!(
+    place_price: [8.00, 8.00, 15.00, 15.00, 16.00, 18.00, 20.00, 25.00, 25.00, 30.00][counter - 1],
+    length: [6.00, 6.00, 11.00, 11.00, 12.00, 12.00, 12.00, 25.00, 30.00, 35,00][counter - 1],
+    width: [3.00, 3.00, 3.00, 4.00, 4.00, 4.00, 5.00, 7.00, 10.00, 14,00][counter - 1],
+    draught: [2.00, 2.00, 2.00, 3.00, 4.00, 4.00, 4.00, 5.00, 6.00, 6,00][counter - 1],
+    ss_elec: [true, false, true, true, false, true, false, true, false, true][counter - 1],
+    ss_fresh_water: [true, false, true, true, false, true, false, true, false, true][counter - 1],
+    ss_ice: [true, false, false, true, false, false, false, true, true, true][counter - 1],
+    ss_fuel: [true, false, true, true, false, true, false, true, false, true][counter - 1],
+    ss_tel: [true, false, true, true, true, true, true, true, true, true][counter - 1],
+    ss_wifi: [true, false, true, true, false, true, false, true, false, true][counter - 1],
+    ss_shower: [true, false, true, true, false, true, false, true, false, true][counter - 1],
+    sc_waste_sorting: [true, false, true, true, true, true, true, true, true, true][counter - 1],
+    sc_waste_pumping: [true, false, true, true, true, true, true, true, true, true][counter - 1],
+    sc_security: [true, false, true, true, true, true, true, true, true, true][counter - 1],
+    sc_waste_container: [true, false, true, true, false, true, false, true, false, true][counter - 1],
+    port_id: Port.find_by(port_name: "Sainte-Maxime").id
+    )
+end
+
+
 
 
 # Creation users
