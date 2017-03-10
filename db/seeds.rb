@@ -12,6 +12,9 @@ img_Sete = "http://images.figaronautisme.com/image/figaro-nautisme/ports/photos/
 img_Toulon = "http://images.figaronautisme.com/image/figaro-nautisme/ports/photos/120510_100215_10134-toulon-240312.jpg"
 img_Cannes = "http://images.figaronautisme.com/image/figaro-nautisme/ports/photos/120523_120713_-palais-des-festivals-et-des-congr-s-de-cannes-kelagopian-pour-la-wbor6044-.jpg"
 img_Vauban_Antibe = "http://images.figaronautisme.com/image/figaro-nautisme/ports/photos/120510_105704_10227-antibes-240312.jpg"
+img_Galere = "http://images.figaronautisme.com/image/figaro-nautisme/ports/photos/120509_182644_10195-la-galere-240312.jpg"
+
+
 
 counter = 0
 puts "Creating Ports"
@@ -19,19 +22,19 @@ puts "Creating Ports"
   print '.'
   counter += 1
   Port.create!(
-    port_name: ["La Ciotat","Sète","Toulon Côte d'Azur", "Cannes", "Antibes-Vauban"][counter - 1],
+    port_name: ["La Ciotat","Sète","Toulon Côte d'Azur", "Cannes", "Antibes-Vauban", "La Galère"][counter - 1],
     legal_entity: "Capitainerie",
-    description:["Port situé dans la ville au Nord de l’ensemble portuaire. Il est composé de deux bassins séparés par un large terre-plein.", "Le port de plaisance de Sète est une escale attractive et originale. Le charme des canaux et le côté pittoresque de son Port de Pêche, font de Sète une ville de caractère, baignée à la fois par la Méditerranée et par l’Etang de Thau.", "Venez découvrir les 6 ports de plaisance de Toulon Vieille Darse, Toulon Darse Nord, La Seyne-sur-Mer, Saint-Mandrier, Saint-Louis du Mourillon et du Niel.", "Un très beau port, incontournable à l'occasion de ses nombreux festivals", "Cette merveilleuse crique naturelle est devenue sous le nom de PORT VAUBAN le plus important port de plaisance en tonnage de la Méditerranée."][counter - 1],
-    size: [650, 120, 100, 350, 1700][counter - 1],
-    picture: [img_Ciotat, img_Sete, img_Toulon, img_Cannes, img_Vauban_Antibe][counter - 1],
-    latitude: [43.174834, 43.400949, 43.123514, 43.551362, 43.585404][counter - 1],
-    longitude: [5.607379, 3.697938, 5.933265, 7.015613,7.127177][counter - 1],
-    phone_number: ["04 95 09 52 60", "04 67 74 98 97", "04 94 36 37 38", "04 93 21 72 17", "04 92 91 60 00"][counter - 1],
-    radio_channel: ["VHF Canal 9", "VHF Canal 9", "VHF Canal 9", "VHF Canal 9", "VHF Canal 9"][counter - 1],
-    email: ["contact@ciotat.fr", "portstclair@portsuddefrance-sete.fr", "info@toulon.fr", "contact.rivieraports@cote-azur.cci.fr","reservation@portvauban.net"][counter - 1],
-    address: ["Nouveau port de plaisance, Boulevard Anatole France, 13600 La Ciotat", "Quais d'Orient, République et Moulins, 34200 Sète", "Terminal Toulon, 33 route Vincent, 13890 Toulon", "Prom. de la Pantiero, 06400 Cannes","PORT VAUBAN 06600 ANTIBES FRANCE"][counter - 1],
-    check_in_hour: ["11h00", "12h00", "11h30", "11h30", "11h30"][counter - 1],
-    check_out_hour: ["12h00", "13h00", "12h00", "12h00", "12h00"][counter - 1]
+    description:["Port situé dans la ville au Nord de l’ensemble portuaire. Il est composé de deux bassins séparés par un large terre-plein.", "Le port de plaisance de Sète est une escale attractive et originale. Le charme des canaux et le côté pittoresque de son Port de Pêche, font de Sète une ville de caractère, baignée à la fois par la Méditerranée et par l’Etang de Thau.", "Venez découvrir les 6 ports de plaisance de Toulon Vieille Darse, Toulon Darse Nord, La Seyne-sur-Mer, Saint-Mandrier, Saint-Louis du Mourillon et du Niel.", "Un très beau port, incontournable à l'occasion de ses nombreux festivals", "Cette merveilleuse crique naturelle est devenue sous le nom de PORT VAUBAN le plus important port de plaisance en tonnage de la Méditerranée.", "Situé à 5 M au sud-ouest de Cannes, entre la pointe de la Galère et la pointe Saint-Marc."][counter - 1],
+    size: [650, 120, 100, 350, 1700, 169][counter - 1],
+    picture: [img_Ciotat, img_Sete, img_Toulon, img_Cannes, img_Vauban_Antibe, img_Galere][counter - 1],
+    latitude: [43.174834, 43.400949, 43.123514, 43.551362, 43.585404, 43.497095][counter - 1],
+    longitude: [5.607379, 3.697938, 5.933265, 7.015613,7.127177, 6.947550][counter - 1],
+    phone_number: ["04 95 09 52 60", "04 67 74 98 97", "04 94 36 37 38", "04 93 21 72 17", "04 92 91 60 00", "04 93 75 41 74"][counter - 1],
+    radio_channel: ["VHF Canal 9", "VHF Canal 9", "VHF Canal 9", "VHF Canal 9", "VHF Canal 9", "VHF Canal 9"][counter - 1],
+    email: ["contact@ciotat.fr", "portstclair@portsuddefrance-sete.fr", "info@toulon.fr", "contact.rivieraports@cote-azur.cci.fr","reservation@portvauban.net", "port.galere@orange.fr"][counter - 1],
+    address: ["Nouveau port de plaisance, Boulevard Anatole France, 13600 La Ciotat", "Quais d'Orient, République et Moulins, 34200 Sète", "Terminal Toulon, 33 route Vincent, 13890 Toulon", "Prom. de la Pantiero, 06400 Cannes","PORT VAUBAN 06600 ANTIBES FRANCE", "Concessionnaire de Port La Galère 06590 Théoule"][counter - 1],
+    check_in_hour: ["11h00", "12h00", "11h30", "11h30", "11h30", "11h30"][counter - 1],
+    check_out_hour: ["12h00", "13h00", "12h00", "12h00", "12h00", "12h00"][counter - 1]
     )
 end
 
@@ -137,6 +140,32 @@ counter = 0
     sc_security: [true, false, true, true, true][counter - 1],
     sc_waste_container: [true, false, true, true, false][counter - 1],
     port_id: Port.find_by(port_name: "Cannes").id
+    )
+end
+
+#places pour port de la Galère
+counter = 0
+5.times do
+  print '.'
+  counter += 1
+
+  Place.create!(
+    place_price: [14.00, 14.00, 36.00, 36.00, 36.00][counter - 1],
+    length: [6.00, 6.00, 11.00, 11.00, 12.00][counter - 1],
+    width: [3.00, 3.00, 3.00, 4.00, 4.00][counter - 1],
+    draught: [2.00, 2.00, 2.00, 3.00, 4.00][counter - 1],
+    ss_elec: [true, true, true, true, false][counter - 1],
+    ss_fresh_water: [true, false, true, true, false][counter - 1],
+    ss_ice: [true, false, true, true, false][counter - 1],
+    ss_fuel: [true, false, true, true, false][counter - 1],
+    ss_tel: [true, false, true, true, true][counter - 1],
+    ss_wifi: [true, false, true, true, false][counter - 1],
+    ss_shower: [true, false, true, true, false][counter - 1],
+    sc_waste_sorting: [true, false, true, true, true][counter - 1],
+    sc_waste_pumping: [true, false, true, true, true][counter - 1],
+    sc_security: [true, false, true, true, true][counter - 1],
+    sc_waste_container: [true, false, true, true, false][counter - 1],
+    port_id: Port.find_by(port_name: "La Galère").id
     )
 end
 
