@@ -1,320 +1,322 @@
 <div class="inner-container">
   <div class="container-fluide">
     <div class="container">
-      <div class="row">
-        <div class="col-xs-12 col-md-7">
-          <div class="card-port-show">
-            <div class="card-block spacing-bot">
-              <h3><%= @port.port_name %></h3>
-              <h4><i class="fa fa-anchor" aria-hidden="true"></i>
-              <%=@places.count %> Place(s) disponible(s) </h4>
-            </div>
-            <%= image_tag @port.picture, class: "card-img-show"%>
-            <div class="card-block">
+      <div class="port-show-card">
+        <div class="row">
+          <div class="col-xs-12 col-md-7">
+            <div class="card-port-show">
+              <div class="card-block spacing-bot">
+                <h3><%= @port.port_name %></h3>
+                <h4><i class="fa fa-anchor" aria-hidden="true"></i>
+                <%=@places.count %> Place(s) disponible(s) </h4>
+              </div>
+              <%= image_tag @port.picture, class: "card-img-show"%>
+              <div class="card-block">
 
-              <p>Capacité d'accueil: <%=@port.size %> places</p>
-              <div class="row spacing">
-                <div class="col-xs-12">
-                  <h4>Situation et coordonnées</h4>
+                <p>Capacité d'accueil: <%=@port.size %> places</p>
+                <div class="row spacing">
+                  <div class="col-xs-12">
+                    <h4>Situation et coordonnées</h4>
+                  </div>
+                  <div class="col-sm-7 col-xs-12">
+                    <p>
+                    <%= @port.phone_number %></p>
+                  </div>
+                  <div class="col-sm-5 col-xs-12">
+                    <p>
+                    Coordonnées GPS:</p>
+                  </div>
+                  <div class="col-sm-7 col-xs-12">
+                    <p>
+                    <%= @port.radio_channel %></p>
+                  </div>
+                  <div class="col-sm-5 col-xs-12">
+                    <p>
+                    latitude: <%= @port.latitude %></p>
+                  </div>
+                  <div class="col-sm-7 col-xs-12">
+                    <p>
+                    <%= @port.email %></p>
+                  </div>
+                  <div class="col-sm-5 col-xs-12">
+                    <p>
+                    longitude: <%=@port.longitude%> </p>
+                  </div>
+                  <div class="col-sm-7 col-xs-12">
+                    <p>
+                    <%= @port.address %></p>
+                  </div>
                 </div>
-                <div class="col-sm-7 col-xs-12">
-                  <p>
-                  <%= @port.phone_number %></p>
+              </div>
+              <div class="card-block">
+                <div class="row spacing">
+                  <div class="col-xs-12">
+                  <h4>Ravitaillement disponible:</h4>
+                  </div>
+                  <% if @place_select.ss_elec %>
+                    <div class="main-box col-xs-2">
+                      <div class="box">
+                        <i class="fa fa-bolt" aria-hidden="true"></i>
+                      </div>
+                      <p class= "text-center">éléctricité</p>
+                    </div>
+                  <% end %>
+                  <% if @place_select.ss_fuel %>
+                    <div class="main-box col-xs-2">
+                      <div class="box">
+                        <i class="fa fa-fire" aria-hidden="true"></i>
+                      </div>
+                      <p class= "text-center">fuel</p>
+                    </div>
+                  <% end %>
+                  <% if @place_select.ss_fresh_water %>
+                    <div class="main-box col-xs-2">
+                      <div class="box">
+                        <i class="fa fa-tint" aria-hidden="true"></i>
+                      </div>
+                      <p class= "text-center">eau</p>
+                    </div>
+                  <% end %>
+                  <% if @place_select.ss_ice %>
+                    <div class="main-box col-xs-2">
+                      <div class="box">
+                        <i class="fa fa-thermometer-empty" aria-hidden="true"></i>
+                      </div>
+                      <p class= "text-center">glace</p>
+                    </div>
+                  <% end %>
                 </div>
-                <div class="col-sm-5 col-xs-12">
-                  <p>
-                  Coordonnées GPS:</p>
-                </div>
-                <div class="col-sm-7 col-xs-12">
-                  <p>
-                  <%= @port.radio_channel %></p>
-                </div>
-                <div class="col-sm-5 col-xs-12">
-                  <p>
-                  latitude: <%= @port.latitude %></p>
-                </div>
-                <div class="col-sm-7 col-xs-12">
-                  <p>
-                  <%= @port.email %></p>
-                </div>
-                <div class="col-sm-5 col-xs-12">
-                  <p>
-                  longitude: <%=@port.longitude%> </p>
-                </div>
-                <div class="col-sm-7 col-xs-12">
-                  <p>
-                  <%= @port.address %></p>
+                <br>
+                <div class="row spacing">
+                  <div class="col-xs-12">
+                    <h4>Commodités disponibles:</h4>
+                  </div>
+                  <% if @place_select.ss_tel %>
+                    <div class="col-xs-6">
+                      <p><i class="fa fa-volume-control-phone" aria-hidden="true"></i>
+                      téléphonie</p>
+                    </div>
+                  <% end %>
+                  <% if @place_select.ss_wifi %>
+                    <div class="col-xs-6">
+                      <p><i class="fa fa-wifi" aria-hidden="true"></i>
+                      wifi</p>
+                    </div>
+                  <% end %>
+                  <% if @place_select.ss_shower %>
+                    <div class="col-xs-6">
+                      <p><i class="fa fa-shower" aria-hidden="true"></i>
+                      douche</p>
+                    </div>
+                  <% end %>
+                  <% if @place_select.sc_waste_sorting %>
+                    <div class="col-xs-6">
+                      <p><i class="fa fa-trash" aria-hidden="true"></i>
+                      tri des déchets</p>
+                    </div>
+                  <% end %>
+                  <% if @place_select.sc_waste_pumping %>
+                    <div class="col-xs-6">
+                      <p><i class="fa fa-trash" aria-hidden="true"></i>
+                      pompage des eaux usées</p>
+                    </div>
+                  <% end %>
+                  <% if @place_select.sc_waste_container %>
+                    <div class="col-xs-6">
+                      <p><i class="fa fa-trash" aria-hidden="true"></i>
+                      containeur sélectif de déchets</p>
+                    </div>
+                  <% end %>
+                  <% if @place_select.sc_security %>
+                    <div class="col-xs-6">
+                      <p><i class="fa fa-eye" aria-hidden="true"></i>
+                      service de sécurité</p>
+                    </div>
+                  <% end %>
                 </div>
               </div>
             </div>
-            <div class="card-block">
-              <div class="row spacing">
-                <div class="col-xs-12">
-                <h4>Ravitaillement disponible:</h4>
+          </div>
+          <div class="col-xs-12 col-md-4 col-md-offset-1">
+            <div class="card-port-show-book fixed">
+              <div class="card-block-show-booking">
+                <div class="row">
+                  <div class="card-block-resa">
+                    <h5>Votre réservation</h5>
+                  </div>
+                  <div class="col-xs-6 col-xs-offset-6  ">
+                    <div class="price_show">
+                      <h4><i class="fa fa-tag"></i>
+                      <%= @invoiced %>€</h4>
+                    </div>
+                  </div>
                 </div>
-                <% if @place_select.ss_elec %>
-                  <div class="main-box col-xs-2">
-                    <div class="box">
-                      <i class="fa fa-bolt" aria-hidden="true"></i>
-                    </div>
-                    <p class= "text-center">éléctricité</p>
-                  </div>
-                <% end %>
-                <% if @place_select.ss_fuel %>
-                  <div class="main-box col-xs-2">
-                    <div class="box">
-                      <i class="fa fa-fire" aria-hidden="true"></i>
-                    </div>
-                    <p class= "text-center">fuel</p>
-                  </div>
-                <% end %>
-                <% if @place_select.ss_fresh_water %>
-                  <div class="main-box col-xs-2">
-                    <div class="box">
-                      <i class="fa fa-tint" aria-hidden="true"></i>
-                    </div>
-                    <p class= "text-center">eau</p>
-                  </div>
-                <% end %>
-                <% if @place_select.ss_ice %>
-                  <div class="main-box col-xs-2">
-                    <div class="box">
-                      <i class="fa fa-thermometer-empty" aria-hidden="true"></i>
-                    </div>
-                    <p class= "text-center">glace</p>
-                  </div>
-                <% end %>
               </div>
               <br>
-              <div class="row spacing">
+              <div class="row">
+                <div class="col-xs-6">
+                  <h6>date d'arrivée</h6>
+                  <p><%= @arrival_date %></p>
+                </div>
+                <div class="col-xs-6">
+                  <h6>date de départ</h6>
+                  <p><%= @departure_date %></p>
+                </div>
+              </div>
+              <br>
+              <div class="row">
                 <div class="col-xs-12">
-                  <h4>Commodités disponibles:</h4>
+                  <h6>Dimensions du bateau </h6>
                 </div>
-                <% if @place_select.ss_tel %>
-                  <div class="col-xs-6">
-                    <p><i class="fa fa-volume-control-phone" aria-hidden="true"></i>
-                    téléphonie</p>
-                  </div>
-                <% end %>
-                <% if @place_select.ss_wifi %>
-                  <div class="col-xs-6">
-                    <p><i class="fa fa-wifi" aria-hidden="true"></i>
-                    wifi</p>
-                  </div>
-                <% end %>
-                <% if @place_select.ss_shower %>
-                  <div class="col-xs-6">
-                    <p><i class="fa fa-shower" aria-hidden="true"></i>
-                    douche</p>
-                  </div>
-                <% end %>
-                <% if @place_select.sc_waste_sorting %>
-                  <div class="col-xs-6">
-                    <p><i class="fa fa-trash" aria-hidden="true"></i>
-                    tri des déchets</p>
-                  </div>
-                <% end %>
-                <% if @place_select.sc_waste_pumping %>
-                  <div class="col-xs-6">
-                    <p><i class="fa fa-trash" aria-hidden="true"></i>
-                    pompage des eaux usées</p>
-                  </div>
-                <% end %>
-                <% if @place_select.sc_waste_container %>
-                  <div class="col-xs-6">
-                    <p><i class="fa fa-trash" aria-hidden="true"></i>
-                    containeur sélectif de déchets</p>
-                  </div>
-                <% end %>
-                <% if @place_select.sc_security %>
-                  <div class="col-xs-6">
-                    <p><i class="fa fa-eye" aria-hidden="true"></i>
-                    service de sécurité</p>
-                  </div>
-                <% end %>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="col-xs-12 col-md-4 col-md-offset-1">
-          <div class="card-port-show-book fixed">
-            <div class="card-block-show-booking">
-              <div class="row">
-                <div class="card-block-resa">
-                  <h5>Votre réservation</h5>
-                </div>
-                <div class="col-xs-6 col-xs-offset-6  ">
-                  <div class="price_show">
-                    <h3><i class="fa fa-tag"></i>
-                    <%= @invoiced %>€</h3>
-                  </div>
+                <div class="col-xs-12">
+                  <ul>
+                    <li>longueur :
+                    <%= params[:length] %> m
+                    </li>
+                    <li>
+                      largeur :
+                    <%= params[:width] %> m
+                    </li>
+                    <li>
+                    tirant d'eau :
+                    <%= params[:draught] %> m
+                    </li>
+                  </ul>
                 </div>
               </div>
-            </div>
-            <br>
-            <div class="row">
-              <div class="col-xs-6">
-                <h6>date d'arrivée</h6>
-                <p><%= @arrival_date %></p>
-              </div>
-              <div class="col-xs-6">
-                <h6>date de départ</h6>
-                <p><%= @departure_date %></p>
-              </div>
-            </div>
-            <br>
-            <div class="row">
-              <div class="col-xs-12">
-                <h6>Dimensions du bateau </h6>
-              </div>
-              <div class="col-xs-12">
-                <ul>
-                  <li>longueur :
-                  <%= params[:length] %> m
-                  </li>
-                  <li>
-                    largeur :
-                  <%= params[:width] %> m
-                  </li>
-                  <li>
-                  tirant d'eau :
-                  <%= params[:draught] %> m
-                  </li>
-                </ul>
-              </div>
-            </div>
-              <%= simple_form_for([@port,@booking]) do |f| %>
-              <%= f.error_notification %>
-              <p><%= f.input :arrival_date, input_html: {value: @arrival_date}, as: :hidden %></p>
-              <p><%= f.input :departure_date, input_html: {value: @departure_date}, as: :hidden %></p>
-              <p><%= f.input :place_id, input_html: {value: @place_id}, as: :hidden %></p>
-                <% if user_signed_in? %>
-                  <button type="button" class="btn btn-block spacing" data-toggle="modal" data-target="#modalbooking">Réservation</button>
-                <% else %>
-
-                  <button class="btn btn-block spacing"><%= link_to t(".sign_in", default: "Réservation"), new_user_session_path %></button>
-                <% end %>
-              <% end %>
-          </div>
-        </div>
-        <div class="col-xs-12 visible-xs">
-          <div class="card-port-show-book">
-            <div class="card-block-show-booking">
-              <div class="row">
-                <div class="card-block-resa-xs">
-                  <h5>Votre réservation</h5>
-                </div>
-              </div>
-              <div class="price_show">
-                <div class="col-xs-6 col-xs-offset-6">
-                  <h4><i class="fa fa-tag"></i>
-                  <%= @invoiced %>€</h4>
-                </div>
-              </div>
-            </div>
-            <br>
-            <div class="row">
-              <div class="col-xs-6">
-                <h6>date d'arrivé</h6>
-                <p><%= @arrival_date %></p>
-              </div>
-              <div class="col-xs-6">
-                <h6>date de départ</h6>
-                <p><%= @departure_date %></p>
-              </div>
-            </div>
-            <br>
-            <div class="row">
-              <div class="col-xs-12">
-                <h6>Dimensions de votre bateau </h6>
-              </div>
-              <div class="col-xs-4">
-                <p>longueur</p>
-                <p><%= params[:length] %> mètre</p>
-              </div>
-              <div class="col-xs-4">
-                <p>largeur </p>
-                <p><%= params[:width] %> mètre</p>
-              </div>
-              <div class="col-xs-4">
-                <p>tirant d'eau </p>
-                <p><%= params[:draught] %> mètre</p>
-              </div>
-            </div>
-
-              <div>
                 <%= simple_form_for([@port,@booking]) do |f| %>
                 <%= f.error_notification %>
                 <p><%= f.input :arrival_date, input_html: {value: @arrival_date}, as: :hidden %></p>
                 <p><%= f.input :departure_date, input_html: {value: @departure_date}, as: :hidden %></p>
                 <p><%= f.input :place_id, input_html: {value: @place_id}, as: :hidden %></p>
-              </div>
-
-                <% if user_signed_in? %>
+                  <% if user_signed_in? %>
                     <button type="button" class="btn btn-block spacing" data-toggle="modal" data-target="#modalbooking">Réservation</button>
                   <% else %>
+
                     <button class="btn btn-block spacing"><%= link_to t(".sign_in", default: "Réservation"), new_user_session_path %></button>
                   <% end %>
+                <% end %>
+            </div>
+          </div>
+          <div class="col-xs-12 visible-xs">
+            <div class="card-port-show-book">
+              <div class="card-block-show-booking">
+                <div class="row">
+                  <div class="card-block-resa-xs">
+                    <h5>Votre réservation</h5>
+                  </div>
+                </div>
+                <div class="price_show">
+                  <div class="col-xs-6 col-xs-offset-6">
+                    <h4><i class="fa fa-tag"></i>
+                    <%= @invoiced %>€</h4>
+                  </div>
+                </div>
+              </div>
+              <br>
+              <div class="row">
+                <div class="col-xs-6">
+                  <h6>date d'arrivé</h6>
+                  <p><%= @arrival_date %></p>
+                </div>
+                <div class="col-xs-6">
+                  <h6>date de départ</h6>
+                  <p><%= @departure_date %></p>
+                </div>
+              </div>
+              <br>
+              <div class="row">
+                <div class="col-xs-12">
+                  <h6>Dimensions de votre bateau </h6>
+                </div>
+                <div class="col-xs-4">
+                  <p>longueur</p>
+                  <p><%= params[:length] %> mètre</p>
+                </div>
+                <div class="col-xs-4">
+                  <p>largeur </p>
+                  <p><%= params[:width] %> mètre</p>
+                </div>
+                <div class="col-xs-4">
+                  <p>tirant d'eau </p>
+                  <p><%= params[:draught] %> mètre</p>
+                </div>
+              </div>
 
+                <div>
+                  <%= simple_form_for([@port,@booking]) do |f| %>
+                  <%= f.error_notification %>
+                  <p><%= f.input :arrival_date, input_html: {value: @arrival_date}, as: :hidden %></p>
+                  <p><%= f.input :departure_date, input_html: {value: @departure_date}, as: :hidden %></p>
+                  <p><%= f.input :place_id, input_html: {value: @place_id}, as: :hidden %></p>
+                </div>
+
+                  <% if user_signed_in? %>
+                      <button type="button" class="btn btn-block spacing" data-toggle="modal" data-target="#modalbooking">Réservation</button>
+                    <% else %>
+                      <button class="btn btn-block spacing"><%= link_to t(".sign_in", default: "Réservation"), new_user_session_path %></button>
+                    <% end %>
+
+                <% end %>
+            </div>
+          </div>
+        </div>
+        <div class="modal fade" id="modalbooking" tabindex="-1" role="dialog" aria-labelledby="booking">
+          <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">X</span>
+              </button>
+              <h4 class="modal-title" id="myModalLabel">Verification de votre réservation: </h4>
+            </div>
+            <div class="modal-body">
+              <div class="row">
+                <div class="col-xs-6">
+                  <h6>date d'arrivée</h6>
+                  <p><%= @arrival_date %></p>
+                 </div>
+                <div class="col-xs-6">
+                  <h6>date de départ</h6>
+                  <p><%= @departure_date %></p>
+                </div>
+
+                <div class="col-xs-12 spacing">
+                  <h6>Dimensions de votre bateau </h6>
+                </div>
+                <div class="col-xs-4">
+                  <p>longueur</p>
+                  <p><%= params[:length] %> m</p>
+                </div>
+                <div class="col-xs-4">
+                  <p>largeur </p>
+                  <p><%= params[:width] %> m</p>
+                </div>
+                <div class="col-xs-4">
+                  <p>tirant d'eau </p>
+                  <p><%= params[:draught] %> m</p>
+                </div>
+                <div class="col-xs-12 spacing ">
+                  <h6>prix total estimé:<%= @invoiced %>€</h6>
+                </div>
+
+                <%= simple_form_for([@port,@booking]) do |f| %>
+                <%= f.error_notification %>
+                <div class="col-xs-12 spacing">
+                  <p><%= f.input :comment, label: "Un message à communiquer à la capitainerie ?" %></p>
+                </div>
+                  <p><%= f.input :arrival_date, input_html: {value: @arrival_date}, as: :hidden %></p>
+                  <p><%= f.input :departure_date, input_html: {value: @departure_date}, as: :hidden %></p>
+                  <p><%= f.input :place_id, input_html: {value: @place_id}, as: :hidden %></p>
+
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-default" data-dismiss="modal">Annuler</button>
+              <%= f.submit "Réserver", class: "btn btn-primary" %>
               <% end %>
+            </div>
           </div>
-        </div>
-      </div>
-      <div class="modal fade" id="modalbooking" tabindex="-1" role="dialog" aria-labelledby="booking">
-        <div class="modal-dialog" role="document">
-        <div class="modal-content">
-          <div class="modal-header">
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-              <span aria-hidden="true">X</span>
-            </button>
-            <h4 class="modal-title" id="myModalLabel">Verification de votre réservation: </h4>
           </div>
-          <div class="modal-body">
-            <div class="row">
-              <div class="col-xs-6">
-                <h6>date d'arrivée</h6>
-                <p><%= @arrival_date %></p>
-               </div>
-              <div class="col-xs-6">
-                <h6>date de départ</h6>
-                <p><%= @departure_date %></p>
-              </div>
-
-              <div class="col-xs-12 spacing">
-                <h6>Dimensions de votre bateau </h6>
-              </div>
-              <div class="col-xs-4">
-                <p>longueur</p>
-                <p><%= params[:length] %> m</p>
-              </div>
-              <div class="col-xs-4">
-                <p>largeur </p>
-                <p><%= params[:width] %> m</p>
-              </div>
-              <div class="col-xs-4">
-                <p>tirant d'eau </p>
-                <p><%= params[:draught] %> m</p>
-              </div>
-              <div class="col-xs-12 spacing ">
-                <h6>prix total estimé:<%= @invoiced %>€</h6>
-              </div>
-
-              <%= simple_form_for([@port,@booking]) do |f| %>
-              <%= f.error_notification %>
-              <div class="col-xs-12 spacing">
-                <p><%= f.input :comment, label: "Un message à communiquer à la capitainerie ?" %></p>
-              </div>
-                <p><%= f.input :arrival_date, input_html: {value: @arrival_date}, as: :hidden %></p>
-                <p><%= f.input :departure_date, input_html: {value: @departure_date}, as: :hidden %></p>
-                <p><%= f.input :place_id, input_html: {value: @place_id}, as: :hidden %></p>
-
-          </div>
-          <div class="modal-footer">
-            <button type="button" class="btn btn-default" data-dismiss="modal">Annuler</button>
-            <%= f.submit "Réserver", class: "btn btn-primary" %>
-            <% end %>
-          </div>
-        </div>
         </div>
       </div>
     </div>

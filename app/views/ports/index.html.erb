@@ -6,7 +6,7 @@
 
 <% else %>
 
-        <div id="custom_style" style="width: 100%; height: 450px;" >
+        <div id="custom_style" style="width: 100%; height: 325px;" >
           <% content_for(:after_js) do %>
             <%= javascript_tag do %>
             $(document).ready(function() {
@@ -49,24 +49,32 @@
         <% @ports.each do |port| %>
           <div class="card-port">
           <h4 class="card-title"><%= port.port_name%> : <%= @places[port.id] || 0 %> place(s) disponible(s) </h4>
-          <h5>Prix estimé de la place / jour : <%= port.place_minimum_price %> €</h5>
+          <div class="card-price-port">
+            <h5><i class="fa fa-tag"></i> Prix estimé de la place / jour : <%= port.place_minimum_price %> €</h5>
+          </div>
           <div class="card-block">
             <div class="row">
               <div class="col-xs-4">
                 <%= image_tag port.picture, class: "card-img-index img-responsive img-rounded" %>
               </div>
-                <div class="col-xs-8 align-blocks">
-                  <br><br><h4>Numéro de téléphone: <%= port.phone_number %>
-                  <br>Radio: <%= port.radio_channel %></h4>
-                  <br><h5 id="port-desc" class="card-text"><%= port.description%></h5>
+                <div class="col-xs-5 align-blocks">
+
+                  <br><br><h6>Numéro de téléphone: <%= port.phone_number %>
+                  <br>Radio: <%= port.radio_channel %></h6>
+                  <p id="port-desc" class="card-text"><%= port.description%></p>
+
                 </div>
             </div>
             <div class="row">
               <div class="col-xs-8">
-                <h5 class="card-subtitle mb-2 text-muted"><%= "#{port.size} places totales dans ce port"%></h5>
-                <h5>Coordonnées GPS du port:</h5>
-                <p>Longitude: <%= port.longitude %></p>
-                <p>Latitude: <%= port.latitude %></p>
+                <p class="card-subtitle mb-2 text-muted"><%= "#{port.size} places totales dans ce port"%></p>
+
+                <div class="coordinary">
+                  <h6>Coordonnées GPS du port:</h6>
+
+                  <p>Longitude: <%= port.longitude %></p>
+                  <p>Latitude: <%= port.latitude %></p>
+                </div>
               </div>
               <div class="col-xs-12 col-sm-4">
               <div class="button-align">

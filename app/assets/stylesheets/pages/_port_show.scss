@@ -25,14 +25,21 @@
 
 .card-port-show-book.fixed {
   position: fixed;
-  width: 347px,
+  width: 347px;
+  ul {
+    font-size: $base-size * 0.85;
+  }
+
+  h6 {
+    margin-bottom: 5px;
+  }
 }
 
 .card-img-show {
   width: 60%;
-  height: auto;
+  height: 200px;
   // max-height: 194px;
-  border-radius: 10px;
+  border-radius: 4px;
 }
 
 .card-block-show {
@@ -47,10 +54,11 @@
 
 .price_show {
   h4 {
-
+  margin-top: 27px;
+  margin-bottom: 0px;
   top : 4px;
   right: 6px;
-
+  text-align: right;
   }
   i {
 
@@ -121,3 +129,9 @@
   margin-bottom: 2em;
 }
 
+.port-show-card {
+  p {
+    font-size: $base-size * 0.85;
+    margin-bottom: 0px;
+  }
+}
