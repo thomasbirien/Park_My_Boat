@@ -14,6 +14,7 @@ gem 'awesome_print'
 gem 'bootstrap-datepicker-rails'
 gem 'geocoder'
 gem 'validates_overlap'
+gem 'letter_opener', group: :development
 
 gem 'sass-rails'
 gem 'jquery-rails'

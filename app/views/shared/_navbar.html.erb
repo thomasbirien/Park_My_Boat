@@ -22,7 +22,11 @@
         <%= t(".profile", default: "Réservations") %>
         <% end %>
 
-        <%= image_tag current_user.picture, class: "avatar dropdown-toggle", id: "navbar-wagon-menu", "data-toggle" => "dropdown" %>
+        <% if current_user.picture == nil %>
+          <%= image_tag "http://lorempixel.com/50/50", class: "avatar dropdown-toggle", id: "navbar-wagon-menu", "data-toggle" => "dropdown" %>
+          <% else %>
+          <%= image_tag current_user.picture, class: "avatar dropdown-toggle", id: "navbar-wagon-menu", "data-toggle" => "dropdown" %>
+        <% end %>
 
         <ul class="dropdown-menu dropdown-menu-right navbar-wagon-dropdown-menu">
           <li><%= link_to "Changer votre mot de passe", edit_user_registration_path %></li>
