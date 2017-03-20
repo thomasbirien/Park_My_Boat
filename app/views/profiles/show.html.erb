@@ -9,7 +9,7 @@
   <!-- Card booking -->
     <div class="row">
       <% @bookings.each do |booking| %>
-        <div class="col-xs-12 col-md-4">
+        <div class="col-xs-12 col-md-4" data-booking-id="<%= booking.id %>">
           <div class="card-container">
             <div class="card-image" style="background-image: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0)), url('<%= booking.place.port.picture %>');">
             </div>
@@ -43,7 +43,7 @@
               </div>
             </div>
             <div class="card-btn">
-              <%= link_to "Annuler", booking_path(booking), method: :delete, data: { confirm: "Are your sure to delete this booking ?"}, class: "btn-delete" %>
+              <%= link_to "Annuler", booking_path(booking), method: :delete, data: { confirm: "Are your sure to delete this booking ?"}, remote: true, class: "btn-delete" %>
             </div>
           </div>
         </div>
