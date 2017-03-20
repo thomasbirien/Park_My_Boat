@@ -3,6 +3,7 @@ class User < ApplicationRecord
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
+  after_create :send_welcome_email
 
   acts_as_paranoid
 
@@ -17,4 +18,9 @@ class User < ApplicationRecord
   validates :post_code, presence: true
   validates :city, presence: true
   validates :country, presence: true
+
+  private
+  def send_welcome_email
+    UserMailer.welcome(self).deliver_now
+  end
 end
