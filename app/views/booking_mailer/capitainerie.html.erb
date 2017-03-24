@@ -1,0 +1,98 @@
+
+<h1>Bonjour chère capitainerie,</h1>
+<h4>une réservation se trouve en attente, merci de bien vouloir répondre à cette réservation pour la date du <%=  @booking.arrival_date%> au <%= @booking.departure_date %> :</h4>
+
+<p><%= @booking.place.length %></p>
+<p><%= @booking.place.width %></p>
+<p><%= @booking.place.draught %></p>
+<h4>avec les services/commodités suivantes :</h4>
+<div class="container">
+  <div class="card-block">
+    <div class="row spacing">
+      <div class="col-xs-12">
+      </div>
+      <% if @booking.place.ss_elec %>
+        <div class="main-box col-xs-2">
+          <div class="box">
+            <i class="fa fa-bolt" aria-hidden="true"></i>
+          </div>
+          <p class= "text-center">électricité</p>
+        </div>
+      <% end %>
+      <% if @booking.place.ss_fuel %>
+        <div class="main-box col-xs-2">
+          <div class="box">
+            <i class="fa fa-fire" aria-hidden="true"></i>
+          </div>
+          <p class= "text-center">fuel</p>
+        </div>
+      <% end %>
+      <% if @booking.place.ss_fresh_water %>
+        <div class="main-box col-xs-2">
+          <div class="box">
+            <i class="fa fa-tint" aria-hidden="true"></i>
+          </div>
+          <p class= "text-center">eau</p>
+        </div>
+      <% end %>
+      <% if @booking.place.ss_ice %>
+        <div class="main-box col-xs-2">
+          <div class="box">
+            <i class="fa fa-thermometer-empty" aria-hidden="true"></i>
+          </div>
+          <p class= "text-center">glace</p>
+        </div>
+      <% end %>
+    </div>
+
+    <div class="row spacing">
+      <div class="col-xs-12">
+
+      </div>
+      <% if @booking.place.ss_tel %>
+        <div class="col-xs-6">
+          <p><i class="fa fa-volume-control-phone" aria-hidden="true"></i>
+          téléphonie</p>
+        </div>
+      <% end %>
+      <% if @booking.place.ss_wifi %>
+        <div class="col-xs-6">
+          <p><i class="fa fa-wifi" aria-hidden="true"></i>
+          wifi</p>
+        </div>
+      <% end %>
+      <% if @booking.place.ss_shower %>
+        <div class="col-xs-6">
+          <p><i class="fa fa-shower" aria-hidden="true"></i>
+          douche</p>
+        </div>
+      <% end %>
+      <% if @booking.place.sc_waste_sorting %>
+        <div class="col-xs-6">
+          <p><i class="fa fa-trash" aria-hidden="true"></i>
+          tri des déchets</p>
+        </div>
+      <% end %>
+      <% if @booking.place.sc_waste_pumping %>
+        <div class="col-xs-6">
+          <p><i class="fa fa-trash" aria-hidden="true"></i>
+          pompage des eaux usées</p>
+        </div>
+      <% end %>
+      <% if @booking.place.sc_waste_container %>
+        <div class="col-xs-6">
+          <p><i class="fa fa-trash" aria-hidden="true"></i>
+          containeur sélectif de déchets</p>
+        </div>
+      <% end %>
+      <% if @booking.place.sc_security %>
+        <div class="col-xs-6">
+          <p><i class="fa fa-eye" aria-hidden="true"></i>
+          service de sécurité</p>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>
+
+
