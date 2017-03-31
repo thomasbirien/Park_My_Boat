@@ -4,6 +4,7 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
   after_create :send_welcome_email
+  after_create :subscribe_to_newsletter
 
   acts_as_paranoid
 
@@ -22,5 +23,9 @@ class User < ApplicationRecord
   private
   def send_welcome_email
     UserMailer.welcome(self).deliver_now
+  end
+
+  def subscribe_to_newsletter
+    SubscribeToNewsletterService.new(self).call
   end
 end

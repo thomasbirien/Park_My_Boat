@@ -15,6 +15,7 @@ gem 'bootstrap-datepicker-rails'
 gem 'geocoder'
 gem 'validates_overlap'
 gem 'letter_opener', group: :development
+gem 'gibbon'
 
 gem 'sass-rails'
 gem 'jquery-rails'
