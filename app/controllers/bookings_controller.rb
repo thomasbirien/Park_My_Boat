@@ -11,6 +11,7 @@ class BookingsController < ApplicationController
     @port =  Place.find(@booking.place_id).port
 
     if @booking.save
+      BookingMailer.capitainerie(@booking).deliver_now
 
     else
       @place_id = @booking.place_id
