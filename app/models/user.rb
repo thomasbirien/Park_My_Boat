@@ -22,7 +22,7 @@ class User < ApplicationRecord
 
   private
   def send_welcome_email
-    UserNotifier.send_signup_email(self).deliver_now
+    UserNotifier.send_signup_email(self).deliver
   end
 
   def subscribe_to_newsletter
