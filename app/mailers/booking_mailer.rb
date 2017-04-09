@@ -3,7 +3,7 @@ class BookingMailer < ApplicationMailer
 
   def capitainerie(booking)
     @booking = booking
-    mail( to: 'parkmyboat@outlook.fr'
+    mail( to: 'parkmyboat@outlook.fr',
       subject: 'une reservation est demandé pour votre port')
   end
 end
