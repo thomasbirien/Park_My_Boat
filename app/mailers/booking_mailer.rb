@@ -1,10 +1,9 @@
 class BookingMailer < ApplicationMailer
+  default from: 'parkmyboat@outlook.fr'
+
   def capitainerie(booking)
     @booking = booking
-
-    mail(
-      to: "parkmyboat@outlook.com",
-      subject: "Demande de réservation pour le port #{@booking.place.port.port_name}"
-    )
+    mail( to: 'parkmyboat@outlook.fr'
+      subject: 'une reservation est demandé pour votre port')
   end
 end
