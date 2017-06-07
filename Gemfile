@@ -17,6 +17,9 @@ gem 'validates_overlap'
 gem 'letter_opener', group: :development
 gem 'gibbon'
 
+gem 'remotipart', github: 'mshibuya/remotipart'
+gem 'rails_admin', '>= 1.0.0.rc'
+
 gem 'sass-rails'
 gem 'jquery-rails'
 gem 'uglifier'
