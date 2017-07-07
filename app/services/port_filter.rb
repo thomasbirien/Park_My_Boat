@@ -54,11 +54,14 @@ class PortFilter
   end
 
   def filter_by_dimensions
+    length = params[:length].gsub(","){"."}
+    width = params[:width].gsub(","){"."}
+    draught = params[:draught].gsub(","){'.'}
     @ports = @ports.where(
       'places.length > ? AND places.width > ? AND places.draught > ?',
-      params[:length],
-      params[:width],
-      params[:draught]
+      length,
+      width,
+      draught
     )
   end
 
