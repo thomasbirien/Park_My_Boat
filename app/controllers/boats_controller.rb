@@ -1,3 +1,5 @@
+#not use for now
+
 class BoatsController < ApplicationController
   before_action :set_boat, only: [:edit, :update, :destroy]
 
