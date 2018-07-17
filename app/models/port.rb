@@ -18,7 +18,7 @@ class Port < ApplicationRecord
   reverse_geocoded_by :latitude, :longitude
 
   def self.has_places_between(dates)
-    # todo
+    # todo unknow for now
   end
 
   def place_minimum_price
