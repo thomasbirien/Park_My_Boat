@@ -1,6 +1,6 @@
 class BoatsController < ApplicationController
   before_action :set_boat, only: [:edit, :update, :destroy]
-
+  #ceci est un test
   def new
     @boat = Boat.new
   end
